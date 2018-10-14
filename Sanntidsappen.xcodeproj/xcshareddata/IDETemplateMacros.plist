@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>FILEHEADER</key>
+	<string>
+// This file is a part of the Sanntidsappen project
+//
+// Copyright © ___YEAR___ the Sanntidsappen authors
+// Licensed under Apache License 2.0
+//
+// See LICENSE.txt for license information
+//</string>
+</dict>
+</plist>

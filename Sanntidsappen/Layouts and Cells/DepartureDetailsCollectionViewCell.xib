@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Z4F-Iy-FNG" customClass="DepartureDetailsCollectionViewCell" customModule="Sanntidsappen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="155" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rO-Ha-xcr">
+                        <rect key="frame" x="20" y="18" width="33.5" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I7M-yT-uib">
+                        <rect key="frame" x="73.5" y="12" width="97" height="36"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gløshaugen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMq-gp-Daj">
+                                <rect key="frame" x="0.0" y="0.0" width="97" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rutetid: 20:46" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POz-T4-9wz">
+                                <rect key="frame" x="0.0" y="21.5" width="97" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ca 10 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVM-EP-v8w">
+                        <rect key="frame" x="238.5" y="21.5" width="61.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="6rO-Ha-xcr" firstAttribute="centerY" secondItem="EcO-Kb-CaJ" secondAttribute="centerY" id="2td-bk-IY9"/>
+                <constraint firstItem="UVM-EP-v8w" firstAttribute="centerY" secondItem="EcO-Kb-CaJ" secondAttribute="centerY" id="8Df-kR-bFG"/>
+                <constraint firstItem="6rO-Ha-xcr" firstAttribute="leading" secondItem="EcO-Kb-CaJ" secondAttribute="leading" constant="20" id="PTd-VJ-np8"/>
+                <constraint firstItem="I7M-yT-uib" firstAttribute="leading" secondItem="6rO-Ha-xcr" secondAttribute="trailing" constant="20" id="TrT-ck-Zgo"/>
+                <constraint firstItem="I7M-yT-uib" firstAttribute="centerY" secondItem="Z4F-Iy-FNG" secondAttribute="centerY" id="YGq-Gd-laG"/>
+                <constraint firstItem="EcO-Kb-CaJ" firstAttribute="trailing" secondItem="UVM-EP-v8w" secondAttribute="trailing" constant="20" id="fjK-Qb-jwX"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="EcO-Kb-CaJ"/>
+            <size key="customSize" width="282" height="50"/>
+            <connections>
+                <outlet property="aimedTimeLabel" destination="POz-T4-9wz" id="KIa-x1-7Ka"/>
+                <outlet property="destinationLabel" destination="VMq-gp-Daj" id="hXc-23-h2x"/>
+                <outlet property="expectedTimeLable" destination="UVM-EP-v8w" id="nWc-nX-b4x"/>
+                <outlet property="lineLabel" destination="6rO-Ha-xcr" id="P2b-fg-Y8C"/>
+            </connections>
+            <point key="canvasLocation" x="145.59999999999999" y="111.54422788605699"/>
+        </collectionViewCell>
+    </objects>
+</document>
