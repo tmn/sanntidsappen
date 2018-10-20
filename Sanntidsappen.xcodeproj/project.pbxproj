@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F9BB7217A49E7007D8533 /* StopInfo.swift */; };
 		A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B912F216829F5004A88DB /* AppDelegate.swift */; };
 		A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */; };
 		A64B913A216829F5004A88DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64B9139216829F5004A88DB /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A60F9BB7217A49E7007D8533 /* StopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfo.swift; sourceTree = "<group>"; };
 		A64B912C216829F5004A88DB /* Sanntidsappen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanntidsappen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64B912F216829F5004A88DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A64B9137216829F5004A88DB /* Sanntidsappen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sanntidsappen.xcdatamodel; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				A64D4AB7217357AD00937E8D /* Feature.swift */,
+				A60F9BB7217A49E7007D8533 /* StopInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */,
 				A64D4A9F21717C8000937E8D /* TripViewController.swift in Sources */,
 				A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */,
+				A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */,
 				A64D4A9B2171791E00937E8D /* TripCoordinator.swift in Sources */,
 				A64D4AAB21720A4800937E8D /* DepartureSearchResultViewController.swift in Sources */,
 				A64D4A9921714F1700937E8D /* EnTurAPI.swift in Sources */,

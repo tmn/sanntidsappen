@@ -16,6 +16,7 @@ class DepartureDetailsCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lineLabel: UILabel!
     @IBOutlet weak var destinationLabel: UILabel!
     @IBOutlet weak var aimedTimeLabel: UILabel!
+    @IBOutlet weak var newTimeLabel: UILabel!
     @IBOutlet weak var expectedTimeLable: UILabel!
 
     lazy var bottomLine: CALayer = {
@@ -29,6 +30,8 @@ class DepartureDetailsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
 
         lineLabel.textColor = .SAPink
+        newTimeLabel.textColor = .SAPink
+
         contentView.layer.addSublayer(bottomLine)
     }
 

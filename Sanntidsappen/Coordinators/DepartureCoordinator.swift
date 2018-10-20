@@ -38,7 +38,7 @@ class DepartureCoordinator: Coordinator {
     }
 
     func showDetailedView(stop: Stop) {
-        let viewController = DepartureDetailsViewController(title: stop.properties.name)
+        let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
 
         navigationController.pushViewController(viewController, animated: true)
     }
