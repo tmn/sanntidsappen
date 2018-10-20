@@ -240,7 +240,7 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
                 }
                 } }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: workingItem!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.300, execute: workingItem!)
         }
     }
 
