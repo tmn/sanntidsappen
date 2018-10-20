@@ -29,7 +29,7 @@ class EnTurAPI {
         "ET-Client-Name": "tmnio-sanntidsappen"
     ]
 
-    fileprivate var request: URLRequest
+    fileprivate let baseURL: URL
 
     // Singletons for accessing different APIs
     static let geocoder = EnTurAPIGeocoder()
@@ -37,11 +37,7 @@ class EnTurAPI {
     static let journeyPlanner = EnTurAPIJourneyPlanner()
 
     fileprivate init(baseURL: URL) {
-        self.request = URLRequest(url: baseURL)
-
-        for (headerField, value) in header {
-            request.setValue(value, forHTTPHeaderField: headerField)
-        }
+        self.baseURL = baseURL
     }
 
 }
@@ -49,6 +45,8 @@ class EnTurAPI {
 extension EnTurAPI {
 
     func get<T: Decodable>(path: String?, type: T.Type, completionHandler: @escaping (Result<T>) -> Void) {
+        var request = URLRequest(url: self.baseURL)
+
         if let path = path {
             request.url = URL(string: path, relativeTo: request.url)!
         }
@@ -70,6 +68,8 @@ extension EnTurAPI {
     }
 
     func post<T: Decodable>(path: String?, body: Dictionary<String, String>, type: T.Type, completionHandler: @escaping (Result<T>) -> Void) {
+        var request = URLRequest(url: self.baseURL)
+
         if let path = path {
             request.url = URL(string: path, relativeTo: request.url)!
         }
@@ -144,7 +144,7 @@ extension EnTurAPIJourneyPlanner {
 
         let nowISO8601 = dateFormatter.string(from: Date())
 
-        let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(nowISO8601)\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime forBoarding destinationDisplay { frontText } quay { id name } serviceJourney { journeyPattern { line { publicCode transportMode } } } } } }"
+        let query = "query { stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(nowISO8601)\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime forBoarding destinationDisplay { frontText } quay { id name } serviceJourney { journeyPattern { line { publicCode transportMode } } } } } }"
 
         let body = ["query": query]
 
