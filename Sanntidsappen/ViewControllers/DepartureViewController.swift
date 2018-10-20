@@ -72,7 +72,6 @@ class DepartureViewController: UIViewController {
 
         searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.delegate = self
         searchController.searchBar.placeholder = NSLocalizedString("Bus Stops", comment: "Search bus stops")
 
         // TODO: support older OS?
@@ -80,6 +79,10 @@ class DepartureViewController: UIViewController {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
         }
+
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+
 
         definesPresentationContext = true
 
@@ -118,7 +121,7 @@ extension DepartureViewController {
         let latitude = lastLocation.coordinate.latitude
         let longitude = lastLocation.coordinate.longitude
 
-        EnTurAPI.getNearbyStops(latitude: latitude, longitude: longitude, type: Feature.self) { res in
+        EnTurAPI.geocoder.getNearbyStops(latitude: latitude, longitude: longitude) { res in
             DispatchQueue.main.async {
                 switch res {
                 case .success(let value):
@@ -223,7 +226,7 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
                 workingItem = nil
             }
 
-            workingItem = DispatchWorkItem { EnTurAPI.getAutocompleteBusStop(searchQuery: searchText, type: Feature.self) { res in
+            workingItem = DispatchWorkItem { EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchText) { res in
 
                 DispatchQueue.main.async {
                     switch res {
