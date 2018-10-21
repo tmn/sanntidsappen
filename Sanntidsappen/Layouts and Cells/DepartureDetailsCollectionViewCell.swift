@@ -29,6 +29,8 @@ class DepartureDetailsCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        contentView.backgroundColor = .white
+
         lineLabel.textColor = .SAPink
         newTimeLabel.textColor = .SAPink
 

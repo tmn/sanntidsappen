@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="yFm-Yu-X46" customClass="DepartureDetailsCollectionViewHeaderCell" customModule="Sanntidsappen" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plattform 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHX-dZ-PSB">
+                        <rect key="frame" x="20" y="36" width="103" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="1Yi-S3-oli"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nordøst" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sci-w1-Ett">
+                        <rect key="frame" x="20" y="17" width="52" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JXy-Lf-GXs">
+                        <rect key="frame" x="235" y="36" width="65" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="Vbx-E3-8bD"/>
+                            <constraint firstAttribute="width" constant="65" id="hFI-79-Yd6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="See all"/>
+                        <connections>
+                            <action selector="seeAllClick:" destination="yFm-Yu-X46" eventType="touchUpInside" id="Uxt-Mw-6xl"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sci-w1-Ett" firstAttribute="leading" secondItem="KoD-ZV-50X" secondAttribute="leading" constant="20" id="9zg-xl-IT2"/>
+                <constraint firstItem="KoD-ZV-50X" firstAttribute="bottom" secondItem="MHX-dZ-PSB" secondAttribute="bottom" id="AC6-fs-eQW"/>
+                <constraint firstItem="MHX-dZ-PSB" firstAttribute="leading" secondItem="KoD-ZV-50X" secondAttribute="leading" constant="20" id="cgU-zx-sOb"/>
+                <constraint firstItem="MHX-dZ-PSB" firstAttribute="top" secondItem="sci-w1-Ett" secondAttribute="bottom" constant="2" id="evt-rU-XrJ"/>
+                <constraint firstItem="KoD-ZV-50X" firstAttribute="trailing" secondItem="JXy-Lf-GXs" secondAttribute="trailing" constant="20" id="i5H-kn-emG"/>
+                <constraint firstItem="KoD-ZV-50X" firstAttribute="bottom" secondItem="JXy-Lf-GXs" secondAttribute="bottom" id="oMf-NQ-0hd"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="KoD-ZV-50X"/>
+            <size key="customSize" width="320" height="85"/>
+            <connections>
+                <outlet property="directionLabel" destination="sci-w1-Ett" id="cq4-g2-mNF"/>
+                <outlet property="expandButton" destination="JXy-Lf-GXs" id="Zy3-Bi-v0e"/>
+                <outlet property="sectionHeaderLabel" destination="MHX-dZ-PSB" id="ELV-u5-jNO"/>
+            </connections>
+            <point key="canvasLocation" x="-123.2" y="0.0"/>
+        </collectionViewCell>
+    </objects>
+</document>

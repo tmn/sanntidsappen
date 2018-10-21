@@ -19,16 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="155" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rO-Ha-xcr">
-                        <rect key="frame" x="20" y="18" width="34" height="24"/>
+                        <rect key="frame" x="20" y="18" width="38" height="24"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="34" id="nUb-hI-XwQ"/>
+                            <constraint firstAttribute="width" constant="38" id="nUb-hI-XwQ"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="I7M-yT-uib">
-                        <rect key="frame" x="74" y="12" width="164" height="36"/>
+                        <rect key="frame" x="78" y="12" width="164" height="36"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gløshaugen" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMq-gp-Daj">
                                 <rect key="frame" x="0.0" y="0.0" width="164" height="21.5"/>

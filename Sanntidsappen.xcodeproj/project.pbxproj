@@ -30,6 +30,11 @@
 		A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */; };
 		A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */; };
 		A64D4AB8217357AD00937E8D /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB7217357AD00937E8D /* Feature.swift */; };
+		A66F8B3A217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */; };
+		A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */; };
+		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
+		A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3F217C170C000B7697 /* StopRegisterData.swift */; };
+		A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */; };
 		A699D1922173684E0008F951 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A699D18F2173684D0008F951 /* LICENSE.txt */; };
 		A699D1932173684E0008F951 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1902173684D0008F951 /* README.md */; };
 		A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1912173684D0008F951 /* CONTRIBUTING.md */; };
@@ -84,6 +89,11 @@
 		A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureViewControllerHeaderCell.swift; sourceTree = "<group>"; };
 		A64D4AB7217357AD00937E8D /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
+		A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewHeaderCell.xib; sourceTree = "<group>"; };
+		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
+		A66F8B3F217C170C000B7697 /* StopRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegisterData.swift; sourceTree = "<group>"; };
+		A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStopSearchData.swift; sourceTree = "<group>"; };
 		A699D18F2173684D0008F951 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		A699D1902173684D0008F951 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A699D1912173684D0008F951 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
@@ -186,8 +196,10 @@
 		A64D4A9421714E8500937E8D /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				A66F8B42217C9DAD000B7697 /* Data */,
 				A64D4A9321714E2B00937E8D /* Network */,
 				A64D4AA82171BFD300937E8D /* UIColor+hex.swift */,
+				A66F8B3D217C05B1000B7697 /* CompassDirection.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -197,24 +209,33 @@
 			children = (
 				A64D4AB7217357AD00937E8D /* Feature.swift */,
 				A60F9BB7217A49E7007D8533 /* StopInfo.swift */,
+				A66F8B3F217C170C000B7697 /* StopRegisterData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A64D4AAE21721E4F00937E8D /* Departure */ = {
+		A66F8B41217C9A86000B7697 /* Departure */ = {
 			isa = PBXGroup;
 			children = (
+				A64D4AA021717C8600937E8D /* DepartureViewController.swift */,
+				A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */,
+				A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */,
 			);
 			path = Departure;
+			sourceTree = "<group>";
+		};
+		A66F8B42217C9DAD000B7697 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		A6BE90F8216EACDA0025C33B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				A64D4AAE21721E4F00937E8D /* Departure */,
-				A64D4AA021717C8600937E8D /* DepartureViewController.swift */,
-				A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */,
-				A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */,
+				A66F8B41217C9A86000B7697 /* Departure */,
 				A64D4AA42171946100937E8D /* HomeViewController.swift */,
 				A64D4A9E21717C8000937E8D /* TripViewController.swift */,
 			);
@@ -256,6 +277,8 @@
 				A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */,
 				A64D4AAC21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift */,
 				A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */,
+				A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */,
+				A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */,
 			);
 			path = "Layouts and Cells";
 			sourceTree = "<group>";
@@ -368,6 +391,7 @@
 				A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */,
 				A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */,
 				A699D1932173684E0008F951 /* README.md in Resources */,
+				A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */,
 				A64B913D216829F5004A88DB /* LaunchScreen.storyboard in Resources */,
 				A64B913A216829F5004A88DB /* Assets.xcassets in Resources */,
 			);
@@ -399,13 +423,16 @@
 				A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */,
 				A64D4A9F21717C8000937E8D /* TripViewController.swift in Sources */,
 				A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */,
+				A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */,
 				A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */,
 				A64D4A9B2171791E00937E8D /* TripCoordinator.swift in Sources */,
 				A64D4AAB21720A4800937E8D /* DepartureSearchResultViewController.swift in Sources */,
 				A64D4A9921714F1700937E8D /* EnTurAPI.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
 				A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */,
+				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64D4AA121717C8600937E8D /* DepartureViewController.swift in Sources */,
+				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,
 				A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */,
 				A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */,
@@ -413,6 +440,7 @@
 				A64D4AA32171945200937E8D /* HomeCoordinator.swift in Sources */,
 				A64D4AA52171946100937E8D /* HomeViewController.swift in Sources */,
 				A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */,
+				A66F8B3A217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */,
 				A64D4AB8217357AD00937E8D /* Feature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +607,9 @@
 		A64B9158216829F6004A88DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_ENTUR_GEOCODER = "https://api.entur.org/api/geocoder/1.1/";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.org/journeyplanner/2.0/index/graphql";
+				API_ENTUR_STOPREGISTER = "https://api.entur.org/stop_places/1.0/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;
@@ -597,6 +628,9 @@
 		A64B9159216829F6004A88DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				API_ENTUR_GEOCODER = "https://api.entur.org/api/geocoder/1.1/";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.org/journeyplanner/2.0/index/graphql";
+				API_ENTUR_STOPREGISTER = "https://api.entur.org/stop_places/1.0/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;

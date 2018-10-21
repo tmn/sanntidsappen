@@ -23,6 +23,10 @@ extension UIColor {
         return UIColor(hex: 0xFF2E55)
     }
 
+    static var SALightGray: UIColor {
+        return UIColor(hex: 0xf4f4f4)
+    }
+
 }
 
 private extension UIColor {

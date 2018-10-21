@@ -134,7 +134,7 @@ class EnTurAPIGeocoder: EnTurAPI {
     }
 
     func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Feature>) -> Void) {
-        let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=8&layers=venue"
+        let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=5&layers=venue"
 
         get(path: path, completionHandler: completionHandler)
     }

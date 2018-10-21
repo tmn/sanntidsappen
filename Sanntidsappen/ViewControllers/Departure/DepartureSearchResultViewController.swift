@@ -90,6 +90,8 @@ extension DepartureSearchResultViewController: UICollectionViewDataSource {
 
         if indexPath.item == 0 {
             cell.bottomLine.isHidden = true
+        } else {
+            cell.bottomLine.isHidden = false
         }
 
         return cell

@@ -46,6 +46,8 @@ class DepartureSearchResultCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        contentView.backgroundColor = .white
+
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(locationLabel)
 

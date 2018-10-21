@@ -9,13 +9,14 @@
 
 import UIKit
 import CoreLocation
+import CoreData
 
 protocol DepartureViewControllerDelegate: class {
     func departureViewController(_ viewController: DepartureViewController, continueWith stop: Stop)
 }
 
 enum SearchContainerSection: String, CaseIterable {
-    case recent = "Recent"
+    case recent = "Recent search"
     case nearby = "Nearby stops"
 }
 
@@ -33,10 +34,8 @@ class DepartureViewController: UIViewController {
 
     var locationManager: CLLocationManager!
 
-    var sections: [SearchContainerSection: [Stop]] = [
-        .recent: [],
-        .nearby: []
-    ]
+    var recentStopSearch: [String] = []
+    var nearbyStops: [Stop] = []
 
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -83,10 +82,14 @@ class DepartureViewController: UIViewController {
         searchController.delegate = self
         searchController.searchBar.delegate = self
 
-
         definesPresentationContext = true
 
         enableBasicLocationServices()
+
+        RecentStopSearchData.shared.getRecentSearchFromCoreData() { stops in
+            self.recentStopSearch = stops
+            self.collectionView.reloadData()
+        }
     }
 
 }
@@ -125,7 +128,8 @@ extension DepartureViewController {
             DispatchQueue.main.async {
                 switch res {
                 case .success(let value):
-                    self.sections[.nearby] = value.features
+                    self.nearbyStops = value.features
+
                     self.collectionView.reloadData()
 
                 case .failure:
@@ -147,24 +151,30 @@ extension DepartureViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return sections[SearchContainerSection.allCases[section]]?.count ?? 0
+        if section == 0 {
+            return self.recentStopSearch.count
+        } else {
+            return self.nearbyStops.count
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DepartureSearchResultCollectionViewCell.identifier, for: indexPath) as! DepartureSearchResultCollectionViewCell
 
-        cell.nameLabel.text = sections[SearchContainerSection.allCases[indexPath.section]]![indexPath.item].properties.name
-
         if indexPath.section == 0 {
-            cell.locationLabel.isHidden = true
+            cell.nameLabel.text = self.recentStopSearch[indexPath.item]
             cell.nameLabel.font = UIFont.systemFont(ofSize: 24)
-        } else {
-            cell.locationLabel.isHidden = false
-            cell.nameLabel.font = UIFont.systemFont(ofSize: 20)
-            cell.locationLabel.text = sections[SearchContainerSection.allCases[indexPath.section]]![indexPath.item].properties.locality + ", " +  sections[SearchContainerSection.allCases[indexPath.section]]![indexPath.item].properties.county
-        }
 
-        cell.stop = sections[SearchContainerSection.allCases[indexPath.section]]![indexPath.item]
+            cell.locationLabel.isHidden = true
+        } else {
+            cell.nameLabel.text = self.nearbyStops[indexPath.item].properties.name
+            cell.nameLabel.font = UIFont.systemFont(ofSize: 20)
+
+            cell.locationLabel.isHidden = false
+            cell.locationLabel.text = self.nearbyStops[indexPath.item].properties.locality + ", " + self.nearbyStops[indexPath.item].properties.county
+
+            cell.stop = self.nearbyStops[indexPath.item]
+        }
 
         return cell
     }
@@ -200,15 +210,11 @@ extension DepartureViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            if let stop = sections[.recent]?[indexPath.item] {
-                self.searchController.isActive = true
-                self.searchController.searchBar.text = stop.properties.name
-                self.searchBar(self.searchController.searchBar, textDidChange: stop.properties.name)
-            }
+            self.searchController.isActive = true
+            self.searchController.searchBar.text = self.recentStopSearch[indexPath.item]
+            self.searchBar(self.searchController.searchBar, textDidChange: self.recentStopSearch[indexPath.item])
         } else {
-            if let stop = sections[.nearby]?[indexPath.item] {
-                self.delegate?.departureViewController(self, continueWith: stop)
-            }
+            self.delegate?.departureViewController(self, continueWith: self.nearbyStops[indexPath.item])
         }
     }
 
@@ -240,7 +246,7 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
                 }
                 } }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.300, execute: workingItem!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.200, execute: workingItem!)
         }
     }
 
@@ -291,9 +297,10 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) {
         let stop = searchResultController.stops[indexPath.item]
 
-        // TODO: populate database instead of this
-        self.sections[.recent]?.append(stop)
-        self.collectionView.reloadData()
+        RecentStopSearchData.shared.saveSearchToCoreData(stop: stop) { stops in
+            self.recentStopSearch = stops
+            self.collectionView.reloadData()
+        }
 
         delegate?.departureViewController(self, continueWith: stop)
     }
