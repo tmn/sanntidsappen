@@ -10,90 +10,115 @@
 import Foundation
 
 enum Result<Value> {
-
     case success(Value)
     case failure(Error)
+}
 
+enum EnTurAPIType {
+    case geocoder
+    case journeyPlanner
+    case stopRegister
 }
 
 class EnTurAPI {
 
-    // Static paths to En Tur APIs
-    // TODO: move URLs into Build settings
-    fileprivate static let geocoderURL = URL(string: "https://api.entur.org/api/geocoder/1.1/")!
-
-    fileprivate static let journeyPlannerURL = URL(string: "https://api.entur.org/journeyplanner/2.0/index/graphql")!
-
     // Required header by En Tur
-    fileprivate let header: [String: String] = [
-        "ET-Client-Name": "tmnio-sanntidsappen"
+    private let headers: [String: String] = [
+        "ET-Client-Name": "tmnio-sanntidsappen",
+        "Content-Type": "application/json"
     ]
 
-    fileprivate let baseURL: URL
+    private let baseURL: URL
+
+    private var request: URLRequest!
 
     // Singletons for accessing different APIs
-    static let geocoder = EnTurAPIGeocoder()
+    static let geocoder = EnTurAPIGeocoder(apiType: .geocoder)
 
-    static let journeyPlanner = EnTurAPIJourneyPlanner()
+    static let journeyPlanner = EnTurAPIJourneyPlanner(apiType: .journeyPlanner)
 
-    fileprivate init(baseURL: URL) {
-        self.baseURL = baseURL
+    static let stopRegister = StopRegister(apiType: .stopRegister)
+
+    fileprivate init(apiType: EnTurAPIType) {
+        guard let sanntidsappenAPIs = Bundle.main.infoDictionary?["Sanntidsappen API"] as? [String: Any] else {
+            preconditionFailure("Missing Sanntidsappen API in Info.plist")
+        }
+
+        guard let geocoderURLString = sanntidsappenAPIs["Geocoder"] as? String,
+        let journeyPlannerURLString = sanntidsappenAPIs["Journey Planner"] as? String,
+        let stopRegisterURLString = sanntidsappenAPIs["Stop Register"] as? String else {
+            preconditionFailure("Missing API URLs")
+        }
+
+        switch (apiType) {
+        case .geocoder: self.baseURL = URL(string: geocoderURLString)!
+        case .journeyPlanner: self.baseURL = URL(string: journeyPlannerURLString)!
+        case .stopRegister: self.baseURL = URL(string: stopRegisterURLString)!
+        }
+    }
+
+    private func createRequestObject(path: String?) -> URLRequest {
+        var _request: URLRequest
+
+        if let path = path {
+            let escapedSearchQuery = path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
+
+            // let encodedPath = path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
+            _request = URLRequest(url: URL(string: escapedSearchQuery, relativeTo: self.baseURL)!)
+        } else {
+            _request = URLRequest(url: self.baseURL)
+        }
+
+        for (headerField, value) in headers {
+            _request.addValue(value, forHTTPHeaderField: headerField)
+        }
+
+        return _request
     }
 
 }
 
 extension EnTurAPI {
 
-    func get<T: Decodable>(path: String?, type: T.Type, completionHandler: @escaping (Result<T>) -> Void) {
-        var request = URLRequest(url: self.baseURL)
+    fileprivate func get<T: Decodable>(path: String?, completionHandler: @escaping (Result<T>) -> Void) {
+        request = createRequestObject(path: path)
 
-        if let path = path {
-            request.url = URL(string: path, relativeTo: request.url)!
-        }
-
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                completionHandler(Result.failure(error!))
-            }
-
-            guard let data = data else { return }
-
-            do {
-                let decodedData = try JSONDecoder().decode(type, from: data)
-                completionHandler(Result.success(decodedData))
-            } catch let jsonError {
-                completionHandler(Result.failure(jsonError))
-            }
-            }.resume()
+        doRequest(request: request, completionHandler: completionHandler)
     }
 
-    func post<T: Decodable>(path: String?, body: Dictionary<String, String>, type: T.Type, completionHandler: @escaping (Result<T>) -> Void) {
-        var request = URLRequest(url: self.baseURL)
-
-        if let path = path {
-            request.url = URL(string: path, relativeTo: request.url)!
-        }
+    fileprivate func post<T: Decodable>(body: Dictionary<String, String>, completionHandler: @escaping (Result<T>) -> Void) {
+        request = createRequestObject(path: nil)
 
         request.httpMethod = "POST"
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-
         request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: [])
         request.cachePolicy = .reloadIgnoringLocalCacheData
 
-        URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if error != nil {
-                completionHandler(Result.failure(error!))
+        doRequest(request: request, completionHandler: completionHandler)
+    }
+
+    fileprivate func doRequest<T: Decodable>(request: URLRequest, completionHandler: @escaping (Result<T>) -> Void) {
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                completionHandler(Result.failure(error))
+                return
             }
 
-            guard let data = data else { return }
+            guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode),
+                let data = data else {
+                    completionHandler(Result.failure(NSError(domain: "Network Service", code: 1, userInfo: nil)))
+                    return
+            }
 
             do {
-                let decodedData = try JSONDecoder().decode(type, from: data)
+                let decodedData = try JSONDecoder().decode(T.self, from: data)
                 completionHandler(Result.success(decodedData))
             } catch let jsonError {
                 completionHandler(Result.failure(jsonError))
             }
-            }.resume()
+        }
+
+        task.resume()
     }
 }
 
@@ -102,26 +127,16 @@ extension EnTurAPI {
 
 class EnTurAPIGeocoder: EnTurAPI {
 
-    fileprivate init() {
-        super.init(baseURL: EnTurAPI.geocoderURL)
-    }
-
-}
-
-extension EnTurAPIGeocoder {
-
     func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Feature>) -> Void) {
-        let escapedSearchQuery = searchQuery.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)
+        let path = String(format: "autocomplete?text=\(searchQuery)&layers=venue")
 
-        let path = String(format: "autocomplete?text=\(escapedSearchQuery ?? "")&layers=venue")
-
-        get(path: path, type: Feature.self, completionHandler: completionHandler)
+        get(path: path, completionHandler: completionHandler)
     }
 
     func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Feature>) -> Void) {
-        let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=5&layers=venue"
+        let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=8&layers=venue"
 
-        get(path: path, type: Feature.self, completionHandler: completionHandler)
+        get(path: path, completionHandler: completionHandler)
     }
 
 }
@@ -131,24 +146,28 @@ extension EnTurAPIGeocoder {
 
 class EnTurAPIJourneyPlanner: EnTurAPI {
 
-    fileprivate init() {
-        super.init(baseURL: EnTurAPI.journeyPlannerURL)
+    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo>) -> Void) {
+        let dateFormatter = ISO8601DateFormatter()
+
+        let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime forBoarding destinationDisplay { frontText } quay { id name } serviceJourney { journeyPattern { line { publicCode transportMode } } } } } }"
+
+        let body = ["query": query]
+
+        post(body: body, completionHandler: completionHandler)
     }
 
 }
 
-extension EnTurAPIJourneyPlanner {
 
-    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo>) -> Void) {
-        let dateFormatter = ISO8601DateFormatter()
+// MARK: - StopRegister
 
-        let nowISO8601 = dateFormatter.string(from: Date())
+class StopRegister: EnTurAPI {
 
-        let query = "query { stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(nowISO8601)\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime forBoarding destinationDisplay { frontText } quay { id name } serviceJourney { journeyPattern { line { publicCode transportMode } } } } } }"
-
+    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegisterData>) -> Void) {
+        let query = "{ stopPlace(id: \"\(stop.properties.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
         let body = ["query": query]
 
-        post(path: nil, body: body, type: StopInfo.self, completionHandler: completionHandler)
+        post(body: body, completionHandler: completionHandler)
     }
 
 }
