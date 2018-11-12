@@ -9,14 +9,19 @@
 
 import UIKit
 
+protocol DepartureDetailsViewControllerDelegate: class {
+    func selectJourney(_ viewController: DepartureDetailsViewController, with id: String, and date: String, using title: String)
+}
+
 class DepartureDetailsViewController: UIViewController {
+
+    weak var delegate: DepartureDetailsViewControllerDelegate?
 
     var collectionView: UICollectionView!
     var flowLayout: UICollectionViewFlowLayout!
     var refresher: UIRefreshControl!
-    var segmentedControl: UISegmentedControl!
 
-    var segmentedDepartures: [String: [EstimatedCalls]] = [:]
+    var segmentedDepartures: [String: [EstimatedCall]] = [:]
     var sortedSections: [String] = []
     var expandedSection: Int = -1
 
@@ -75,7 +80,7 @@ extension DepartureDetailsViewController {
             DispatchQueue.main.async {
                 switch res {
                 case .success(let value):
-                    self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCalls).quay.id })
+                    self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay.id })
                     self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.split(separator: ":").last! < $1.split(separator: ":").last! })
 
                     self.collectionView.reloadData()
@@ -151,7 +156,7 @@ extension DepartureDetailsViewController {
         let aimedTimeDate = dateFormatter.date(from: aimedTime)!
         let expectedTimeDate = dateFormatter.date(from: expectedTime)!
 
-        if expectedTimeDate.timeIntervalSince(aimedTimeDate) > 0 {
+        if expectedTimeDate.timeIntervalSince(aimedTimeDate) > 60 {
             return "  (\(formatTimestamp(from: expectedTimeDate)))"
         }
 
@@ -206,8 +211,20 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
 
         headerView.delegate = self
 
-        headerView.sectionHeaderLabel.text = "Plattform \(indexPath.section + 1)" //sortedSections[indexPath.section]
+        headerView.sectionHeaderLabel.text = String.localizedStringWithFormat(NSLocalizedString("Platform %d", comment: "Departure platform at stop place"), indexPath.section + 1)
         headerView.sectionNumber = indexPath.section
+
+        UIView.performWithoutAnimation {
+            if expandedSection == indexPath.section {
+                headerView.expandButton.setTitle(NSLocalizedString("See less", comment: "Collapse departure list"), for: .normal)
+            } else {
+                headerView.expandButton.setTitle(NSLocalizedString("See all", comment: "Expand departure list"), for: .normal)
+            }
+
+            headerView.expandButton.sizeToFit()
+            headerView.expandButton.layoutIfNeeded()
+            headerView.expandButton.setNeedsLayout()
+        }
 
         if let quays = self.quays,
             let quay = quays[sortedSections[indexPath.section]]?[0] {
@@ -215,6 +232,14 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
         }
 
         return headerView
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let departure = segmentedDepartures[sortedSections[indexPath.section]]?[indexPath.item] else {
+            return
+        }
+
+        delegate?.selectJourney(self, with: departure.serviceJourney.id, and: departure.date, using: departure.destinationDisplay.frontText)
     }
 
 }

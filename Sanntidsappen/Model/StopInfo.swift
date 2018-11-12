@@ -20,13 +20,14 @@ struct StopData: Codable {
 struct StopPlace: Codable {
     let id: String
     let name: String
-    let estimatedCalls: [EstimatedCalls]
+    let estimatedCalls: [EstimatedCall]
 }
 
-struct EstimatedCalls: Codable {
+struct EstimatedCall: Codable {
     let realtime: Bool
     let aimedArrivalTime: String
     let expectedArrivalTime: String
+    let date: String
     let forBoarding: Bool
     let destinationDisplay: DestinationDisplay
     let quay: Quay
@@ -43,6 +44,7 @@ struct Quay: Codable {
 }
 
 struct ServiceJourney: Codable {
+    let id: String
     let journeyPattern: JourneyPattern
 }
 

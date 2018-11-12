@@ -44,7 +44,6 @@ class DepartureDetailsCollectionViewHeaderCell: UICollectionViewCell {
     }
 
     @IBAction func seeAllClick(_ sender: Any) {
-
         delegate?.expandSectionListWith(number: self.sectionNumber)
     }
 
