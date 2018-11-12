@@ -33,12 +33,17 @@ class DepartureCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func start() {
-
-    }
+    func start() {  }
 
     func showDetailedView(stop: Stop) {
         let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
+        viewController.delegate = self
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showDepartureRoute(serviceJourneyId: String, date: String, title: String) {
+        let viewController = DepartureDetailsJourneyViewController(title: title, journeyId: serviceJourneyId, journeyDate: date)
 
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -49,6 +54,14 @@ extension DepartureCoordinator: DepartureViewControllerDelegate {
 
     func departureViewController(_ viewController: DepartureViewController, continueWith stop: Stop) {
         self.showDetailedView(stop: stop)
+    }
+
+}
+
+extension DepartureCoordinator: DepartureDetailsViewControllerDelegate {
+
+    func selectJourney(_ viewController: DepartureDetailsViewController, with id: String, and date: String, using title: String) {
+        // self.showDepartureRoute(serviceJourneyId: id, date: date, title: title)
     }
 
 }
