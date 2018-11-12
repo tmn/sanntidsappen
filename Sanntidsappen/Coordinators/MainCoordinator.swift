@@ -37,14 +37,16 @@ class MainCoordinator: Coordinator {
     }
 
     func setupChildCoordinators() {
+        let aboutCoordinator = AboutCoordinator()
         let departureCoordinator = DepartureCoordinator()
-        let homeCoordinator = HomeCoordinator()
-        let tripCoordinator = TripCoordinator()
+//        let homeCoordinator = HomeCoordinator()
+//        let tripCoordinator = TripCoordinator()
 
         childCoordinators = [
-            homeCoordinator,
+//            homeCoordinator,
             departureCoordinator,
-            tripCoordinator
+//            tripCoordinator,
+            aboutCoordinator
         ]
     }
 
