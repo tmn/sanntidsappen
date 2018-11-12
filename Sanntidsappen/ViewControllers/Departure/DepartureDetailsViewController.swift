@@ -180,7 +180,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
         if section == expandedSection {
             return count
         } else {
-            return count > 3 ? 3 : count
+            return count > 4 ? 4 : count
         }
     }
 
