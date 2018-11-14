@@ -38,7 +38,6 @@
 		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
 		A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3F217C170C000B7697 /* StopRegisterData.swift */; };
 		A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */; };
-		A67F0C26219A29D800D18FB6 /* DepartureDetailsJourneyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A67F0C25219A29D800D18FB6 /* DepartureDetailsJourneyViewController.xib */; };
 		A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */; };
 		A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */; };
 		A699D1922173684E0008F951 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A699D18F2173684D0008F951 /* LICENSE.txt */; };
@@ -46,6 +45,7 @@
 		A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1912173684D0008F951 /* CONTRIBUTING.md */; };
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
 		A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F6216EABB00025C33B /* MainCoordinator.swift */; };
+		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,6 @@
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
 		A66F8B3F217C170C000B7697 /* StopRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegisterData.swift; sourceTree = "<group>"; };
 		A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStopSearchData.swift; sourceTree = "<group>"; };
-		A67F0C25219A29D800D18FB6 /* DepartureDetailsJourneyViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsJourneyViewController.xib; sourceTree = "<group>"; };
 		A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A699D18F2173684D0008F951 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		A699D1912173684D0008F951 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A6BE90F6216EABB00025C33B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +234,6 @@
 				A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */,
 				A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */,
 				A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */,
-				A67F0C25219A29D800D18FB6 /* DepartureDetailsJourneyViewController.xib */,
 			);
 			path = Departure;
 			sourceTree = "<group>";
@@ -297,6 +296,7 @@
 				A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */,
 				A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */,
 				A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */,
+				A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */,
 			);
 			path = "Layouts and Cells";
 			sourceTree = "<group>";
@@ -405,7 +405,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A67F0C26219A29D800D18FB6 /* DepartureDetailsJourneyViewController.xib in Resources */,
 				A699D1922173684E0008F951 /* LICENSE.txt in Resources */,
 				A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */,
 				A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */,
@@ -454,6 +453,7 @@
 				A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,
+				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,
 				A64D4AA121717C8600937E8D /* DepartureViewController.swift in Sources */,
 				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,

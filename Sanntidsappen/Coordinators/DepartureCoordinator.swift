@@ -61,7 +61,7 @@ extension DepartureCoordinator: DepartureViewControllerDelegate {
 extension DepartureCoordinator: DepartureDetailsViewControllerDelegate {
 
     func selectJourney(_ viewController: DepartureDetailsViewController, with id: String, and date: String, using title: String) {
-        // self.showDepartureRoute(serviceJourneyId: id, date: date, title: title)
+         self.showDepartureRoute(serviceJourneyId: id, date: date, title: title)
     }
 
 }
