@@ -26,6 +26,23 @@ class JourneyDetailsTableViewCell: UITableViewCell {
         return label
     }()
 
+    lazy var journeyLine: CALayer = {
+        let line = CALayer()
+        line.frame = CGRect(x: 84, y: 0, width: 3, height: 65)
+        line.backgroundColor = UIColor.SALightGray.cgColor
+        return line
+    }()
+
+    lazy var journeyPoint: CAShapeLayer = {
+        let path = UIBezierPath(arcCenter: CGPoint(x: 85.5, y: 65/2), radius: CGFloat(7), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+
+        let shapeLayer = CAShapeLayer()
+        shapeLayer.path = path.cgPath
+        shapeLayer.fillColor = UIColor.SALightGray.cgColor
+
+        return shapeLayer
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -34,6 +51,9 @@ class JourneyDetailsTableViewCell: UITableViewCell {
 
         contentView.addSubview(timeStampLabel)
         contentView.addSubview(titleLabel)
+
+        contentView.layer.addSublayer(journeyLine)
+        contentView.layer.addSublayer(journeyPoint)
 
         timeStampLabel.translatesAutoresizingMaskIntoConstraints = false
         timeStampLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24).isActive = true

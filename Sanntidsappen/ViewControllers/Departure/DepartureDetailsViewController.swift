@@ -10,7 +10,7 @@
 import UIKit
 
 protocol DepartureDetailsViewControllerDelegate: class {
-    func selectJourney(_ viewController: DepartureDetailsViewController, with id: String, and date: String, using title: String)
+    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: EstimatedCall)
 }
 
 class DepartureDetailsViewController: UIViewController {
@@ -81,6 +81,7 @@ extension DepartureDetailsViewController {
                 switch res {
                 case .success(let value):
                     self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay.id })
+
                     self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.split(separator: ":").last! < $1.split(separator: ":").last! })
 
                     self.collectionView.reloadData()
@@ -239,7 +240,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
             return
         }
 
-        delegate?.selectJourney(self, with: departure.serviceJourney.id, and: departure.date, using: departure.destinationDisplay.frontText)
+        delegate?.selectJourney(self, using: departure)
     }
 
 }

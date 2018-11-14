@@ -11,19 +11,19 @@ import UIKit
 
 class DepartureDetailsJourneyViewController: UIViewController {
 
-    let journeyId: String
-    let journeyDate: String
+    let departure: EstimatedCall
 
     var journey: [Journey.EstimatedCall] = []
 
     var tableView: UITableView!
 
-    init(title: String, journeyId: String, journeyDate: String) {
-        self.journeyId = journeyId
-        self.journeyDate = journeyDate
+    var currentActiveIndexPath: IndexPath?
+
+    init(departure: EstimatedCall) {
+        self.departure = departure
 
         super.init(nibName: nil, bundle: nil)
-        self.title = title
+        self.title = departure.destinationDisplay.frontText
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,18 +57,24 @@ class DepartureDetailsJourneyViewController: UIViewController {
 
         return returnDateFormatter.string(from: dateFormatter.date(from: timeInString)!)
     }
+
+    func scrollTableView() {
+        if let quayIndex = journey.firstIndex(where: { $0.quay.id == departure.quay.id }) {
+            tableView.scrollToRow(at: IndexPath(item: quayIndex, section: 0), at: .top, animated: true)
+        }
+    }
 }
 
 extension DepartureDetailsJourneyViewController {
-
     func requestData() {
-        EnTurAPI.journeyPlanner.getJourney(journeyId: journeyId, date: journeyDate) { res in
+        EnTurAPI.journeyPlanner.getJourney(journeyId: departure.serviceJourney.id, date: departure.date) { res in
             switch (res) {
             case .success(let value):
                 self.journey = value.data.serviceJourney.estimatedCalls
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.scrollTableView()
                 }
 
             case .failure(let error):
@@ -93,8 +99,21 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
 
         cell.selectionStyle = .none
 
+        cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: 65)
+        cell.journeyPoint.fillColor = UIColor.SALightGray.cgColor
+
         cell.titleLabel.text = journey[indexPath.item].quay.name
         cell.timeStampLabel.text = formatTimeStamp(timeInString: journey[indexPath.item].aimedDepartureTime)
+
+        if indexPath.item == 0 {
+            cell.journeyLine.frame = CGRect(x: 84, y: 65/2, width: 3, height: 65/2)
+        } else if indexPath.item == journey.count - 1 {
+            cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: 65/2)
+        }
+
+        if journey[indexPath.item].quay.id == departure.quay.id {
+            cell.journeyPoint.fillColor = UIColor.SAPink.cgColor
+        }
 
         return cell
     }
