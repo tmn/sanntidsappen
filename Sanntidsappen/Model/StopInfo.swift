@@ -41,6 +41,8 @@ struct DestinationDisplay: Codable {
 struct Quay: Codable {
     let id: String
     let name: String
+    let publicCode: String
+    let description: String?
 }
 
 struct ServiceJourney: Codable {

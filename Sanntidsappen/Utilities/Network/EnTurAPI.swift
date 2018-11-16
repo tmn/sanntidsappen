@@ -149,7 +149,7 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
     func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo>) -> Void) {
         let dateFormatter = ISO8601DateFormatter()
 
-        let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name } serviceJourney { id journeyPattern { line { publicCode transportMode } } } } } }"
+        let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name publicCode description } serviceJourney { id journeyPattern { line { publicCode transportMode } } } } } }"
 
         let body = ["query": query]
 
