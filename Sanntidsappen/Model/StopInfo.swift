@@ -38,11 +38,19 @@ struct DestinationDisplay: Codable {
     let frontText: String
 }
 
-struct Quay: Codable {
+struct Quay: Codable, Hashable {
     let id: String
     let name: String
     let publicCode: String
     let description: String?
+
+    var hashValue: Int {
+        return id.hashValue
+    }
+
+    static func == (lhs: Quay, rhs: Quay) -> Bool {
+        return lhs.publicCode == rhs.publicCode && lhs.id == rhs.id
+    }
 }
 
 struct ServiceJourney: Codable {
