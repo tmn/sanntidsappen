@@ -21,8 +21,8 @@ class DepartureDetailsViewController: UIViewController {
     var flowLayout: UICollectionViewFlowLayout!
     var refresher: UIRefreshControl!
 
-    var segmentedDepartures: [String: [EstimatedCall]] = [:]
-    var sortedSections: [String] = []
+    var segmentedDepartures: [Quay: [EstimatedCall]] = [:]
+    var sortedSections: [Quay] = []
     var expandedSection: Int = -1
 
     var quays: [String: [StopRegisterQuay]]?
@@ -80,9 +80,9 @@ extension DepartureDetailsViewController {
             DispatchQueue.main.async {
                 switch res {
                 case .success(let value):
-                    self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay.id })
+                    self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay })
 
-                    self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.split(separator: ":").last! < $1.split(separator: ":").last! })
+                    self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.publicCode < $1.publicCode })
 
                     self.collectionView.reloadData()
 
@@ -212,7 +212,12 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
 
         headerView.delegate = self
 
-        headerView.sectionHeaderLabel.text = String.localizedStringWithFormat(NSLocalizedString("Platform %d", comment: "Departure platform at stop place"), indexPath.section + 1)
+        if let departure = segmentedDepartures[sortedSections[indexPath.section]]?[indexPath.item] {
+            headerView.sectionHeaderLabel.text = String.localizedStringWithFormat(NSLocalizedString("Platform %@", comment: "Departure platform at stop place"), departure.quay.publicCode)
+        } else {
+            headerView.sectionHeaderLabel.text = String.localizedStringWithFormat(NSLocalizedString("Platform", comment: "Departure platform at stop place"))
+        }
+
         headerView.sectionNumber = indexPath.section
 
         UIView.performWithoutAnimation {
@@ -228,7 +233,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
         }
 
         if let quays = self.quays,
-            let quay = quays[sortedSections[indexPath.section]]?[0] {
+            let quay = quays[sortedSections[indexPath.section].id]?[0] {
             headerView.compassDirection = CompassDirection(bearing: String(format: "%.0f", quay.compassBearing))
         }
 
