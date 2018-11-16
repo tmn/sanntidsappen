@@ -28,13 +28,13 @@ class JourneyDetailsTableViewCell: UITableViewCell {
 
     lazy var journeyLine: CALayer = {
         let line = CALayer()
-        line.frame = CGRect(x: 84, y: 0, width: 3, height: 65)
+        line.frame = CGRect(x: 84, y: 0, width: 3, height: 50)
         line.backgroundColor = UIColor.SALightGray.cgColor
         return line
     }()
 
     lazy var journeyPoint: CAShapeLayer = {
-        let path = UIBezierPath(arcCenter: CGPoint(x: 85.5, y: 65/2), radius: CGFloat(7), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+        let path = UIBezierPath(arcCenter: CGPoint(x: 85.5, y: 50/2), radius: CGFloat(7), startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
 
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath

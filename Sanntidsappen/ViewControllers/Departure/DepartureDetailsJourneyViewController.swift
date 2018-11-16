@@ -38,7 +38,7 @@ class DepartureDetailsJourneyViewController: UIViewController {
 
         tableView = UITableView(frame: view.bounds)
         tableView.separatorStyle = .none
-        tableView.rowHeight = 65.0
+        tableView.rowHeight = 50
         tableView.register(JourneyDetailsTableViewCell.self, forCellReuseIdentifier: JourneyDetailsTableViewCell.identifier)
 
         tableView.dataSource = self
@@ -99,16 +99,16 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
 
         cell.selectionStyle = .none
 
-        cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: 65)
+        cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: tableView.rowHeight)
         cell.journeyPoint.fillColor = UIColor.SALightGray.cgColor
 
         cell.titleLabel.text = journey[indexPath.item].quay.name
         cell.timeStampLabel.text = formatTimeStamp(timeInString: journey[indexPath.item].aimedDepartureTime)
 
         if indexPath.item == 0 {
-            cell.journeyLine.frame = CGRect(x: 84, y: 65/2, width: 3, height: 65/2)
+            cell.journeyLine.frame = CGRect(x: 84, y: 65/2, width: 3, height: tableView.rowHeight/2)
         } else if indexPath.item == journey.count - 1 {
-            cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: 65/2)
+            cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: tableView.rowHeight/2)
         }
 
         if journey[indexPath.item].quay.id == departure.quay.id {
