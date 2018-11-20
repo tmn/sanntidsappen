@@ -79,8 +79,13 @@ extension DepartureDetailsJourneyViewController {
                     self.scrollTableView()
                 }
 
-            case .failure(let error):
-                print(error)
+            case .failure(_):
+                let alertController = UIAlertController(title: NSLocalizedString("Oh, no!", comment: "Something wrong happened on network request"), message: NSLocalizedString("An error has occured. Make sure your phone is connected to the Internet and try again.", comment: "Try again"), preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
+                alertController.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: "Try again"), style: .default) { _ in
+                    self.requestData()
+                })
+                self.present(alertController, animated: true)
             }
         }
     }
