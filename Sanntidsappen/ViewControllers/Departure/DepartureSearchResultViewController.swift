@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 protocol DepartureSearchResultViewControllerDelegate: class {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController)
@@ -18,7 +19,17 @@ class DepartureSearchResultViewController: UIViewController {
 
     weak var delegate: DepartureSearchResultViewControllerDelegate?
 
-    var stops: [Stop] = []
+    var currentLocation: CLLocation?
+
+    var stops: [Stop] = [] {
+        didSet {
+            guard let location = currentLocation else {
+                return
+            }
+
+            stops = stops.sorted(by: { $0.distanceToCurrentLocation(to: location) < $1.distanceToCurrentLocation(to: location) })
+        }
+    }
 
     var collectionView: UICollectionView!
     var flowLayout: UICollectionViewFlowLayout!

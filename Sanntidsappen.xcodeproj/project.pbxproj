@@ -46,6 +46,7 @@
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
 		A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F6216EABB00025C33B /* MainCoordinator.swift */; };
 		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
+		A6F4469621A33519003CCD58 /* Haversine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F4469521A33519003CCD58 /* Haversine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +112,7 @@
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A6BE90F6216EABB00025C33B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		A6F4469521A33519003CCD58 /* Haversine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haversine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				A64D4A9321714E2B00937E8D /* Network */,
 				A64D4AA82171BFD300937E8D /* UIColor+hex.swift */,
 				A66F8B3D217C05B1000B7697 /* CompassDirection.swift */,
+				A6F4469521A33519003CCD58 /* Haversine.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */,
 				A64AC528219A21D50079F79E /* Journey.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
+				A6F4469621A33519003CCD58 /* Haversine.swift in Sources */,
 				A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,

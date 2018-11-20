@@ -63,9 +63,11 @@ class DepartureDetailsJourneyViewController: UIViewController {
             tableView.scrollToRow(at: IndexPath(item: quayIndex, section: 0), at: .top, animated: true)
         }
     }
+
 }
 
 extension DepartureDetailsJourneyViewController {
+
     func requestData() {
         EnTurAPI.journeyPlanner.getJourney(journeyId: departure.serviceJourney.id, date: departure.date) { res in
             switch (res) {
@@ -90,6 +92,7 @@ extension DepartureDetailsJourneyViewController: UITableViewDelegate {
 }
 
 extension DepartureDetailsJourneyViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return journey.count
     }
@@ -117,6 +120,5 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
 
         return cell
     }
-
 
 }

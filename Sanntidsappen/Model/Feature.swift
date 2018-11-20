@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 struct Feature: Codable {
     let features: [Stop]
@@ -16,6 +17,10 @@ struct Feature: Codable {
 struct Stop: Codable {
     let geometry: Geometry
     let properties: Properties
+
+    func distanceToCurrentLocation(to location: CLLocation) -> Double {
+        return Haversine.haversineDistsance(firstLocation: (geometry.coordinates[1], geometry.coordinates[0]), secondLocation: (location.coordinate.latitude, location.coordinate.longitude))
+    }
 }
 
 struct Geometry: Codable {

@@ -41,6 +41,4 @@ struct CompassDirection {
         self.bearing = bearing
     }
 
-
 }
-

@@ -284,6 +284,7 @@ extension DepartureViewController: CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        searchResultController.currentLocation = locations.last!
         updateNearbyStops(lastLocation: locations.last!)
     }
 

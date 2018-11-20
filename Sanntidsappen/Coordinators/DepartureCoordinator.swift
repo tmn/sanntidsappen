@@ -50,6 +50,9 @@ class DepartureCoordinator: Coordinator {
 
 }
 
+
+// MARK: - DELEGATES
+
 extension DepartureCoordinator: DepartureViewControllerDelegate {
 
     func departureViewController(_ viewController: DepartureViewController, continueWith stop: Stop) {
