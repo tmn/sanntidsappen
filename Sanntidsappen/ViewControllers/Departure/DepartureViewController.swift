@@ -226,7 +226,7 @@ extension DepartureViewController: UICollectionViewDelegate {
 extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText.count > 3 {
+        if searchText.count >= 3 {
             if let item = workingItem {
                 item.cancel()
                 workingItem = nil
@@ -246,7 +246,7 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
                 }
                 } }
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.200, execute: workingItem!)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.120, execute: workingItem!)
         }
     }
 
