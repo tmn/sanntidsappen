@@ -82,6 +82,10 @@ extension DepartureDetailsViewController {
                 case .success(let value):
                     self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay })
 
+                    // Preserve sort by Quay ID
+                    self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.id.split(separator: ":").last ?? "" < $1.id.split(separator: ":").last ?? "" })
+
+                    // Sort by publicCode if exist - not all quays have publicCode
                     self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.publicCode < $1.publicCode })
 
                     self.collectionView.reloadData()
