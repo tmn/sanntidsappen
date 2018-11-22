@@ -42,7 +42,7 @@ class DepartureDetailsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         flowLayout = ColumnFlowLayout()
 
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
@@ -179,7 +179,6 @@ extension DepartureDetailsViewController {
 // MARK: - Delegate
 
 extension DepartureDetailsViewController: UICollectionViewDelegate {  }
-
 
 // MARK: - Data Source
 

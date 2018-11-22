@@ -34,11 +34,14 @@ class DepartureCoordinator: Coordinator {
     }
 
     func start() {  }
-
-    func showDetailedView(stop: Stop) {
-        let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
-        viewController.delegate = self
-
+    
+    func showDetailedView(withViewController viewController: DepartureDetailsViewController) {
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showDetailedView(forStop stop: Stop) {
+        let viewController = createDetailedView(forStop: stop)
+        
         navigationController.pushViewController(viewController, animated: true)
     }
 
@@ -47,6 +50,13 @@ class DepartureCoordinator: Coordinator {
 
         navigationController.pushViewController(viewController, animated: true)
     }
+    
+    private func createDetailedView(forStop stop: Stop) -> DepartureDetailsViewController {
+        let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
+        viewController.delegate = self
+        
+        return viewController
+    }
 
 }
 
@@ -54,11 +64,19 @@ class DepartureCoordinator: Coordinator {
 // MARK: - DELEGATES
 
 extension DepartureCoordinator: DepartureViewControllerDelegate {
-
-    func departureViewController(_ viewController: DepartureViewController, continueWith stop: Stop) {
-        self.showDetailedView(stop: stop)
+    
+    func moveToDetailsViewController(from viewController: DepartureViewController, withStop stop: Stop) {
+        self.showDetailedView(forStop: stop)
     }
-
+    
+    func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController) {
+        self.showDetailedView(withViewController: nextView)
+    }
+    
+    func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController {
+        return self.createDetailedView(forStop: stop)
+    }
+    
 }
 
 extension DepartureCoordinator: DepartureDetailsViewControllerDelegate {

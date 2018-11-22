@@ -12,7 +12,9 @@ import CoreLocation
 import CoreData
 
 protocol DepartureViewControllerDelegate: class {
-    func departureViewController(_ viewController: DepartureViewController, continueWith stop: Stop)
+    func moveToDetailsViewController(from viewController: DepartureViewController, withStop stop: Stop)
+    func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController)
+    func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
 }
 
 enum SearchContainerSection: String, CaseIterable {
@@ -48,7 +50,7 @@ class DepartureViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         flowLayout = ColumnFlowLayout()
         flowLayout.headerReferenceSize = CGSize(width: view.frame.size.width, height: 55)
 
@@ -59,6 +61,8 @@ class DepartureViewController: UIViewController {
         collectionView.alwaysBounceVertical = true
 
         view.addSubview(collectionView)
+        
+        registerForPreviewing(with: self, sourceView: collectionView)
 
         collectionView.register(DepartureSearchResultCollectionViewCell.self, forCellWithReuseIdentifier: DepartureSearchResultCollectionViewCell.identifier)
         collectionView.register(DepartureViewControllerHeaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DepartureViewControllerHeaderCell.identifier)
@@ -219,7 +223,7 @@ extension DepartureViewController: UICollectionViewDelegate {
             self.searchController.searchBar.text = self.recentStopSearch[indexPath.item]
             self.searchBar(self.searchController.searchBar, textDidChange: self.recentStopSearch[indexPath.item])
         } else {
-            self.delegate?.departureViewController(self, continueWith: self.nearbyStops[indexPath.item])
+            self.delegate?.moveToDetailsViewController(from: self, withStop: self.nearbyStops[indexPath.item])
         }
     }
 
@@ -270,6 +274,28 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
 
 }
 
+// MARK: UIViewControllerPreviewingDelegate
+
+extension DepartureViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.delegate?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit as! DepartureDetailsViewController)
+    }
+    
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
+            if indexPath.section > 0 {
+                previewingContext.sourceRect = cellAttributes.frame
+                return self.delegate?.getDetailsViewController(forStop: self.nearbyStops[indexPath.item])
+            }
+        }
+        
+        return nil
+    }
+
+}
+
 
 // MARK: CLLocationManager
 
@@ -308,7 +334,7 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
             self.collectionView.reloadData()
         }
 
-        delegate?.departureViewController(self, continueWith: stop)
+        delegate?.moveToDetailsViewController(from: self, withStop: stop)
     }
 
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController) {
