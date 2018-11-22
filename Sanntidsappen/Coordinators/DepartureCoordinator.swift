@@ -69,7 +69,7 @@ extension DepartureCoordinator: DepartureViewControllerDelegate {
         self.showDetailedView(forStop: stop)
     }
     
-    func moveToDetailsViewController(from ViewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController) {
+    func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController) {
         self.showDetailedView(withViewController: nextView)
     }
     

@@ -13,7 +13,7 @@ import CoreData
 
 protocol DepartureViewControllerDelegate: class {
     func moveToDetailsViewController(from viewController: DepartureViewController, withStop stop: Stop)
-    func moveToDetailsViewController(from ViewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController)
+    func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController)
     func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
 }
 
