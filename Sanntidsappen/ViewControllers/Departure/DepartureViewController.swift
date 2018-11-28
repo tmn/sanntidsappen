@@ -282,7 +282,6 @@ extension DepartureViewController: UIViewControllerPreviewingDelegate {
         self.delegate?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit as! DepartureDetailsViewController)
     }
     
-    
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
             if indexPath.section > 0 {
@@ -295,7 +294,6 @@ extension DepartureViewController: UIViewControllerPreviewingDelegate {
     }
 
 }
-
 
 // MARK: CLLocationManager
 
@@ -325,7 +323,22 @@ extension DepartureViewController: CLLocationManagerDelegate {
 // MARK: DepartureSearchResultViewControllerDelegate
 
 extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
-
+    
+    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController? {
+        let stop = searchResultController.stops[indexPath.item]
+        return self.delegate?.getDetailsViewController(forStop: stop)
+    }
+    
+    func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController) {
+        
+        RecentStopSearchData.shared.saveSearchToCoreData(stop: viewControllerToCommit.stop) { stops in
+            self.recentStopSearch = stops
+            self.collectionView.reloadData()
+        }
+        
+        self.delegate?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit)
+    }
+    
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) {
         let stop = searchResultController.stops[indexPath.item]
 
@@ -340,5 +353,5 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController) {
         self.searchController.searchBar.resignFirstResponder()
     }
-
+    
 }

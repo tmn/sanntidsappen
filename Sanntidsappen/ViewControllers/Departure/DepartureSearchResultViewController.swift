@@ -13,6 +13,8 @@ import CoreLocation
 protocol DepartureSearchResultViewControllerDelegate: class {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController)
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath)
+    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController?
+    func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController)
 }
 
 class DepartureSearchResultViewController: UIViewController {
@@ -47,6 +49,8 @@ class DepartureSearchResultViewController: UIViewController {
         collectionView.alwaysBounceVertical = true
 
         collectionView.register(DepartureSearchResultCollectionViewCell.self, forCellWithReuseIdentifier: DepartureSearchResultCollectionViewCell.identifier)
+        
+        registerForPreviewing(with: self, sourceView: collectionView)
 
         view.addSubview(collectionView)
 
@@ -82,6 +86,27 @@ extension DepartureSearchResultViewController: UICollectionViewDelegate {
     }
 
 }
+
+// MARK: UIViewControllerPreviewingDelegate
+
+extension DepartureSearchResultViewController: UIViewControllerPreviewingDelegate {
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        self.delegate?.commitPreviewedViewController(self, viewControllerToCommit: viewControllerToCommit as! DepartureDetailsViewController)
+    }
+    
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
+            previewingContext.sourceRect = cellAttributes.frame
+            return self.delegate?.previewDepartureAtIndexPath(self, at: indexPath)
+        }
+        
+        return nil
+    }
+    
+}
+
 
 
 // MARK: - DataSource
