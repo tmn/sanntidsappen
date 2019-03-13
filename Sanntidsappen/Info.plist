@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We'll provide you with relevant search and departures at your location.</string>
+	<string>We will provide you with relevant search and departures at your location.</string>
 	<key>Sanntidsappen API</key>
 	<dict>
 		<key>Geocoder</key>
