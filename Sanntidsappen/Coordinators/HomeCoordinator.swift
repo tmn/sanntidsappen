@@ -11,8 +11,12 @@ import UIKit
 
 class HomeCoordinator: Coordinator {
 
+
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+
+    private var departureStation: String?
+    private var destinationStation: String?
 
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
@@ -21,8 +25,37 @@ class HomeCoordinator: Coordinator {
     }
 
     func start() {
-        let viewController = HomeViewController()
+        let viewController = HomeViewController.instantiate()
+        viewController.coordinator = self
+
+        viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Home", comment: "Main screen of Sanntidsappen"), image: #imageLiteral(resourceName: "home"), selectedImage: #imageLiteral(resourceName: "home"))
+
         navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func showSearchForStation() {
+        let viewController = StationSearchViewController.instantiate()
+
+        navigationController.pushViewController(viewController, animated: true)
+    }
+
+    func registerDepartureStation(targetButton: UIButton, departureStation: String) {
+        self.departureStation = departureStation
+
+        targetButton.setTitle(departureStation, for: .normal)
+
+        targetButton.sizeToFit()
+        targetButton.layoutIfNeeded()
+
+    }
+
+    func registerDestinationStation(targetButton: UIButton, destinationStation: String) {
+        self.destinationStation = destinationStation
+
+        targetButton.setTitle(destinationStation, for: .normal)
+
+        targetButton.sizeToFit()
+        targetButton.layoutIfNeeded()
     }
 
 }

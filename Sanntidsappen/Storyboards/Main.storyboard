@@ -87,5 +87,72 @@
             </objects>
             <point key="canvasLocation" x="-74" y="557"/>
         </scene>
+        <!--Home View Controller-->
+        <scene sceneID="Wl8-i1-tXX">
+            <objects>
+                <viewController storyboardIdentifier="HomeViewController" id="SwY-7Q-qhH" customClass="HomeViewController" customModule="Sanntidsappen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="x14-95-alL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plan your next trip" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WM5-RT-hde">
+                                <rect key="frame" x="94.333333333333329" y="123.99999999999999" width="186.66666666666669" height="26.333333333333329"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="kjD-w3-bwe">
+                                <rect key="frame" x="124.66666666666669" y="209" width="126" height="85"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iu3-y5-KGR">
+                                        <rect key="frame" x="3.9999999999999858" y="0.0" width="118" height="30"/>
+                                        <state key="normal" title="DepartureStation"/>
+                                        <connections>
+                                            <action selector="departureStationButton:" destination="SwY-7Q-qhH" eventType="touchUpInside" id="XBt-rc-Kwm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a48-Q3-gMB">
+                                        <rect key="frame" x="0.0" y="55" width="126" height="30"/>
+                                        <state key="normal" title="DestinationStation"/>
+                                        <connections>
+                                            <action selector="destinationStationButton:" destination="SwY-7Q-qhH" eventType="touchUpInside" id="eEQ-Ft-F5s"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kjD-w3-bwe" firstAttribute="top" secondItem="WM5-RT-hde" secondAttribute="bottom" constant="58.666666666666686" id="1GQ-Qc-Cot"/>
+                            <constraint firstItem="kjD-w3-bwe" firstAttribute="centerX" secondItem="x14-95-alL" secondAttribute="centerX" id="4l9-U1-Wbb"/>
+                            <constraint firstItem="WM5-RT-hde" firstAttribute="top" secondItem="e67-AE-s9R" secondAttribute="top" constant="80" id="AfF-7y-9YM"/>
+                            <constraint firstItem="WM5-RT-hde" firstAttribute="centerX" secondItem="x14-95-alL" secondAttribute="centerX" id="itZ-qI-oZx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e67-AE-s9R"/>
+                    </view>
+                    <connections>
+                        <outlet property="departureStationButton" destination="iu3-y5-KGR" id="yBl-5q-JKS"/>
+                        <outlet property="destinationStationButton" destination="a48-Q3-gMB" id="mHL-7H-zYx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m86-CA-l4a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74.400000000000006" y="-930.29556650246309"/>
+        </scene>
+        <!--Station Search View Controller-->
+        <scene sceneID="skp-oO-0Sa">
+            <objects>
+                <viewController storyboardIdentifier="StationSearchViewController" id="4zH-jv-HCg" customClass="StationSearchViewController" customModule="Sanntidsappen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nkq-Yu-rbb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OtW-N2-wi3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="89A-lX-uH6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="777" y="-930"/>
+        </scene>
     </scenes>
 </document>

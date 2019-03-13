@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
 
     let aboutCoordinator = AboutCoordinator(navigationController: UINavigationController())
     let departureCoordinator = DepartureCoordinator(navigationController: UINavigationController())
+    let homeCoordinator = HomeCoordinator(navigationController: UINavigationController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,13 @@ class MainTabBarController: UITabBarController {
         // Starts the coordinators
         aboutCoordinator.start()
         departureCoordinator.start()
+        homeCoordinator.start()
 
-        viewControllers = [departureCoordinator.navigationController, aboutCoordinator.navigationController]
+        viewControllers = [
+            homeCoordinator.navigationController,
+            departureCoordinator.navigationController,
+            aboutCoordinator.navigationController
+        ]
     }
 
     /*

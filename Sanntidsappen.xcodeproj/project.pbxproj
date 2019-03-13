@@ -11,6 +11,7 @@
 		A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E80F22397918004CEBC3 /* MainTabBarController.swift */; };
 		A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A640E81122397BE7004CEBC3 /* Main.storyboard */; };
 		A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E81322397C58004CEBC3 /* Storyboarded.swift */; };
+		A648ECF52239B0750068E9C0 /* StationSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A648ECF42239B0750068E9C0 /* StationSearchViewController.swift */; };
 		A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */; };
 		A64AC528219A21D50079F79E /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC527219A21D50079F79E /* Journey.swift */; };
 		A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B912F216829F5004A88DB /* AppDelegate.swift */; };
@@ -73,6 +74,7 @@
 		A640E80F22397918004CEBC3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A640E81122397BE7004CEBC3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A640E81322397C58004CEBC3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
+		A648ECF42239B0750068E9C0 /* StationSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationSearchViewController.swift; sourceTree = "<group>"; };
 		A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsJourneyViewController.swift; sourceTree = "<group>"; };
 		A64AC527219A21D50079F79E /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		A64B912C216829F5004A88DB /* Sanntidsappen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanntidsappen.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +264,7 @@
 				A64D4AA42171946100937E8D /* HomeViewController.swift */,
 				A64D4A9E21717C8000937E8D /* TripViewController.swift */,
 				A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */,
+				A648ECF42239B0750068E9C0 /* StationSearchViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */,
 				A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */,
 				A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */,
+				A648ECF52239B0750068E9C0 /* StationSearchViewController.swift in Sources */,
 				A64D4AA32171945200937E8D /* HomeCoordinator.swift in Sources */,
 				A64D4AA52171946100937E8D /* HomeViewController.swift in Sources */,
 				A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */,

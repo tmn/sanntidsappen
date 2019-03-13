@@ -9,20 +9,27 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, Storyboarded {
 
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        title = NSLocalizedString("Home", comment: "Home title")
-    }
+    weak var coordinator: HomeCoordinator?
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    @IBOutlet weak var departureStationButton: UIButton!
+    @IBOutlet weak var destinationStationButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .white
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+
+    @IBAction func departureStationButton(_ sender: UIButton) {
+        coordinator?.registerDepartureStation(targetButton: sender, departureStation: "Solsiden")
+    }
+
+    @IBAction func destinationStationButton(_ sender: UIButton) {
+        coordinator?.registerDestinationStation(targetButton: sender, destinationStation: "IKEA")
+    }
+
 }
