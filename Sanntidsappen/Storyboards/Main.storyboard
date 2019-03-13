@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Departure View Controller-->
+        <scene sceneID="avk-l5-Oaf">
+            <objects>
+                <viewController storyboardIdentifier="DepartureViewController" id="5v3-6e-yEC" customClass="DepartureViewController" customModule="Sanntidsappen" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQt-Ux-lQS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-3K-clk">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewLayout key="collectionViewLayout" id="rdQ-dM-Xm1"/>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Waa-3K-clk" firstAttribute="leading" secondItem="Kbu-cp-8Pc" secondAttribute="leading" id="8NC-Fx-Rz9"/>
+                            <constraint firstItem="Kbu-cp-8Pc" firstAttribute="trailing" secondItem="Waa-3K-clk" secondAttribute="trailing" id="DZa-zg-YBB"/>
+                            <constraint firstItem="Waa-3K-clk" firstAttribute="top" secondItem="Kbu-cp-8Pc" secondAttribute="top" id="GUY-HZ-yVR"/>
+                            <constraint firstItem="Kbu-cp-8Pc" firstAttribute="bottom" secondItem="Waa-3K-clk" secondAttribute="bottom" id="hKQ-Sf-gcc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kbu-cp-8Pc"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Waa-3K-clk" id="ejJ-mc-r0E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iO5-Xe-ZVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-74.400000000000006" y="-179.55665024630542"/>
+        </scene>
+    </scenes>
+</document>
