@@ -12,27 +12,19 @@ import UIKit
 class TripCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
+    var navigationController: UINavigationController
 
-    lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController(nibName: nil, bundle: nil)
-        navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
-        navigationController.navigationBar.prefersLargeTitles = true
-
-        return navigationController
-    }()
-
-    var rootViewController: UIViewController {
-        navigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("Travel", comment: "Find route"), image: #imageLiteral(resourceName: "compass"), selectedImage: #imageLiteral(resourceName: "compass"))
-        return navigationController
-    }
-
-    init() {
-        let viewController = TripViewController()
-        navigationController.pushViewController(viewController, animated: true)
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController.navigationBar.prefersLargeTitles = true
     }
 
     func start() {
+        let viewController = TripViewController()
+        viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Travel", comment: "Find route"), image: #imageLiteral(resourceName: "compass"), selectedImage: #imageLiteral(resourceName: "compass"))
 
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

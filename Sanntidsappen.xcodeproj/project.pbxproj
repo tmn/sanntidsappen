@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F9BB7217A49E7007D8533 /* StopInfo.swift */; };
+		A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E80F22397918004CEBC3 /* MainTabBarController.swift */; };
 		A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */; };
 		A64AC528219A21D50079F79E /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC527219A21D50079F79E /* Journey.swift */; };
 		A64AC52A219A27C90079F79E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64AC529219A27C90079F79E /* AboutViewController.xib */; };
@@ -44,7 +45,6 @@
 		A699D1932173684E0008F951 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1902173684D0008F951 /* README.md */; };
 		A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1912173684D0008F951 /* CONTRIBUTING.md */; };
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
-		A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F6216EABB00025C33B /* MainCoordinator.swift */; };
 		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
 		A6F4469621A33519003CCD58 /* Haversine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F4469521A33519003CCD58 /* Haversine.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +68,7 @@
 
 /* Begin PBXFileReference section */
 		A60F9BB7217A49E7007D8533 /* StopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfo.swift; sourceTree = "<group>"; };
+		A640E80F22397918004CEBC3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsJourneyViewController.swift; sourceTree = "<group>"; };
 		A64AC527219A21D50079F79E /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		A64AC529219A27C90079F79E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
@@ -110,7 +111,6 @@
 		A699D1902173684D0008F951 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A699D1912173684D0008F951 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A6BE90F6216EABB00025C33B /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A6F4469521A33519003CCD58 /* Haversine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haversine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -169,6 +169,7 @@
 				A64B9139216829F5004A88DB /* Assets.xcassets */,
 				A64B913E216829F5004A88DB /* Info.plist */,
 				A64B912F216829F5004A88DB /* AppDelegate.swift */,
+				A640E80F22397918004CEBC3 /* MainTabBarController.swift */,
 				A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */,
 				A6BE90FB216EAE510025C33B /* Coordinators */,
 				A64D4A9521714E8A00937E8D /* Model */,
@@ -280,7 +281,6 @@
 		A6BE90FB216EAE510025C33B /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				A6BE90F6216EABB00025C33B /* MainCoordinator.swift */,
 				A64D4A9A2171791E00937E8D /* TripCoordinator.swift */,
 				A64D4A9C2171792F00937E8D /* DepartureCoordinator.swift */,
 				A64D4AA22171945200937E8D /* HomeCoordinator.swift */,
@@ -444,6 +444,7 @@
 				A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */,
 				A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */,
 				A64D4A9F21717C8000937E8D /* TripViewController.swift in Sources */,
+				A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */,
 				A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */,
 				A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */,
 				A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */,
@@ -454,7 +455,6 @@
 				A64AC528219A21D50079F79E /* Journey.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
 				A6F4469621A33519003CCD58 /* Haversine.swift in Sources */,
-				A6BE90F7216EABB00025C33B /* MainCoordinator.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,
 				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,

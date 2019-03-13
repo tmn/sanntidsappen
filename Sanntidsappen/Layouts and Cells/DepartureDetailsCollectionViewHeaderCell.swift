@@ -9,14 +9,14 @@
 
 import UIKit
 
-protocol DepartureDetailsCollectionViewHeaderCellDelegate: class {
+protocol DepartureDetailsCollectionViewHeaderCellDelegate: AnyObject {
     func expandSectionListWith(number: Int)
 }
 
 class DepartureDetailsCollectionViewHeaderCell: UICollectionViewCell {
     static let identifier: String = "DepartureDetailsCollectionViewHeaderCell"
 
-    weak var delegate: DepartureDetailsCollectionViewHeaderCellDelegate?
+    weak var coordinator: DepartureDetailsCollectionViewHeaderCellDelegate?
 
     @IBOutlet weak var directionLabel: UILabel!
     @IBOutlet weak var sectionHeaderLabel: UILabel!
@@ -44,7 +44,7 @@ class DepartureDetailsCollectionViewHeaderCell: UICollectionViewCell {
     }
 
     @IBAction func seeAllClick(_ sender: Any) {
-        delegate?.expandSectionListWith(number: self.sectionNumber)
+        coordinator?.expandSectionListWith(number: self.sectionNumber)
     }
 
 }
