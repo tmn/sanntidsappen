@@ -21,7 +21,7 @@ class AboutCoordinator: Coordinator {
     }
 
     func start() {
-        let viewController = AboutViewController()
+        let viewController = AboutViewController.instantiate()
         viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("About", comment: "About sanntidsappen"), image: #imageLiteral(resourceName: "compass"), selectedImage: #imageLiteral(resourceName: "compass"))
 
         navigationController.pushViewController(viewController, animated: true)

@@ -13,7 +13,6 @@
 		A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E81322397C58004CEBC3 /* Storyboarded.swift */; };
 		A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */; };
 		A64AC528219A21D50079F79E /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC527219A21D50079F79E /* Journey.swift */; };
-		A64AC52A219A27C90079F79E /* AboutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64AC529219A27C90079F79E /* AboutViewController.xib */; };
 		A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B912F216829F5004A88DB /* AppDelegate.swift */; };
 		A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */; };
 		A64B913A216829F5004A88DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A64B9139216829F5004A88DB /* Assets.xcassets */; };
@@ -75,7 +74,6 @@
 		A640E81322397C58004CEBC3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsJourneyViewController.swift; sourceTree = "<group>"; };
 		A64AC527219A21D50079F79E /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
-		A64AC529219A27C90079F79E /* AboutViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutViewController.xib; sourceTree = "<group>"; };
 		A64B912C216829F5004A88DB /* Sanntidsappen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanntidsappen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64B912F216829F5004A88DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A64B9137216829F5004A88DB /* Sanntidsappen.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Sanntidsappen.xcdatamodel; sourceTree = "<group>"; };
@@ -261,7 +259,6 @@
 				A64D4AA42171946100937E8D /* HomeViewController.swift */,
 				A64D4A9E21717C8000937E8D /* TripViewController.swift */,
 				A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */,
-				A64AC529219A27C90079F79E /* AboutViewController.xib */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -419,7 +416,6 @@
 				A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */,
 				A699D1932173684E0008F951 /* README.md in Resources */,
 				A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */,
-				A64AC52A219A27C90079F79E /* AboutViewController.xib in Resources */,
 				A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */,
 				A64B913D216829F5004A88DB /* LaunchScreen.storyboard in Resources */,
 				A64B913A216829F5004A88DB /* Assets.xcassets in Resources */,
