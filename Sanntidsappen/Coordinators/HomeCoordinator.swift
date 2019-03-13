@@ -10,25 +10,19 @@
 import UIKit
 
 class HomeCoordinator: Coordinator {
+
     var childCoordinators: [Coordinator] = []
+    var navigationController: UINavigationController
 
-    lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController(nibName: nil, bundle: nil)
-        return navigationController
-    }()
-
-    var rootViewController: UIViewController {
-        navigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("Home", comment: "Home dashboard"), image: #imageLiteral(resourceName: "home"), selectedImage: #imageLiteral(resourceName: "home"))
-        return navigationController
-    }
-
-    init() {
-        let viewController = HomeViewController()
-        navigationController.pushViewController(viewController, animated: true)
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController.navigationBar.prefersLargeTitles = true
     }
 
     func start() {
-
+        let viewController = HomeViewController()
+        navigationController.pushViewController(viewController, animated: true)
     }
 
 }

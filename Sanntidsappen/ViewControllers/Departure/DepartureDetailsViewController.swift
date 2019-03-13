@@ -9,13 +9,13 @@
 
 import UIKit
 
-protocol DepartureDetailsViewControllerDelegate: class {
+protocol DepartureDetailsViewControllerDelegate: AnyObject {
     func selectJourney(_ viewController: DepartureDetailsViewController, using departure: EstimatedCall)
 }
 
 class DepartureDetailsViewController: UIViewController {
 
-    weak var delegate: DepartureDetailsViewControllerDelegate?
+    weak var coordinator: DepartureDetailsViewControllerDelegate?
 
     var collectionView: UICollectionView!
     var flowLayout: UICollectionViewFlowLayout!
@@ -218,7 +218,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: DepartureDetailsCollectionViewHeaderCell.identifier, for: indexPath) as! DepartureDetailsCollectionViewHeaderCell
 
-        headerView.delegate = self
+        headerView.coordinator = self
 
         if let departure = segmentedDepartures[sortedSections[indexPath.section]]?[indexPath.item] {
             headerView.sectionHeaderLabel.text = String.localizedStringWithFormat(NSLocalizedString("Platform %@", comment: "Departure platform at stop place"), departure.quay.publicCode)
@@ -253,7 +253,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
             return
         }
 
-        delegate?.selectJourney(self, using: departure)
+        coordinator?.selectJourney(self, using: departure)
     }
 
 }

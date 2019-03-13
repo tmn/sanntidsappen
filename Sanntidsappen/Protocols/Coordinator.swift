@@ -9,11 +9,9 @@
 
 import UIKit
 
-@objc protocol Coordinator {
+protocol Coordinator: AnyObject {
     var childCoordinators: [Coordinator] { get set }
     var navigationController: UINavigationController { get set }
-
-    @objc optional var rootViewController: UIViewController { get }
 
     func start()
 }

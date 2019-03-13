@@ -10,7 +10,7 @@
 import UIKit
 import CoreLocation
 
-protocol DepartureSearchResultViewControllerDelegate: class {
+protocol DepartureSearchResultViewControllerDelegate: AnyObject {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController)
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath)
     func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController?
@@ -19,7 +19,7 @@ protocol DepartureSearchResultViewControllerDelegate: class {
 
 class DepartureSearchResultViewController: UIViewController {
 
-    weak var delegate: DepartureSearchResultViewControllerDelegate?
+    weak var coordinator: DepartureSearchResultViewControllerDelegate?
 
     var currentLocation: CLLocation?
 
@@ -78,11 +78,11 @@ extension DepartureSearchResultViewController: UICollectionViewDelegate {
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.selectDepartureAtIndexPath(self, at: indexPath)
+        coordinator?.selectDepartureAtIndexPath(self, at: indexPath)
     }
 
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        delegate?.dismissKeyboardFrom(self)
+        coordinator?.dismissKeyboardFrom(self)
     }
 
 }
@@ -92,14 +92,14 @@ extension DepartureSearchResultViewController: UICollectionViewDelegate {
 extension DepartureSearchResultViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        self.delegate?.commitPreviewedViewController(self, viewControllerToCommit: viewControllerToCommit as! DepartureDetailsViewController)
+        self.coordinator?.commitPreviewedViewController(self, viewControllerToCommit: viewControllerToCommit as! DepartureDetailsViewController)
     }
     
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
             previewingContext.sourceRect = cellAttributes.frame
-            return self.delegate?.previewDepartureAtIndexPath(self, at: indexPath)
+            return self.coordinator?.previewDepartureAtIndexPath(self, at: indexPath)
         }
         
         return nil

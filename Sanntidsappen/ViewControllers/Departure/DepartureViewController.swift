@@ -11,7 +11,7 @@ import UIKit
 import CoreLocation
 import CoreData
 
-protocol DepartureViewControllerDelegate: class {
+protocol DepartureViewControllerDelegate: AnyObject {
     func moveToDetailsViewController(from viewController: DepartureViewController, withStop stop: Stop)
     func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController)
     func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
@@ -24,7 +24,7 @@ enum SearchContainerSection: String, CaseIterable {
 
 class DepartureViewController: UIViewController {
 
-    weak var delegate: DepartureViewControllerDelegate?
+    weak var coordinator: DepartureViewControllerDelegate?
 
     var searchController: UISearchController!
     var searchResultController: DepartureSearchResultViewController!
@@ -71,7 +71,7 @@ class DepartureViewController: UIViewController {
         collectionView.dataSource = self
 
         searchResultController = DepartureSearchResultViewController()
-        searchResultController.delegate = self
+        searchResultController.coordinator = self
 
         searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchResultsUpdater = self
@@ -223,7 +223,7 @@ extension DepartureViewController: UICollectionViewDelegate {
             self.searchController.searchBar.text = self.recentStopSearch[indexPath.item]
             self.searchBar(self.searchController.searchBar, textDidChange: self.recentStopSearch[indexPath.item])
         } else {
-            self.delegate?.moveToDetailsViewController(from: self, withStop: self.nearbyStops[indexPath.item])
+            self.coordinator?.moveToDetailsViewController(from: self, withStop: self.nearbyStops[indexPath.item])
         }
     }
 
@@ -279,14 +279,14 @@ extension DepartureViewController: UISearchControllerDelegate, UISearchResultsUp
 extension DepartureViewController: UIViewControllerPreviewingDelegate {
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        self.delegate?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit as! DepartureDetailsViewController)
+        self.coordinator?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit as! DepartureDetailsViewController)
     }
     
     func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
             if indexPath.section > 0 {
                 previewingContext.sourceRect = cellAttributes.frame
-                return self.delegate?.getDetailsViewController(forStop: self.nearbyStops[indexPath.item])
+                return self.coordinator?.getDetailsViewController(forStop: self.nearbyStops[indexPath.item])
             }
         }
         
@@ -326,7 +326,7 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
     
     func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController? {
         let stop = searchResultController.stops[indexPath.item]
-        return self.delegate?.getDetailsViewController(forStop: stop)
+        return self.coordinator?.getDetailsViewController(forStop: stop)
     }
     
     func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController) {
@@ -336,7 +336,7 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
             self.collectionView.reloadData()
         }
         
-        self.delegate?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit)
+        self.coordinator?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit)
     }
     
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) {
@@ -347,7 +347,7 @@ extension DepartureViewController: DepartureSearchResultViewControllerDelegate {
             self.collectionView.reloadData()
         }
 
-        delegate?.moveToDetailsViewController(from: self, withStop: stop)
+        coordinator?.moveToDetailsViewController(from: self, withStop: stop)
     }
 
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController) {

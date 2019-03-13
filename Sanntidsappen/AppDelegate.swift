@@ -14,19 +14,12 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var coordinator: MainCoordinator?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let navigationController = UINavigationController()
-        navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
-        navigationController.navigationBar.barTintColor = .white
 
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        window?.rootViewController = MainTabBarController()
         window?.makeKeyAndVisible()
-
-        coordinator = MainCoordinator(window: window!, navigationController: navigationController)
-        coordinator?.start()
 
         UINavigationBar.appearance().barTintColor = .white
         UIBarButtonItem.appearance().tintColor = .SAPink

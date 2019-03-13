@@ -12,28 +12,21 @@ import UIKit
 class DepartureCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
+    var navigationController: UINavigationController
 
-    lazy var navigationController: UINavigationController = {
-        let navigationController = UINavigationController(nibName: nil, bundle: nil)
-        navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
-        navigationController.navigationBar.prefersLargeTitles = true
-
-        return navigationController
-    }()
-
-    var rootViewController: UIViewController {
-        navigationController.tabBarItem = UITabBarItem(title: NSLocalizedString("Departures", comment: "Find roudepartureste"), image: #imageLiteral(resourceName: "clock"), selectedImage: #imageLiteral(resourceName: "clock"))
-        return navigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+        self.navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
+        self.navigationController.navigationBar.prefersLargeTitles = true
     }
 
-    init() {
+    func start() {
         let viewController = DepartureViewController()
-        viewController.delegate = self
+        viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Departures", comment: "Find roudepartureste"), image: #imageLiteral(resourceName: "clock"), selectedImage: #imageLiteral(resourceName: "clock"))
+        viewController.coordinator = self
 
         navigationController.pushViewController(viewController, animated: true)
     }
-
-    func start() {  }
     
     func showDetailedView(withViewController viewController: DepartureDetailsViewController) {
         navigationController.pushViewController(viewController, animated: true)
@@ -53,7 +46,7 @@ class DepartureCoordinator: Coordinator {
     
     private func createDetailedView(forStop stop: Stop) -> DepartureDetailsViewController {
         let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
-        viewController.delegate = self
+        viewController.coordinator = self
         
         return viewController
     }
