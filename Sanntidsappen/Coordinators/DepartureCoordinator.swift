@@ -21,7 +21,7 @@ class DepartureCoordinator: Coordinator {
     }
 
     func start() {
-        let viewController = DepartureViewController()
+        let viewController = DepartureViewController.instantiate()
         viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Departures", comment: "Find roudepartureste"), image: #imageLiteral(resourceName: "clock"), selectedImage: #imageLiteral(resourceName: "clock"))
         viewController.coordinator = self
 
