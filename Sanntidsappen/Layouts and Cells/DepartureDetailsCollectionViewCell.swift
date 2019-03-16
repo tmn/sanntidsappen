@@ -31,8 +31,8 @@ class DepartureDetailsCollectionViewCell: UICollectionViewCell {
 
         contentView.backgroundColor = .white
 
-        lineLabel.textColor = .SAPink
-        newTimeLabel.textColor = .SAPink
+        lineLabel.textColor = UIColor.SA.Primary
+        newTimeLabel.textColor = UIColor.SA.Primary
 
         contentView.layer.addSublayer(bottomLine)
     }

@@ -46,7 +46,7 @@ class DepartureDetailsViewController: UIViewController {
         flowLayout = ColumnFlowLayout()
 
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
-        collectionView.backgroundColor = .SALightGray
+        collectionView.backgroundColor = UIColor.SA.LightGray
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionView.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         collectionView.alwaysBounceVertical = true
@@ -54,7 +54,7 @@ class DepartureDetailsViewController: UIViewController {
         flowLayout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 60)
 
         refresher = UIRefreshControl()
-        refresher.tintColor = .SAPink
+        refresher.tintColor = UIColor.SA.Primary
         refresher.addTarget(self, action: #selector(requestData), for: .valueChanged)
 
         collectionView.refreshControl = refresher

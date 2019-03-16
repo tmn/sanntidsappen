@@ -18,7 +18,7 @@ class DepartureSearchResultCollectionViewCell: UICollectionViewCell {
     lazy var nameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.font = UIFont.systemFont(ofSize: 20)
-        label.textColor = .SAPink
+        label.textColor = UIColor.SA.Primary
         return label
     }()
 

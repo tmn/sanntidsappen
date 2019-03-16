@@ -35,6 +35,7 @@
 		A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */; };
 		A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */; };
 		A64D4AB8217357AD00937E8D /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB7217357AD00937E8D /* Feature.swift */; };
+		A65AC05B223DB48700F08EF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65AC05A223DB48700F08EF6 /* Colors.xcassets */; };
 		A66F8B3A217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */; };
 		A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */; };
 		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
@@ -102,6 +103,7 @@
 		A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
 		A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureViewControllerHeaderCell.swift; sourceTree = "<group>"; };
 		A64D4AB7217357AD00937E8D /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
+		A65AC05A223DB48700F08EF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewHeaderCell.xib; sourceTree = "<group>"; };
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				A64B9139216829F5004A88DB /* Assets.xcassets */,
+				A65AC05A223DB48700F08EF6 /* Colors.xcassets */,
 				A64B913E216829F5004A88DB /* Info.plist */,
 				A64B912F216829F5004A88DB /* AppDelegate.swift */,
 				A640E80F22397918004CEBC3 /* MainTabBarController.swift */,
@@ -411,6 +414,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A65AC05B223DB48700F08EF6 /* Colors.xcassets in Resources */,
 				A699D1922173684E0008F951 /* LICENSE.txt in Resources */,
 				A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */,
 				A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */,

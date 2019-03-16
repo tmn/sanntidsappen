@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         UINavigationBar.appearance().barTintColor = .white
-        UIBarButtonItem.appearance().tintColor = .SAPink
-        UITabBar.appearance().tintColor = .SAPink
+        UIBarButtonItem.appearance().tintColor = UIColor.SA.Primary
+        UITabBar.appearance().tintColor = UIColor.SA.Primary
 
         return true
     }

@@ -36,7 +36,7 @@ class DepartureDetailsCollectionViewHeaderCell: UICollectionViewCell {
 
         sectionHeaderLabel.font = UIFont.boldSystemFont(ofSize: 22)
         
-        expandButton.tintColor = .SAPink
+        expandButton.tintColor = UIColor.SA.Primary
         expandButton.titleLabel?.font = UIFont.systemFont(ofSize: 18)
 
         directionLabel.text = ""

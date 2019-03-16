@@ -22,14 +22,14 @@ class JourneyDetailsTableViewCell: UITableViewCell {
     lazy var timeStampLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.light)
-        label.textColor = .SAPink
+        label.textColor = UIColor.SA.Primary
         return label
     }()
 
     lazy var journeyLine: CALayer = {
         let line = CALayer()
         line.frame = CGRect(x: 84, y: 0, width: 3, height: 50)
-        line.backgroundColor = UIColor.SALightGray.cgColor
+        line.backgroundColor = UIColor.SA.LightGray.cgColor
         return line
     }()
 
@@ -38,7 +38,7 @@ class JourneyDetailsTableViewCell: UITableViewCell {
 
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.fillColor = UIColor.SALightGray.cgColor
+        shapeLayer.fillColor = UIColor.SA.LightGray.cgColor
 
         return shapeLayer
     }()

@@ -108,7 +108,7 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
         cell.selectionStyle = .none
 
         cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: tableView.rowHeight)
-        cell.journeyPoint.fillColor = UIColor.SALightGray.cgColor
+        cell.journeyPoint.fillColor = UIColor.SA.LightGray.cgColor
 
         cell.titleLabel.text = journey[indexPath.item].quay.name
         cell.timeStampLabel.text = formatTimeStamp(timeInString: journey[indexPath.item].aimedDepartureTime)
@@ -120,7 +120,7 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
         }
 
         if journey[indexPath.item].quay.id == departure.quay.id {
-            cell.journeyPoint.fillColor = UIColor.SAPink.cgColor
+            cell.journeyPoint.fillColor = UIColor.SA.Primary.cgColor
         }
 
         return cell
