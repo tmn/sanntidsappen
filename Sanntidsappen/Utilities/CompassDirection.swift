@@ -12,6 +12,7 @@ import Foundation
 struct CompassDirection {
     private var _compassBearing: Double = 0
 
+    /// Compass bearings in human readable text. I.e. "North East", "South", and more.
     var bearing: String {
         get {
             if (_compassBearing > 23 && _compassBearing <= 67) {

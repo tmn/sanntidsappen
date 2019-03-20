@@ -13,8 +13,12 @@ extension UIColor {
 
     struct SA {
         static let DarkBlue = UIColor(named: "SA Dark Blue")!
-        static let Primary = UIColor(named: "SA Primary")!
+
+        /// Light gray color used as a background color behind sections and more.
         static let LightGray = UIColor(named: "SA Light Gray")!
+
+        /// Primary color for Sanntidsappen.
+        static let Primary = UIColor(named: "SA Primary")!
     }
 
 }

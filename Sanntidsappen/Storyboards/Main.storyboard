@@ -5,41 +5,80 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Departure View Controller-->
-        <scene sceneID="avk-l5-Oaf">
+        <!--Departure Collection View Controller-->
+        <scene sceneID="7k1-hj-y5D">
             <objects>
-                <viewController storyboardIdentifier="DepartureViewController" id="5v3-6e-yEC" customClass="DepartureViewController" customModule="Sanntidsappen" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zQt-Ux-lQS">
+                <collectionViewController storyboardIdentifier="DepartureCollectionViewController" id="tlo-Qe-uCc" customClass="DepartureCollectionViewController" customModule="Sanntidsappen" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="2fn-tY-e8X">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Waa-3K-clk">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewLayout key="collectionViewLayout" id="rdQ-dM-Xm1"/>
-                                <cells/>
-                            </collectionView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="Waa-3K-clk" firstAttribute="leading" secondItem="Kbu-cp-8Pc" secondAttribute="leading" id="8NC-Fx-Rz9"/>
-                            <constraint firstItem="Kbu-cp-8Pc" firstAttribute="trailing" secondItem="Waa-3K-clk" secondAttribute="trailing" id="DZa-zg-YBB"/>
-                            <constraint firstItem="Waa-3K-clk" firstAttribute="top" secondItem="Kbu-cp-8Pc" secondAttribute="top" id="GUY-HZ-yVR"/>
-                            <constraint firstItem="Kbu-cp-8Pc" firstAttribute="bottom" secondItem="Waa-3K-clk" secondAttribute="bottom" id="hKQ-Sf-gcc"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="Kbu-cp-8Pc"/>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="Waa-3K-clk" id="ejJ-mc-r0E"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iO5-Xe-ZVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="1" minimumInteritemSpacing="0.0" id="NNz-KY-5nJ">
+                            <size key="itemSize" width="375" height="50"/>
+                            <size key="headerReferenceSize" width="50" height="65"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecentSearchCell" id="3d2-K3-A1U" customClass="RecentSearchCell" customModule="Sanntidsappen" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="65" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Solsiden" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CNj-yd-PEQ">
+                                            <rect key="frame" x="20" y="13" width="75" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" name="SA Primary"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="CNj-yd-PEQ" firstAttribute="centerY" secondItem="3d2-K3-A1U" secondAttribute="centerY" id="dgI-Bv-G8e"/>
+                                    <constraint firstItem="CNj-yd-PEQ" firstAttribute="leading" secondItem="3d2-K3-A1U" secondAttribute="leading" constant="20" id="h2R-u3-mcP"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="stopNameLabel" destination="CNj-yd-PEQ" id="v7Q-xc-Jpz"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="DepartureSearchSectionHeaderCell" id="lVf-Lr-4ox" customClass="DepartureSearchSectionHeaderCell" customModule="Sanntidsappen" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJ0-qG-CPM">
+                                    <rect key="frame" x="20" y="30.666666666666671" width="335" height="26.333333333333329"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="LJ0-qG-CPM" secondAttribute="bottom" constant="8" id="JTM-x6-cm9"/>
+                                <constraint firstItem="LJ0-qG-CPM" firstAttribute="leading" secondItem="lVf-Lr-4ox" secondAttribute="leading" constant="20" id="cx5-Q5-Veg"/>
+                                <constraint firstAttribute="trailing" secondItem="LJ0-qG-CPM" secondAttribute="trailing" constant="20" id="lxk-zZ-0GP"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="searchHeaderLabel" destination="LJ0-qG-CPM" id="KIp-D2-bZS"/>
+                            </connections>
+                        </collectionReusableView>
+                        <connections>
+                            <outlet property="dataSource" destination="tlo-Qe-uCc" id="qfl-6N-mFR"/>
+                            <outlet property="delegate" destination="tlo-Qe-uCc" id="pVi-uW-yib"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQC-Ja-AWV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.400000000000006" y="-179.55665024630542"/>
+            <point key="canvasLocation" x="775.20000000000005" y="-181.0344827586207"/>
         </scene>
         <!--About View Controller-->
         <scene sceneID="at0-b3-uaP">
@@ -88,4 +127,9 @@
             <point key="canvasLocation" x="-74" y="557"/>
         </scene>
     </scenes>
+    <resources>
+        <namedColor name="SA Primary">
+            <color red="1" green="0.18000000715255737" blue="0.33300000429153442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

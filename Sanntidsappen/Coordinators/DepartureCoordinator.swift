@@ -21,9 +21,10 @@ class DepartureCoordinator: Coordinator {
     }
 
     func start() {
-        let viewController = DepartureViewController.instantiate()
-        viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Departures", comment: "Find roudepartureste"), image: #imageLiteral(resourceName: "clock"), selectedImage: #imageLiteral(resourceName: "clock"))
+         let viewController = DepartureCollectionViewController.instantiate()
         viewController.coordinator = self
+        viewController.tabBarItem = UITabBarItem(title: NSLocalizedString("Departures", comment: "Find roudepartureste"), image: #imageLiteral(resourceName: "clock"), selectedImage: #imageLiteral(resourceName: "clock"))
+        viewController.title = NSLocalizedString("Search", comment: "Find departures")
 
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -56,13 +57,13 @@ class DepartureCoordinator: Coordinator {
 
 // MARK: - DELEGATES
 
-extension DepartureCoordinator: DepartureViewControllerDelegate {
+extension DepartureCoordinator: DepartureCollectionViewControllerDelegate {
     
-    func moveToDetailsViewController(from viewController: DepartureViewController, withStop stop: Stop) {
+    func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withStop stop: Stop) {
         self.showDetailedView(forStop: stop)
     }
     
-    func moveToDetailsViewController(from viewController: DepartureViewController, withDetailsView nextView: DepartureDetailsViewController) {
+    func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withDetailsView nextView: DepartureDetailsViewController) {
         self.showDetailedView(withViewController: nextView)
     }
     

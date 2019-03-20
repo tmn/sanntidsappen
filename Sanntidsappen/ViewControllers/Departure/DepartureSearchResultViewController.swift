@@ -39,7 +39,7 @@ class DepartureSearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        flowLayout = ColumnFlowLayout(minimumLineSpacing: 0, cellHeight: 65)
+        flowLayout = ColumnFlowLayout(minimumLineSpacing: 0, cellHeight: 56)
 
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -48,7 +48,7 @@ class DepartureSearchResultViewController: UIViewController {
 
         collectionView.alwaysBounceVertical = true
 
-        collectionView.register(DepartureSearchResultCollectionViewCell.self, forCellWithReuseIdentifier: DepartureSearchResultCollectionViewCell.identifier)
+        collectionView.register(UINib(nibName: SearchResultCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchResultCell.identifier)
         
         registerForPreviewing(with: self, sourceView: collectionView)
 
@@ -118,17 +118,13 @@ extension DepartureSearchResultViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DepartureSearchResultCollectionViewCell.identifier, for: indexPath) as! DepartureSearchResultCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCell.identifier, for: indexPath) as! SearchResultCell
 
-        cell.nameLabel.text = stops[indexPath.item].properties.name
-        cell.locationLabel.text = stops[indexPath.item].properties.locality + ", " + stops[indexPath.item].properties.county
+        cell.stopNameLabel.text = stops[indexPath.item].properties.name
+        cell.stopLocationLabel.text = stops[indexPath.item].properties.locality + ", " + stops[indexPath.item].properties.county
+
         cell.stop = stops[indexPath.item]
-
-        if indexPath.item == 0 {
-            cell.bottomLine.isHidden = true
-        } else {
-            cell.bottomLine.isHidden = false
-        }
+        cell.topLine.isHidden = indexPath.item == 0
 
         return cell
     }

@@ -23,31 +23,33 @@
 		A64D4A9B2171791E00937E8D /* TripCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4A9A2171791E00937E8D /* TripCoordinator.swift */; };
 		A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4A9C2171792F00937E8D /* DepartureCoordinator.swift */; };
 		A64D4A9F21717C8000937E8D /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4A9E21717C8000937E8D /* TripViewController.swift */; };
-		A64D4AA121717C8600937E8D /* DepartureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AA021717C8600937E8D /* DepartureViewController.swift */; };
 		A64D4AA32171945200937E8D /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AA22171945200937E8D /* HomeCoordinator.swift */; };
 		A64D4AA52171946100937E8D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AA42171946100937E8D /* HomeViewController.swift */; };
 		A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AA62171B1BE00937E8D /* ColumnFlowLayout.swift */; };
 		A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AA82171BFD300937E8D /* UIColor+hex.swift */; };
 		A64D4AAB21720A4800937E8D /* DepartureSearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */; };
-		A64D4AAD21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AAC21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift */; };
 		A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */; };
 		A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB121724FC100937E8D /* DepartureDetailsCollectionViewCell.swift */; };
 		A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */; };
-		A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */; };
 		A64D4AB8217357AD00937E8D /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB7217357AD00937E8D /* Feature.swift */; };
 		A65AC05B223DB48700F08EF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65AC05A223DB48700F08EF6 /* Colors.xcassets */; };
-		A66F8B3A217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */; };
+		A65AC05F223E5F0900F08EF6 /* DepartureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */; };
+		A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */; };
+		A65AC063223E65E900F08EF6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC062223E65E900F08EF6 /* SearchResultCell.swift */; };
+		A65AC065223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */; };
 		A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */; };
 		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
 		A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3F217C170C000B7697 /* StopRegisterData.swift */; };
 		A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */; };
 		A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */; };
 		A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */; };
+		A684B26522417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A684B26422417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift */; };
 		A699D1922173684E0008F951 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = A699D18F2173684D0008F951 /* LICENSE.txt */; };
 		A699D1932173684E0008F951 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1902173684D0008F951 /* README.md */; };
 		A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1912173684D0008F951 /* CONTRIBUTING.md */; };
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
 		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
+		A6EDF70622416C5100D608D2 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6EDF70522416C5100D608D2 /* SearchResultCell.xib */; };
 		A6F4469621A33519003CCD58 /* Haversine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F4469521A33519003CCD58 /* Haversine.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,31 +93,33 @@
 		A64D4A9A2171791E00937E8D /* TripCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCoordinator.swift; sourceTree = "<group>"; };
 		A64D4A9C2171792F00937E8D /* DepartureCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureCoordinator.swift; sourceTree = "<group>"; };
 		A64D4A9E21717C8000937E8D /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
-		A64D4AA021717C8600937E8D /* DepartureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureViewController.swift; sourceTree = "<group>"; };
 		A64D4AA22171945200937E8D /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		A64D4AA42171946100937E8D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A64D4AA62171B1BE00937E8D /* ColumnFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnFlowLayout.swift; sourceTree = "<group>"; };
 		A64D4AA82171BFD300937E8D /* UIColor+hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+hex.swift"; sourceTree = "<group>"; };
 		A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSearchResultViewController.swift; sourceTree = "<group>"; };
-		A64D4AAC21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
 		A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsViewController.swift; sourceTree = "<group>"; };
 		A64D4AB121724FC100937E8D /* DepartureDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
-		A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureViewControllerHeaderCell.swift; sourceTree = "<group>"; };
 		A64D4AB7217357AD00937E8D /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		A65AC05A223DB48700F08EF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
+		A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureCollectionViewController.swift; sourceTree = "<group>"; };
+		A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCell.swift; sourceTree = "<group>"; };
+		A65AC062223E65E900F08EF6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSearchSectionHeaderCell.swift; sourceTree = "<group>"; };
 		A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewHeaderCell.xib; sourceTree = "<group>"; };
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
 		A66F8B3F217C170C000B7697 /* StopRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegisterData.swift; sourceTree = "<group>"; };
 		A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStopSearchData.swift; sourceTree = "<group>"; };
 		A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		A684B26422417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
 		A699D18F2173684D0008F951 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		A699D1902173684D0008F951 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A699D1912173684D0008F951 /* CONTRIBUTING.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		A6EDF70522416C5100D608D2 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 		A6F4469521A33519003CCD58 /* Haversine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haversine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -239,7 +243,7 @@
 		A66F8B41217C9A86000B7697 /* Departure */ = {
 			isa = PBXGroup;
 			children = (
-				A64D4AA021717C8600937E8D /* DepartureViewController.swift */,
+				A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */,
 				A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */,
 				A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */,
 				A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */,
@@ -301,11 +305,13 @@
 				A64D4AA62171B1BE00937E8D /* ColumnFlowLayout.swift */,
 				A64D4AB121724FC100937E8D /* DepartureDetailsCollectionViewCell.swift */,
 				A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */,
-				A64D4AAC21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift */,
-				A64D4AB52172865600937E8D /* DepartureViewControllerHeaderCell.swift */,
-				A66F8B39217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift */,
+				A684B26422417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift */,
 				A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */,
+				A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */,
 				A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */,
+				A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */,
+				A65AC062223E65E900F08EF6 /* SearchResultCell.swift */,
+				A6EDF70522416C5100D608D2 /* SearchResultCell.xib */,
 			);
 			path = "Layouts and Cells";
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */,
 				A699D1932173684E0008F951 /* README.md in Resources */,
 				A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */,
+				A6EDF70622416C5100D608D2 /* SearchResultCell.xib in Resources */,
 				A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */,
 				A64B913D216829F5004A88DB /* LaunchScreen.storyboard in Resources */,
 				A64B913A216829F5004A88DB /* Assets.xcassets in Resources */,
@@ -447,35 +454,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A64D4AAD21721E0900937E8D /* DepartureSearchResultCollectionViewCell.swift in Sources */,
 				A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */,
-				A64D4AB62172865600937E8D /* DepartureViewControllerHeaderCell.swift in Sources */,
 				A64D4A9F21717C8000937E8D /* TripViewController.swift in Sources */,
 				A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */,
+				A65AC065223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift in Sources */,
 				A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */,
 				A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */,
+				A65AC05F223E5F0900F08EF6 /* DepartureCollectionViewController.swift in Sources */,
 				A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */,
 				A64D4A9B2171791E00937E8D /* TripCoordinator.swift in Sources */,
 				A64D4AAB21720A4800937E8D /* DepartureSearchResultViewController.swift in Sources */,
 				A64D4A9921714F1700937E8D /* EnTurAPI.swift in Sources */,
 				A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */,
 				A64AC528219A21D50079F79E /* Journey.swift in Sources */,
+				A65AC063223E65E900F08EF6 /* SearchResultCell.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
 				A6F4469621A33519003CCD58 /* Haversine.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,
+				A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */,
 				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,
-				A64D4AA121717C8600937E8D /* DepartureViewController.swift in Sources */,
 				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,
 				A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */,
 				A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */,
 				A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */,
 				A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */,
+				A684B26522417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */,
 				A64D4AA32171945200937E8D /* HomeCoordinator.swift in Sources */,
 				A64D4AA52171946100937E8D /* HomeViewController.swift in Sources */,
 				A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */,
-				A66F8B3A217BE63D000B7697 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */,
 				A64D4AB8217357AD00937E8D /* Feature.swift in Sources */,
 				A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */,
 			);

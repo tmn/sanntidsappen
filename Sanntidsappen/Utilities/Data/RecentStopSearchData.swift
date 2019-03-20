@@ -32,12 +32,14 @@ class RecentStopSearchData {
         request.sortDescriptors = [NSSortDescriptor(key: "dateAdded", ascending: false)]
         request.returnsObjectsAsFaults = false
 
-        do {
-            let result = try context.fetch(request) as! [RecentStopSearch]
-            completionHandler(result.map { $0.stop! })
-        } catch {
-            completionHandler([])
-            print("Failed to fetch from Core Data")
+        appDelegate.persistentContainer.performBackgroundTask() { (context) in
+            do {
+                let result = try context.fetch(request) as! [RecentStopSearch]
+                completionHandler(result.map { $0.stop! })
+            } catch {
+                completionHandler([])
+                print("Failed to fetch from Core Data")
+            }
         }
     }
 
@@ -47,23 +49,25 @@ class RecentStopSearchData {
         request.predicate = predicate
         request.returnsObjectsAsFaults = false
 
-        do {
-            let result = try context.fetch(request) as! [RecentStopSearch]
+        appDelegate.persistentContainer.performBackgroundTask() { [unowned self] (context) in
+            do {
+                let result = try context.fetch(request) as! [RecentStopSearch]
 
-            if result.count == 0 {
-                let newStop = NSManagedObject(entity: entity!, insertInto: context)
-                newStop.setValue(stop.properties.name, forKey: "stop")
-                newStop.setValue(Date(), forKey: "dateAdded")
+                if result.count == 0 {
+                    let newStop = NSManagedObject(entity: self.entity!, insertInto: context)
+                    newStop.setValue(stop.properties.name, forKey: "stop")
+                    newStop.setValue(Date(), forKey: "dateAdded")
 
-                try context.save()
+                    try context.save()
 
-                self.cleanupRecentStopSearchCoreData() { _ in
-                    self.getRecentSearchFromCoreData() { completionHandler($0) }
+                    self.cleanupRecentStopSearchCoreData() { _ in
+                        self.getRecentSearchFromCoreData() { completionHandler($0) }
+                    }
                 }
+            } catch {
+                print("Failed to fetch from Core Data")
+                completionHandler([])
             }
-        } catch {
-            print("Failed to fetch from Core Data")
-            completionHandler([])
         }
     }
 
@@ -71,23 +75,25 @@ class RecentStopSearchData {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecentStopSearch")
         request.returnsObjectsAsFaults = false
 
-        do {
-            let result = (try context.fetch(request) as! [RecentStopSearch])
-            var elementsToDelete = 0
+        appDelegate.persistentContainer.performBackgroundTask() { (context) in
+            do {
+                let result = (try context.fetch(request) as! [RecentStopSearch])
+                var elementsToDelete = 0
 
-            if result.count > 3 {
-                elementsToDelete = result.count - 3
+                if result.count > 3 {
+                    elementsToDelete = result.count - 3
 
-                for index in 0..<elementsToDelete {
-                    context.delete(result[index])
+                    for index in 0..<elementsToDelete {
+                        context.delete(result[index])
+                    }
+
+                    try context.save()
                 }
-
-                try context.save()
+                completionHandler(true)
+            } catch {
+                print("Failed to fetch from Core Data")
+                completionHandler(false)
             }
-            completionHandler(true)
-        } catch {
-            print("Failed to fetch from Core Data")
-            completionHandler(false)
         }
     }
 

@@ -45,9 +45,9 @@ class EnTurAPI {
         }
 
         guard let geocoderURLString = sanntidsappenAPIs["Geocoder"] as? String,
-        let journeyPlannerURLString = sanntidsappenAPIs["Journey Planner"] as? String,
-        let stopRegisterURLString = sanntidsappenAPIs["Stop Register"] as? String else {
-            preconditionFailure("Missing API URLs")
+            let journeyPlannerURLString = sanntidsappenAPIs["Journey Planner"] as? String,
+            let stopRegisterURLString = sanntidsappenAPIs["Stop Register"] as? String else {
+                preconditionFailure("Missing API URLs")
         }
 
         switch (apiType) {

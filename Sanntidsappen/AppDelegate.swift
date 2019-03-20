@@ -13,12 +13,19 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var coordinator: DepartureCoordinator? // To be removed when tab bar is back
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+        // To be removed when tab bar is back
+        let navigationController = UINavigationController()
+        coordinator = DepartureCoordinator(navigationController: navigationController)
+        coordinator?.start()
+        // ----------------------------------
+
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = MainTabBarController()
+        window?.rootViewController = navigationController // MainTabBarController() // re-insert MainTabBarController when using tab bar
         window?.makeKeyAndVisible()
 
         UINavigationBar.appearance().barTintColor = .white

@@ -43,7 +43,7 @@ class DepartureDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        flowLayout = ColumnFlowLayout()
+        flowLayout = ColumnFlowLayout(cellHeight: 56)
 
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView.backgroundColor = UIColor.SA.LightGray
@@ -67,52 +67,47 @@ class DepartureDetailsViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
 
-        self.requestData()
+        requestData()
     }
 
-}
-
-extension DepartureDetailsViewController {
+    @objc func showErrorAlert() {
+        let alertController = UIAlertController(title: NSLocalizedString("Oh, no!", comment: "Something wrong happened on network request"), message: NSLocalizedString("An error has occured. Make sure your phone is connected to the Internet and try again.", comment: "Try again"), preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: "Try again"), style: .default) { _ in
+            self.requestData()
+        })
+        present(alertController, animated: true)
+    }
 
     @objc func requestData() {
-        EnTurAPI.journeyPlanner.getStopPlace(for: self.stop) { res in
+        EnTurAPI.journeyPlanner.getStopPlace(for: stop) { [weak self] res in
+            switch res {
+            case .success(let value):
+                let segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay })
 
-            DispatchQueue.main.async {
-                switch res {
-                case .success(let value):
-                    self.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay })
+                // Preserve sort by Quay ID
+                self?.sortedSections = segmentedDepartures.keys.map { $0 }.sorted(by: { $0.id.split(separator: ":").last ?? "" < $1.id.split(separator: ":").last ?? "" })
 
-                    // Preserve sort by Quay ID
-                    self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.id.split(separator: ":").last ?? "" < $1.id.split(separator: ":").last ?? "" })
+                // Sort by publicCode if exist - not all quays have publicCode
+                self?.sortedSections = segmentedDepartures.keys.map { $0 }.sorted(by: { $0.publicCode < $1.publicCode })
 
-                    // Sort by publicCode if exist - not all quays have publicCode
-                    self.sortedSections = self.segmentedDepartures.keys.map { $0 }.sorted(by: { $0.publicCode < $1.publicCode })
+                self?.segmentedDepartures = segmentedDepartures
 
-                    self.collectionView.reloadData()
+                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
 
-                case .failure(_):
-                    let alertController = UIAlertController(title: NSLocalizedString("Oh, no!", comment: "Something wrong happened on network request"), message: NSLocalizedString("An error has occured. Make sure your phone is connected to the Internet and try again.", comment: "Try again"), preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
-                    alertController.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: "Try again"), style: .default) { _ in
-                        self.requestData()
-                    })
-                    self.present(alertController, animated: true)
-                }
-
-                self.refresher.endRefreshing()
+            case .failure(_):
+                self?.performSelector(onMainThread: #selector(self?.showErrorAlert), with: nil, waitUntilDone: false)
             }
+
+            self?.refresher.performSelector(onMainThread: #selector(UIRefreshControl.endRefreshing), with: nil, waitUntilDone: false)
         }
 
-        EnTurAPI.stopRegister.getQuayInformation(for: self.stop) { res in
-
+        EnTurAPI.stopRegister.getQuayInformation(for: self.stop) { [weak self] res in
             switch res {
             case .success(let value):
                 if let data = value.data {
-                    self.quays = Dictionary(grouping: data.stopPlace[0].quays, by: { $0.id })
-
-                    DispatchQueue.main.async {
-                        self.collectionView.reloadData()
-                    }
+                    self?.quays = Dictionary(grouping: data.stopPlace[0].quays, by: { $0.id })
+                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 }
 
             case .failure(let error):
@@ -120,10 +115,6 @@ extension DepartureDetailsViewController {
             }
         }
     }
-
-}
-
-extension DepartureDetailsViewController {
 
     func formatTimestamp(from date: Date) -> String {
         let returnDateFormatter = DateFormatter()
@@ -209,8 +200,9 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
         cell.destinationLabel.text = departure.destinationDisplay.frontText
         cell.aimedTimeLabel.text = getAimedTimeLabel(aimedTime: departure.aimedArrivalTime)
         cell.newTimeLabel.text = getNewTimeLabel(aimedTime: departure.aimedArrivalTime, expectedTime: departure.expectedArrivalTime)
-
         cell.expectedTimeLable.text = formatExpectedTimeLabel(string: departure.expectedArrivalTime, isRealtime: departure.realtime)
+
+        cell.topLine.isHidden = indexPath.item == 0
 
         return cell
     }
