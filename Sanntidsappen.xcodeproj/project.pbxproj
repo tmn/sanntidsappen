@@ -111,6 +111,7 @@
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
 		A66F8B3F217C170C000B7697 /* StopRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegisterData.swift; sourceTree = "<group>"; };
 		A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStopSearchData.swift; sourceTree = "<group>"; };
+		A6739F1F2241FD6200506B09 /* Trondheim.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Trondheim.gpx; sourceTree = "<group>"; };
 		A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
 		A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		A684B26422417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewHeaderCell.swift; sourceTree = "<group>"; };
@@ -181,6 +182,7 @@
 				A640E80F22397918004CEBC3 /* MainTabBarController.swift */,
 				A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */,
 				A6BE90FB216EAE510025C33B /* Coordinators */,
+				A6739F212241FF6B00506B09 /* Locations */,
 				A64D4A9521714E8A00937E8D /* Model */,
 				A6BE90FA216EAE310025C33B /* Protocols */,
 				A6BE90F9216EAE170025C33B /* Storyboards */,
@@ -257,6 +259,14 @@
 				A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		A6739F212241FF6B00506B09 /* Locations */ = {
+			isa = PBXGroup;
+			children = (
+				A6739F1F2241FD6200506B09 /* Trondheim.gpx */,
+			);
+			path = Locations;
 			sourceTree = "<group>";
 		};
 		A6BE90F8216EACDA0025C33B /* ViewControllers */ = {
