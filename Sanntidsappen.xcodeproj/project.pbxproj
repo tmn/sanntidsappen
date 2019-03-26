@@ -397,10 +397,12 @@
 					};
 					A64B9142216829F6004A88DB = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = A64B912B216829F5004A88DB;
 					};
 					A64B914D216829F6004A88DB = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						TestTargetID = A64B912B216829F5004A88DB;
 					};
 				};
@@ -675,7 +677,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.sanntidsappen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -697,7 +699,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.sanntidsappen;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -717,7 +719,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.SanntidsappenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sanntidsappen.app/Sanntidsappen";
 			};
@@ -738,7 +740,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.SanntidsappenTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sanntidsappen.app/Sanntidsappen";
 			};
@@ -758,7 +760,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.SanntidsappenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Sanntidsappen;
 			};
@@ -778,7 +780,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.SanntidsappenUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = Sanntidsappen;
 			};

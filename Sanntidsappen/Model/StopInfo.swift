@@ -44,8 +44,8 @@ struct Quay: Codable, Hashable {
     let publicCode: String
     let description: String?
 
-    var hashValue: Int {
-        return id.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id.hashValue)
     }
 
     static func == (lhs: Quay, rhs: Quay) -> Bool {
