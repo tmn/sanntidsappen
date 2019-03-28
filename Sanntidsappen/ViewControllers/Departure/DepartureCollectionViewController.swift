@@ -192,7 +192,11 @@ extension DepartureCollectionViewController {
 
         case .authorizedWhenInUse, .authorizedAlways:
             startReceivingUserLocation()
+
+        @unknown default:
+            print("Location Manager case not handled")
         }
+        
     }
 
     func startReceivingUserLocation() {
@@ -304,6 +308,9 @@ extension DepartureCollectionViewController: CLLocationManagerDelegate {
 
         case .notDetermined, .authorizedAlways:
             print("HMMM")
+
+        @unknown default:
+            print("Location Manager case not handled")
         }
     }
 
