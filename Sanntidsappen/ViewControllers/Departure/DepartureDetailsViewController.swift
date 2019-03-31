@@ -83,16 +83,8 @@ class DepartureDetailsViewController: UIViewController {
         EnTurAPI.journeyPlanner.getStopPlace(for: stop) { [weak self] res in
             switch res {
             case .success(let value):
-                let segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by:{ ($0 as EstimatedCall).quay })
-
-                // Preserve sort by Quay ID
-                self?.sortedSections = segmentedDepartures.keys.map { $0 }.sorted(by: { $0.id.split(separator: ":").last ?? "" < $1.id.split(separator: ":").last ?? "" })
-
-                // Sort by publicCode if exist - not all quays have publicCode
-                self?.sortedSections = segmentedDepartures.keys.map { $0 }.sorted(by: { $0.publicCode < $1.publicCode })
-
-                self?.segmentedDepartures = segmentedDepartures
-
+                self?.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by: { ($0 as EstimatedCall).quay })
+                self?.sortedSections = self?.segmentedDepartures.keys.sorted() ?? []
                 self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
 
             case .failure(_):
