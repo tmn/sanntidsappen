@@ -9,11 +9,6 @@
 
 import Foundation
 
-enum Result<Value> {
-    case success(Value)
-    case failure(Error)
-}
-
 enum EnTurAPIType {
     case geocoder
     case journeyPlanner
@@ -80,13 +75,13 @@ class EnTurAPI {
 
 extension EnTurAPI {
 
-    fileprivate func get<T: Decodable>(path: String?, completionHandler: @escaping (Result<T>) -> Void) {
+    fileprivate func get<T: Decodable>(path: String?, completionHandler: @escaping (Result<T, Error>) -> Void) {
         request = createRequestObject(path: path)
 
         doRequest(request: request, completionHandler: completionHandler)
     }
 
-    fileprivate func post<T: Decodable>(body: Dictionary<String, String>, completionHandler: @escaping (Result<T>) -> Void) {
+    fileprivate func post<T: Decodable>(body: Dictionary<String, String>, completionHandler: @escaping (Result<T, Error>) -> Void) {
         request = createRequestObject(path: nil)
 
         request.httpMethod = "POST"
@@ -96,25 +91,25 @@ extension EnTurAPI {
         doRequest(request: request, completionHandler: completionHandler)
     }
 
-    fileprivate func doRequest<T: Decodable>(request: URLRequest, completionHandler: @escaping (Result<T>) -> Void) {
+    fileprivate func doRequest<T: Decodable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                completionHandler(Result.failure(error))
+                completionHandler(.failure(error))
                 return
             }
 
             guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode),
                 let data = data else {
-                    completionHandler(Result.failure(NSError(domain: "Network Service", code: 1, userInfo: nil)))
+                    completionHandler(.failure(NSError(domain: "Network Service", code: 1, userInfo: nil)))
                     return
             }
 
             do {
                 let decodedData = try JSONDecoder().decode(T.self, from: data)
-                completionHandler(Result.success(decodedData))
+                completionHandler(.success(decodedData))
             } catch let jsonError {
-                completionHandler(Result.failure(jsonError))
+                completionHandler(.failure(jsonError))
             }
         }
 
@@ -127,13 +122,13 @@ extension EnTurAPI {
 
 class EnTurAPIGeocoder: EnTurAPI {
 
-    func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Feature>) -> Void) {
+    func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Feature, Error>) -> Void) {
         let path = String(format: "autocomplete?text=\(searchQuery)&layers=venue")
 
         get(path: path, completionHandler: completionHandler)
     }
 
-    func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Feature>) -> Void) {
+    func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Feature, Error>) -> Void) {
         let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=5&layers=venue"
 
         get(path: path, completionHandler: completionHandler)
@@ -146,7 +141,7 @@ class EnTurAPIGeocoder: EnTurAPI {
 
 class EnTurAPIJourneyPlanner: EnTurAPI {
 
-    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo>) -> Void) {
+    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo, Error>) -> Void) {
         let dateFormatter = ISO8601DateFormatter()
 
         let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name publicCode description } serviceJourney { id journeyPattern { line { publicCode transportMode } } } } } }"
@@ -156,7 +151,7 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
         post(body: body, completionHandler: completionHandler)
     }
 
-    func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey.Journey>) -> Void) {
+    func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey.Journey, Error>) -> Void) {
         let query = "{ serviceJourney(id: \"\(journeyId)\") { estimatedCalls(date: \"\(date)\") { aimedDepartureTime expectedDepartureTime quay { id name stopPlace { description } } } } }"
 
         let body = ["query": query]
@@ -171,7 +166,7 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
 
 class StopRegister: EnTurAPI {
 
-    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegisterData>) -> Void) {
+    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegisterData, Error>) -> Void) {
         let query = "{ stopPlace(id: \"\(stop.properties.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
         let body = ["query": query]
 
