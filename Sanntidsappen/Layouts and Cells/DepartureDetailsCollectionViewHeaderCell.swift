@@ -26,7 +26,7 @@ class DepartureDetailsCollectionViewHeaderCell: UICollectionViewCell {
     var compassDirection: CompassDirection? {
         didSet {
             if let direction = compassDirection?.bearing {
-                directionLabel.text = "Direction: \(direction)"
+                directionLabel.text = String(format: NSLocalizedString("Direction: %@", comment: "Quay direction"), direction)
             }
         }
     }

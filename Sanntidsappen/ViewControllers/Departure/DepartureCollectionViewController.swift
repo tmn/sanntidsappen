@@ -18,8 +18,15 @@ protocol DepartureCollectionViewControllerDelegate: AnyObject {
 }
 
 enum DepartureSearchSection: String, CaseIterable {
-    case recent = "Recent"
-    case nearby = "Nearby"
+    case recent
+    case nearby
+
+    var title: String {
+        switch self {
+        case .recent: return NSLocalizedString("Recent", comment: "Recent searches")
+        case .nearby: return NSLocalizedString("Nearby", comment: "Nearby stops")
+        }
+    }
 }
 
 class DepartureCollectionViewController: UICollectionViewController, Storyboarded, UICollectionViewDelegateFlowLayout {
@@ -53,7 +60,7 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
 
         searchController = UISearchController(searchResultsController: searchResultController)
         searchController.searchResultsUpdater = self
-        searchController.searchBar.placeholder = NSLocalizedString("Bus Stops", comment: "Search bus stops")
+        searchController.searchBar.placeholder = NSLocalizedString("Search stops", comment: "Search stops")
 
         // TODO: support older OS?
         if #available(iOS 11.0, *) {
@@ -116,7 +123,7 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
             fatalError("Unable to dequeue DepartureSearchSectionHeaderCell")
         }
 
-        cell.searchHeaderLabel.text = DepartureSearchSection.allCases[indexPath.section].rawValue
+        cell.searchHeaderLabel.text = DepartureSearchSection.allCases[indexPath.section].title
 
         return cell
     }

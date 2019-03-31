@@ -140,7 +140,7 @@ class DepartureDetailsViewController: UIViewController {
         let dateFormatter = ISO8601DateFormatter()
         let aimedTimeDate = dateFormatter.date(from: aimedTime)!
 
-        return "Rutetid: \(formatTimestamp(from: aimedTimeDate))"
+        return String(format: NSLocalizedString("Aimed time: %@", comment: "Aimed departure time"), formatTimestamp(from: aimedTimeDate))
     }
 
     func getNewTimeLabel(aimedTime: String, expectedTime: String) -> String {

@@ -16,21 +16,21 @@ struct CompassDirection {
     var bearing: String {
         get {
             if (_compassBearing > 23 && _compassBearing <= 67) {
-                return "North East"
+                return NSLocalizedString("North East", comment: "Direction: North East")
             } else if (_compassBearing > 68 && _compassBearing <= 112) {
-                return "East"
+                return NSLocalizedString("East", comment: "Direction: East")
             } else if (_compassBearing > 113 && _compassBearing <= 167) {
-                return "South East"
+                return NSLocalizedString("South East", comment: "Direction: South East")
             } else if (_compassBearing > 168 && _compassBearing <= 202) {
-                return "South"
+                return NSLocalizedString("South", comment: "Direction: South")
             } else if (_compassBearing > 203 && _compassBearing <= 247) {
-                return "South West"
+                return NSLocalizedString("South West", comment: "Direction: South West")
             } else if (_compassBearing > 248 && _compassBearing <= 293) {
-                return "West"
+                return NSLocalizedString("West", comment: "Direction: West")
             } else if (_compassBearing > 294 && _compassBearing <= 337) {
-                return "North West"
+                return NSLocalizedString("North West", comment: "Direction: North West")
             } else { // (_compassBearing >= 338 || _compassBearing <= 22)
-                return "North"
+                return NSLocalizedString("North", comment: "Direction: North")
             }
         }
         set {
