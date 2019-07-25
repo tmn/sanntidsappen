@@ -692,9 +692,9 @@
 		A64B9158216829F6004A88DB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_ENTUR_GEOCODER = "https://api.entur.org/api/geocoder/1.1/";
-				API_ENTUR_JOURNEYPLANNER = "https://api.entur.org/journeyplanner/2.0/index/graphql";
-				API_ENTUR_STOPREGISTER = "https://api.entur.org/stop_places/1.0/graphql";
+				API_ENTUR_GEOCODER = "https://api.entur.io/geocoder/v1/";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v2/graphql";
+				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;
@@ -714,9 +714,9 @@
 		A64B9159216829F6004A88DB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				API_ENTUR_GEOCODER = "https://api.entur.org/api/geocoder/1.1/";
-				API_ENTUR_JOURNEYPLANNER = "https://api.entur.org/journeyplanner/2.0/index/graphql";
-				API_ENTUR_STOPREGISTER = "https://api.entur.org/stop_places/1.0/graphql";
+				API_ENTUR_GEOCODER = "https://api.entur.io/geocoder/v1/";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v2/graphql";
+				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;

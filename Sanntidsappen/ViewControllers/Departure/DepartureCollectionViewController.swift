@@ -223,7 +223,6 @@ extension DepartureCollectionViewController {
             case .failure:
                 self?.performSelector(onMainThread: #selector(self?.showErrorAlert(lastLocation:)), with: nil, waitUntilDone: false)
             }
-
         }
     }
 
