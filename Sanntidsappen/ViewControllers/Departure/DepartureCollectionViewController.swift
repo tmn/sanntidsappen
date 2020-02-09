@@ -150,11 +150,7 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
             (cell as? SearchResultCell)?.stopLocationLabel.textColor = .lightGray
         }
 
-        if #available(iOS 13.0, *) {
-            cell?.contentView.backgroundColor = .systemBackground
-        } else {
-            cell?.contentView.backgroundColor = .white
-        }
+        cell?.contentView.backgroundColor = UITableView().backgroundColor
     }
 
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
