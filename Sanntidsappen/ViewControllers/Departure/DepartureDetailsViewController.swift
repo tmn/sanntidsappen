@@ -258,7 +258,7 @@ extension DepartureDetailsViewController: DepartureDetailsCollectionViewHeaderCe
             self.expandedSection = number
         }
 
-        self.collectionView.reloadData()
+        self.collectionView.reloadSections(IndexSet(integersIn: 0..<self.collectionView.numberOfSections))
 
         if expandedSection > -1 {
             if let attributes = self.collectionView.collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: number)) {
