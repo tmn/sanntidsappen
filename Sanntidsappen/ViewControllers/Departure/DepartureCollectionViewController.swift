@@ -124,6 +124,20 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
 
         cell.searchHeaderLabel.text = DepartureSearchSection.allCases[indexPath.section].title
 
+        if indexPath.section == 0 {
+            if recentStopSearch.count == 0 {
+                cell.isHidden = true
+            } else {
+                cell.isHidden = false
+            }
+        } else {
+            if nearbyStops.count == 0 {
+                cell.isHidden = true
+            } else {
+                cell.isHidden = false
+            }
+        }
+
         return cell
     }
 
