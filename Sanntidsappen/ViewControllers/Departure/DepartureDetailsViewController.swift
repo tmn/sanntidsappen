@@ -261,7 +261,9 @@ extension DepartureDetailsViewController: DepartureDetailsCollectionViewHeaderCe
         self.collectionView.reloadData()
 
         if expandedSection > -1 {
-            self.collectionView.scrollToItem(at: IndexPath(row: 0, section: expandedSection), at: .centeredVertically, animated: true)
+            if let attributes = self.collectionView.collectionViewLayout.layoutAttributesForSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, at: IndexPath(item: 0, section: number)) {
+                self.collectionView.setContentOffset(CGPoint(x: 0, y: attributes.frame.origin.y - 120), animated: true)
+            }
         }
     }
 
