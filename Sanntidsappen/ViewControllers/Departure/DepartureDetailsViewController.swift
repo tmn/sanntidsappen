@@ -52,9 +52,7 @@ class DepartureDetailsViewController: UIViewController {
         collectionView.alwaysBounceVertical = true
 
         if #available(iOS 13.0, *) {
-            collectionView.backgroundColor = .systemBackground
-        } else {
-            collectionView.backgroundColor = .white
+            collectionView.backgroundColor = .systemGroupedBackground
         }
 
         flowLayout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 60)
