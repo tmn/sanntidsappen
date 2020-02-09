@@ -87,9 +87,23 @@ class DepartureDetailsViewController: UIViewController {
         EnTurAPI.journeyPlanner.getStopPlace(for: stop) { [weak self] res in
             switch res {
             case .success(let value):
-                self?.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by: { ($0 as EstimatedCall).quay })
-                self?.sortedSections = self?.segmentedDepartures.keys.sorted() ?? []
-                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                if (value.data.stopPlace.estimatedCalls.count == 0) {
+                    DispatchQueue.main.async {
+                        if let _collectionView = self?.collectionView {
+                            _collectionView.isScrollEnabled = false
+                            _collectionView.backgroundView = NoResultsView(frame: _collectionView.bounds)
+                        }
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self?.collectionView.isScrollEnabled = true
+                        self?.collectionView.backgroundView = nil
+                    }
+
+                    self?.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by: { ($0 as EstimatedCall).quay })
+                    self?.sortedSections = self?.segmentedDepartures.keys.sorted() ?? []
+                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                }
 
             case .failure(_):
                 self?.performSelector(onMainThread: #selector(self?.showErrorAlert), with: nil, waitUntilDone: false)
