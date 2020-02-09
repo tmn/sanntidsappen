@@ -43,7 +43,7 @@ class DepartureSearchResultViewController: UIViewController {
 
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: flowLayout)
         collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .white
+
         collectionView.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
 
         collectionView.alwaysBounceVertical = true
@@ -53,6 +53,12 @@ class DepartureSearchResultViewController: UIViewController {
         registerForPreviewing(with: self, sourceView: collectionView)
 
         view.addSubview(collectionView)
+
+        if #available(iOS 13.0, *) {
+            collectionView.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
+        }
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -67,13 +73,26 @@ extension DepartureSearchResultViewController: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.contentView.backgroundColor = .white
+        
+        (cell as? SearchResultCell)?.topLine.backgroundColor = UITableView().separatorColor?.cgColor
+        (cell as? SearchResultCell)?.stopNameLabel.textColor = UIColor.SA.Primary
+        (cell as? SearchResultCell)?.stopLocationLabel.textColor = .lightGray
+        
+        if #available(iOS 13.0, *) {
+            cell?.contentView.backgroundColor = .systemBackground
+        } else {
+            cell?.contentView.backgroundColor = .white
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
-        cell?.contentView.backgroundColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 0.85)
-        cell?.contentView.layer.cornerRadius = 5
+        
+        (cell as? SearchResultCell)?.topLine.backgroundColor = UIColor.SA.Primary.cgColor
+        (cell as? SearchResultCell)?.stopNameLabel.textColor = .white
+        (cell as? SearchResultCell)?.stopLocationLabel.textColor = .white
+        
+        cell?.contentView.backgroundColor = UIColor.SA.Primary
         cell?.contentView.clipsToBounds = true
     }
 

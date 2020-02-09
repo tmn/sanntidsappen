@@ -51,6 +51,12 @@ class DepartureDetailsViewController: UIViewController {
         collectionView.layoutMargins = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
         collectionView.alwaysBounceVertical = true
 
+        if #available(iOS 13.0, *) {
+            collectionView.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
+        }
+
         flowLayout.headerReferenceSize = CGSize(width: collectionView.frame.width, height: 60)
 
         refresher = UIRefreshControl()

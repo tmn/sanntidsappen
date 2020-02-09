@@ -33,8 +33,6 @@ class DepartureDetailsJourneyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .white
-
 
         tableView = UITableView(frame: view.bounds)
         tableView.separatorStyle = .none

@@ -62,11 +62,8 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = NSLocalizedString("Search stops", comment: "Search stops")
 
-        // TODO: support older OS?
-        if #available(iOS 11.0, *) {
-            navigationItem.searchController = searchController
-            navigationItem.hidesSearchBarWhenScrolling = false
-        }
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
 
         searchController.delegate = self
         searchController.searchBar.delegate = self
@@ -143,15 +140,19 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
         let cell = collectionView.cellForItem(at: indexPath)
 
         if indexPath.section == 0 {
-            (cell as? RecentSearchCell)?.topLine.backgroundColor = UIColor.lightGray.cgColor
+            (cell as? RecentSearchCell)?.topLine.backgroundColor = UITableView().separatorColor?.cgColor
             (cell as? RecentSearchCell)?.stopNameLabel.textColor = UIColor.SA.Primary
         } else {
-            (cell as? SearchResultCell)?.topLine.backgroundColor = UIColor.lightGray.cgColor
+            (cell as? SearchResultCell)?.topLine.backgroundColor = UITableView().separatorColor?.cgColor
             (cell as? SearchResultCell)?.stopNameLabel.textColor = UIColor.SA.Primary
             (cell as? SearchResultCell)?.stopLocationLabel.textColor = .lightGray
         }
 
-        cell?.contentView.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            cell?.contentView.backgroundColor = .systemBackground
+        } else {
+            cell?.contentView.backgroundColor = .white
+        }
     }
 
     override func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {

@@ -24,5 +24,5 @@ struct StopRegisterStopPlaceData: Codable {
 
 struct StopRegisterQuay: Codable {
     let id: String
-    let compassBearing: Double
+    let compassBearing: Double?
 }

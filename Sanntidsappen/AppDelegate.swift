@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // To be removed when tab bar is back
         let navigationController = UINavigationController()
+
+        if #available(iOS 13.0, *) {
+            let navigationBarAppearance = UINavigationBarAppearance()
+            navigationBarAppearance.configureWithOpaqueBackground()
+            navigationBarAppearance.shadowColor = .clear
+
+            navigationController.navigationBar.standardAppearance = navigationBarAppearance
+            navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance
+        }
+
         coordinator = DepartureCoordinator(navigationController: navigationController)
         coordinator?.start()
         // ----------------------------------
@@ -28,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navigationController // MainTabBarController() // re-insert MainTabBarController when using tab bar
         window?.makeKeyAndVisible()
 
-        UINavigationBar.appearance().barTintColor = .white
         UIBarButtonItem.appearance().tintColor = UIColor.SA.Primary
         UITabBar.appearance().tintColor = UIColor.SA.Primary
 
@@ -105,4 +114,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
+
 
