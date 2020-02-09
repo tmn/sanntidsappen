@@ -108,6 +108,12 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
         cell.journeyLine.frame = CGRect(x: 84, y: 0, width: 3, height: tableView.rowHeight)
         cell.journeyPoint.fillColor = UIColor.SA.LightGray.cgColor
 
+        if #available(iOS 13.0, *) {
+            cell.journeyPointBorder.strokeColor = UIColor.systemBackground.cgColor
+        } else {
+            cell.journeyPointBorder.strokeColor = UIColor.white.cgColor
+        }
+
         cell.titleLabel.text = journey[indexPath.item].quay.name
         cell.timeStampLabel.text = formatTimeStamp(timeInString: journey[indexPath.item].aimedDepartureTime)
 
@@ -119,6 +125,7 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
 
         if journey[indexPath.item].quay.id == departure.quay.id {
             cell.journeyPoint.fillColor = UIColor.SA.Primary.cgColor
+            cell.journeyPointBorder.strokeColor = UIColor.SA.Primary.cgColor
         }
 
         return cell

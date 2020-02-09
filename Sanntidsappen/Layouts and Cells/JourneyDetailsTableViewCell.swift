@@ -43,6 +43,21 @@ class JourneyDetailsTableViewCell: UITableViewCell {
         return shapeLayer
     }()
 
+    lazy var journeyPointBorder: CAShapeLayer = {
+        let path = CAShapeLayer()
+
+        path.fillColor = UIColor.clear.cgColor
+
+        if #available(iOS 13.0, *) {
+            path.strokeColor = UIColor.systemBackground.cgColor
+        } else {
+            path.strokeColor = UIColor.white.cgColor
+        }
+
+        path.lineWidth = 5
+        return path;
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -54,6 +69,9 @@ class JourneyDetailsTableViewCell: UITableViewCell {
 
         contentView.layer.addSublayer(journeyLine)
         contentView.layer.addSublayer(journeyPoint)
+
+        journeyPointBorder.path = journeyPoint.path
+        contentView.layer.addSublayer(journeyPointBorder)
 
         timeStampLabel.translatesAutoresizingMaskIntoConstraints = false
         timeStampLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 24).isActive = true
