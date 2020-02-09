@@ -17,7 +17,7 @@ struct StopData: Codable {
     let stopPlace: StopPlace
 }
 
-struct StopPlace: Codable {
+struct StopPlace: Codable, Identifiable {
     let id: String
     let name: String
     let estimatedCalls: [EstimatedCall]
@@ -38,10 +38,10 @@ struct DestinationDisplay: Codable {
     let frontText: String
 }
 
-struct Quay: Codable, Hashable, Comparable {
+struct Quay: Codable, Hashable, Comparable, Identifiable {
     let id: String
     let name: String
-    let publicCode: String
+    let publicCode: String = ""
     let description: String?
 
     func hash(into hasher: inout Hasher) {
