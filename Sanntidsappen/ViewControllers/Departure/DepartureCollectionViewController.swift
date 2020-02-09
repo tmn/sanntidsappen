@@ -231,6 +231,7 @@ extension DepartureCollectionViewController {
             switch res {
             case .success(let value):
                 self?.nearbyStops = value.features
+
                 DispatchQueue.main.async {
                     self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 }
@@ -359,7 +360,10 @@ extension DepartureCollectionViewController: DepartureSearchResultViewController
 
         RecentStopSearchData.shared.saveSearchToCoreData(stop: stop) { [weak self] stops in
             self?.recentStopSearch = stops
-            self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+
+            DispatchQueue.main.async {
+                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+            }
         }
 
         coordinator?.moveToDetailsViewController(from: self, withStop: stop)
@@ -373,7 +377,10 @@ extension DepartureCollectionViewController: DepartureSearchResultViewController
     func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController) {
         RecentStopSearchData.shared.saveSearchToCoreData(stop: viewControllerToCommit.stop) { [weak self] stops in
             self?.recentStopSearch = stops
-            self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false) //.reloadData()
+
+            DispatchQueue.main.async {
+                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false) //.reloadData()
+            }
         }
 
         self.coordinator?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit)
