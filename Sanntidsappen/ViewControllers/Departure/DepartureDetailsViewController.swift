@@ -226,7 +226,10 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
 
         if let quays = self.quays,
             let quay = quays[sortedSections[indexPath.section].id]?[0] {
-            headerView.compassDirection = CompassDirection(bearing: String(format: "%.0f", quay.compassBearing))
+
+            if let compassBearing = quay.compassBearing {
+                headerView.compassDirection = CompassDirection(bearing: String(format: "%.0f", compassBearing))
+            }
         }
 
         return headerView
