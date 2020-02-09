@@ -72,7 +72,9 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
 
         RecentStopSearchData.shared.getRecentSearchFromCoreData() { [weak self] stops in
             self?.recentStopSearch = stops
-            self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+            DispatchQueue.main.async {
+                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+            }
         }
     }
 
@@ -219,7 +221,9 @@ extension DepartureCollectionViewController {
             switch res {
             case .success(let value):
                 self?.nearbyStops = value.features
-                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                DispatchQueue.main.async {
+                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                }
 
             case .failure:
                 self?.performSelector(onMainThread: #selector(self?.showErrorAlert(lastLocation:)), with: nil, waitUntilDone: false)
