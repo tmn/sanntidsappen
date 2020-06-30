@@ -18,12 +18,18 @@ struct Feature: Codable {
 }
 
 /// A type to represent a Stop from the EnTur data set.
-struct Stop: Codable {
+struct Stop: Identifiable, Codable {
+    var id: UUID = UUID()
     let geometry: Geometry
     let properties: Properties
 
     func distanceToCurrentLocation(to location: CLLocation) -> Double {
         return HaversineDistance.distance(firstLocation: (geometry.coordinates[1], geometry.coordinates[0]), secondLocation: (location.coordinate.latitude, location.coordinate.longitude))
+    }
+
+    enum CodingKeys: String, CodingKey {
+        case geometry
+        case properties
     }
 }
 

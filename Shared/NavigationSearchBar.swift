@@ -19,16 +19,13 @@ struct NavigationSearchBar: View {
 
                 TextField("Search", text: $search.searchString, onEditingChanged: { _ in
                     search.showCancelButton = true
-
-                    if search.searchString.count > 3 {
-                        search.performSearch()
-                    }
                 }, onCommit: {
                     print("onCommit")
                 })
 
                 Button(action: {
                     search.searchString = ""
+                    search.searchResults = []
                 }) {
                     Image(systemName: "xmark.circle.fill")
                         .opacity(search.searchString == "" ? 0 : 1)
@@ -44,6 +41,7 @@ struct NavigationSearchBar: View {
                     self.hideKeyboard()
 
                     search.searchString = ""
+                    search.searchResults = []
                     search.showCancelButton = false
                 }
             }

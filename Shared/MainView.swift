@@ -21,7 +21,11 @@ struct MainView: View {
             VStack {
                 NavigationSearchBar(search: searchStore)
 
-                MainViewContent(stops: $stops)
+                if searchStore.isSearchActive() {
+                    SearchResultView()
+                } else {
+                    MainViewContent(stops: $stops)
+                }
             }
         }
         .environmentObject(searchStore)

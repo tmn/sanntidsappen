@@ -11,7 +11,13 @@ import Combine
 import Foundation
 
 class SearchStore: ObservableObject {
-    @Published var searchString: String = ""
+    @Published var searchString: String = "" {
+        didSet {
+            if searchString.count >= 2 {
+                performSearch()
+            }
+        }
+    }
     @Published var showCancelButton: Bool = false
     @Published var searchResults: [Stop] = []
 
@@ -22,7 +28,6 @@ class SearchStore: ObservableObject {
     }
 
     func performSearch() {
-        print("PERFORM SAERCH")
         if let item = workingItem {
             item.cancel()
             workingItem = nil
@@ -31,13 +36,13 @@ class SearchStore: ObservableObject {
         workingItem = DispatchWorkItem { [self] in EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchString) { [weak self] res in
             switch res {
             case .success(let value):
-                print("SEARCHING", value)
-                self?.searchResults = value.features
+                DispatchQueue.main.async {
+                    self?.searchResults = value.features
+                }
             case .failure(let error):
                 print("ERROR: \(error)")
             }
-
-            }}
+        }}
 
         DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.120, execute: workingItem!)
     }
