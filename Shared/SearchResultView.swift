@@ -13,8 +13,8 @@ struct SearchResultView: View {
     var body: some View {
         List {
             ForEach(searchStore.searchResults) { stop in
-                NavigationLink(destination: DepartureView(stop: Location(title: stop.properties.name, locality: stop.properties.locality, county: stop.properties.county))) {
-                    StopCell(stop: Location(title: stop.properties.name, locality: stop.properties.locality, county: stop.properties.county))
+                NavigationLink(destination: DepartureView(stop: stop)) {
+                    StopCell(stop: stop)
                 }
             }
             HStack {
@@ -32,10 +32,7 @@ struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
         let searchStore: SearchStore = SearchStore()
 
-        searchStore.searchResults = [
-            Stop(geometry: Geometry(coordinates: [0.0]), properties: Properties(id: "2", name: "Solsiden", locality: "Trøndelag", county: "a")),
-            Stop(geometry: Geometry(coordinates: [0.0]), properties: Properties(id: "2", name: "Solsiden", locality: "Trøndelag", county: "a"))
-        ]
+        searchStore.searchResults = stopTestData
 
         return SearchResultView()
             .environmentObject(searchStore)

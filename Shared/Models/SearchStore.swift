@@ -37,7 +37,7 @@ class SearchStore: ObservableObject {
             switch res {
             case .success(let value):
                 DispatchQueue.main.async {
-                    self?.searchResults = value.features
+                    self?.searchResults = value.stops
                 }
             case .failure(let error):
                 print("ERROR: \(error)")

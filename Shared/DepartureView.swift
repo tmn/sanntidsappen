@@ -10,7 +10,7 @@
 import SwiftUI
 
 struct DepartureView: View {
-    var stop: Location
+    var stop: Stop
 
     @State var departures: [Departure] = []
 
@@ -29,7 +29,7 @@ struct DepartureView: View {
 struct DepartureView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DepartureView(stop: stopsTestData[0], departures: departureTestData)
+            DepartureView(stop: stopTestData[0], departures: departureTestData)
         }
     }
 }

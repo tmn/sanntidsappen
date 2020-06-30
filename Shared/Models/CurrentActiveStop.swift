@@ -10,6 +10,17 @@
 import Combine
 
 class CurrentActiveStop: ObservableObject {
-    @Published var stop: Location? = nil
+    @Published var stop: Stop? = nil {
+        didSet {
+            if stop != nil {
+                getDeparturesForStopLocation()
+            }
+        }
+    }
     @Published var isFavorite: Bool = false
+    @Published var departures: [Departure] = []
+
+    private func getDeparturesForStopLocation() {
+
+    }
 }

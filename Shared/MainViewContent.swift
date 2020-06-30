@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct MainViewContent: View {
-    @Binding var stops: [Location]
+    @Binding var stops: [Stop]
     @EnvironmentObject var searchStore: SearchStore
 
     var body: some View {
         List {
             Section(header: Text("Recent")) {
                 ForEach(stops) { stop in
-                    SearchResultCell(search: searchStore, title: stop.title)
+                    SearchResultCell(search: searchStore, title: stop.name)
                 }
             }
 
@@ -34,6 +34,6 @@ struct MainViewContent: View {
 
 struct MainViewContent_Previews: PreviewProvider {
     static var previews: some View {
-        MainViewContent(stops: .constant(stopsTestData))
+        MainViewContent(stops: .constant(stopTestData))
     }
 }
