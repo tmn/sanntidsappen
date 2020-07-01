@@ -11,6 +11,7 @@ import Combine
 import Foundation
 
 class SearchStore: ObservableObject {
+    @Published var searchResults: [Stop] = []
     @Published var searchString: String = "" {
         didSet {
             if searchString.count >= 2 {
@@ -19,7 +20,6 @@ class SearchStore: ObservableObject {
         }
     }
     @Published var showCancelButton: Bool = false
-    @Published var searchResults: [Stop] = []
 
     private var workingItem: DispatchWorkItem?
 

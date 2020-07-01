@@ -11,6 +11,8 @@ import Combine
 import Foundation
 
 class CurrentActiveStop: ObservableObject {
+    @Published var departures: [Departure] = []
+    @Published var isFavorite: Bool = false
     @Published var stop: Stop? = nil {
         didSet {
             if stop != nil {
@@ -18,8 +20,6 @@ class CurrentActiveStop: ObservableObject {
             }
         }
     }
-    @Published var isFavorite: Bool = false
-    @Published var departures: [Departure] = []
 
     private var workingItem: DispatchWorkItem?
 

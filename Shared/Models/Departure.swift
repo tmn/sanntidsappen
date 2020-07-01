@@ -50,17 +50,17 @@ struct Departure: Codable, Identifiable {
     let transportMode: String
 
 
+    /// Aimed departure time as Date in ISO8601 format.
     var aimedTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         let aimedTimeDate = dateFormatter.date(from: aimedArrivalTime)!
-
         return aimedTimeDate
     }
 
+    /// Expected departure time as Date in ISO8601 format.
     var expectedTime: Date {
         let dateFormatter = ISO8601DateFormatter()
         let expectedTimeDate = dateFormatter.date(from: expectedArrivalTime)!
-
         return expectedTimeDate
     }
 
@@ -119,7 +119,6 @@ extension Departure {
     }
 }
 
-
 extension Departure {
     static let departureDateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -127,16 +126,6 @@ extension Departure {
         return formatter
     }()
 }
-
-//extension Departure {
-//    func getAimedTimeLabel() -> String {
-//        let dateFormatter = ISO8601DateFormatter()
-//        let aimedTimeDate = dateFormatter.date(from: aimedArrivalTime)!
-//
-//        return String(format: NSLocalizedString("Aimed time: %@", comment: "Aimed departure time"), Self.departureDateFormatter.string(from: aimedTimeDate))
-//    }
-//}
-
 
 #if DEBUG
 let departureTestData = [
