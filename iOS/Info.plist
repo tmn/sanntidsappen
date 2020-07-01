@@ -55,5 +55,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Din lokasjon blir brukt til å finne holdeplasser i nærheten og bedre søkeresultatene</string>
 </dict>
 </plist>
