@@ -10,14 +10,12 @@
 import SwiftUI
 
 struct DepartureView: View {
-    var stop: Stop
-
-    @State var departures: [Departure] = []
+    @EnvironmentObject var currentActiveStop: CurrentActiveStop
 
     var body: some View {
         List {
             Section {
-                ForEach(self.departures) { departure in
+                ForEach(currentActiveStop.departures) { departure in
                     DepartureCell(departure: departure)
                 }
             }
@@ -29,7 +27,7 @@ struct DepartureView: View {
 struct DepartureView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            DepartureView(stop: stopTestData[0], departures: departureTestData)
+            DepartureView()
         }
     }
 }

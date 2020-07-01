@@ -9,11 +9,12 @@ import SwiftUI
 
 struct SearchResultView: View {
     @EnvironmentObject var searchStore: SearchStore
+    @EnvironmentObject var currentActiveStop: CurrentActiveStop
 
     var body: some View {
         List {
             ForEach(searchStore.searchResults) { stop in
-                NavigationLink(destination: DepartureView(stop: stop)) {
+                NavigationLink(destination: DepartureView(), tag: stop, selection: $currentActiveStop.stop) {
                     StopCell(stop: stop)
                 }
             }

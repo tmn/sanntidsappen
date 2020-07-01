@@ -14,27 +14,46 @@ struct DepartureCell: View {
 
     var body: some View {
         HStack {
-            Text(departure.line)
+            Text(departure.lineCode)
                 .foregroundColor(Color.Sanntidsappen.Primary)
                 .frame(width: 40, height: 40, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
 
             VStack (alignment: .leading) {
-                Text("\(departure.title)")
-                Text("Aimed time: 20:20 (20:24)")
-                    .font(.subheadline)
-                    .foregroundColor(Color.gray)
+                Text("\(departure.destination)")
+                HStack {
+                    Text("Aimed time: \(departure.aimedTime, formatter: Departure.departureDateFormatter)")
+                        .font(.subheadline)
+                        .foregroundColor(Color.gray)
+
+                    if departure.expectedTime.timeIntervalSince(departure.aimedTime) > 60 {
+                        Text("(\(departure.expectedTime, formatter: Departure.departureDateFormatter))")
+                            .font(.subheadline)
+                            .foregroundColor(Color.Sanntidsappen.Primary)
+                    }
+                }
             }
             .layoutPriority(1)
 
             Spacer()
 
-            Text("6 min")
+            switch departure.expectedTime.timeIntervalSince(Date())/60 {
+            case ..<1:
+                Text("Now")
+            case ..<11:
+                if departure.realtime {
+                    Text("\(String(format: "%.0f", departure.expectedTime.timeIntervalSince(Date())/60)) min")
+                } else {
+                    Text("ca \(String(format: "%.0f", departure.expectedTime.timeIntervalSince(Date())/60)) min")
+                }
+            default:
+                Text("\(departure.expectedTime, formatter: Departure.departureDateFormatter)")
+            }
         }
     }
 }
 
 struct DepartureCell_Previews: PreviewProvider {
     static var previews: some View {
-        DepartureCell(departure: Departure(line: "5", title: "Test"))
+        DepartureCell(departure: departureTestData[0])
     }
 }

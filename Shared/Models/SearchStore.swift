@@ -27,20 +27,20 @@ class SearchStore: ObservableObject {
         return showCancelButton || searchString.count > 0
     }
 
-    func performSearch() {
+    private func performSearch() {
         if let item = workingItem {
             item.cancel()
             workingItem = nil
         }
 
-        workingItem = DispatchWorkItem { [self] in EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchString) { [weak self] res in
+        workingItem = DispatchWorkItem { EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: self.searchString) { [weak self] res in
             switch res {
             case .success(let value):
                 DispatchQueue.main.async {
                     self?.searchResults = value.stops
                 }
-            case .failure(let error):
-                print("ERROR: \(error)")
+            case .failure(_):
+                break
             }
         }}
 

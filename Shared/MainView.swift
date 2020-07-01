@@ -29,6 +29,7 @@ struct MainView: View {
             }
         }
         .environmentObject(searchStore)
+        .environmentObject(currentActiveStop)
         .accentColor(Color.Sanntidsappen.Primary)
     }
 

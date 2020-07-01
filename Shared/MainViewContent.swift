@@ -10,6 +10,7 @@ import SwiftUI
 struct MainViewContent: View {
     @Binding var stops: [Stop]
     @EnvironmentObject var searchStore: SearchStore
+    @EnvironmentObject var currentActiveStop: CurrentActiveStop
 
     var body: some View {
         List {
@@ -21,7 +22,7 @@ struct MainViewContent: View {
 
             Section(header: Text("Nearby")) {
                 ForEach(stops) { stop in
-                    NavigationLink(destination: DepartureView(stop: stop)) {
+                    NavigationLink(destination: DepartureView(), tag: stop, selection: $currentActiveStop.stop) {
                         StopCell(stop: stop)
                     }
                 }
@@ -35,5 +36,6 @@ struct MainViewContent: View {
 struct MainViewContent_Previews: PreviewProvider {
     static var previews: some View {
         MainViewContent(stops: .constant(stopTestData))
+            .environmentObject(SearchStore())
     }
 }
