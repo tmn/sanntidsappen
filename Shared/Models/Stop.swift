@@ -21,7 +21,7 @@ struct Stops: Codable {
 }
 
 /// A type to represent the StopPlace object from EnTur data set.
-struct Stop: Codable, Identifiable {
+struct Stop: Codable, Identifiable, Hashable {
     let id: String
     let name: String
     let locality: String
@@ -66,7 +66,6 @@ extension Stop {
 
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StopKeys.self)
-
         var geometryContainer = container.nestedContainer(keyedBy: GeometryKeys.self, forKey: .geometry)
         var propertiesContainer = container.nestedContainer(keyedBy: PropertiesKeys.self, forKey: .properties)
 
