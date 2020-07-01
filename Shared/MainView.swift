@@ -8,24 +8,23 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct MainView: View {
     @StateObject var currentActiveStop = CurrentActiveStop()
     @StateObject var searchStore = SearchStore()
 
-    @State var stops: [Stop] = [stopTestData[0]]
-
     var body: some View {
         NavigationView {
-
             VStack {
-                NavigationSearchBar(search: searchStore)
+                NavigationSearchBar(searchStore: searchStore)
 
                 if searchStore.isSearchActive() {
                     SearchResultView()
                 } else {
-                    MainViewContent(stops: $stops)
+                    MainViewContent()
                 }
+
             }
         }
         .environmentObject(searchStore)

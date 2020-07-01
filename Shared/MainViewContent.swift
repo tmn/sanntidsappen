@@ -6,25 +6,38 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct MainViewContent: View {
-    @Binding var stops: [Stop]
     @EnvironmentObject var searchStore: SearchStore
     @EnvironmentObject var currentActiveStop: CurrentActiveStop
+
+    @ObservedObject var locationHandler: LocationHandler = LocationHandler()
+    @ObservedObject var nearbyStops: NearbyStops = NearbyStops()
+
+    init() {
+        nearbyStops.locationHandler = locationHandler
+    }
 
     var body: some View {
         List {
             Section(header: Text("Recent")) {
-                ForEach(stops) { stop in
-                    SearchResultCell(search: searchStore, title: stop.name)
+                ForEach(nearbyStops.stops) { stop in
+                    SearchResultCell(store: searchStore, title: stop.name)
                 }
             }
 
             Section(header: Text("Nearby")) {
-                ForEach(stops) { stop in
+                ForEach(nearbyStops.stops) { stop in
                     NavigationLink(destination: DepartureView(), tag: stop, selection: $currentActiveStop.stop) {
                         StopCell(stop: stop)
+                    }.onDisappear {
+                        locationHandler.stop()
+                    }.onAppear {
+                        locationHandler.stop()
                     }
+                }.onReceive(locationHandler.objectWillChange) { _ in
+                    print("Location changed: \(locationHandler.lastKnownLocation?.latitude)")
                 }
             }
         }
