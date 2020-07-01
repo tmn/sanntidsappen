@@ -26,8 +26,12 @@ struct DepartureView: View {
 
 struct DepartureView_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
+        let currentActiveStop: CurrentActiveStop = CurrentActiveStop()
+        currentActiveStop.stop = stopTestData[0]
+
+        return NavigationView {
             DepartureView()
         }
+        .environmentObject(currentActiveStop)
     }
 }

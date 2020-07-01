@@ -35,7 +35,8 @@ struct MainViewContent: View {
 
 struct MainViewContent_Previews: PreviewProvider {
     static var previews: some View {
-        MainViewContent(stops: .constant(stopTestData))
+        MainViewContent()
             .environmentObject(SearchStore())
+            .environmentObject(CurrentActiveStop())
     }
 }

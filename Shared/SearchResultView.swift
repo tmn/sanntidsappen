@@ -32,10 +32,13 @@ struct SearchResultView: View {
 struct SearchResultView_Previews: PreviewProvider {
     static var previews: some View {
         let searchStore: SearchStore = SearchStore()
-
         searchStore.searchResults = stopTestData
+
+        let currentActiveStop: CurrentActiveStop = CurrentActiveStop()
+        currentActiveStop.stop = stopTestData[0]
 
         return SearchResultView()
             .environmentObject(searchStore)
+            .environmentObject(currentActiveStop)
     }
 }
