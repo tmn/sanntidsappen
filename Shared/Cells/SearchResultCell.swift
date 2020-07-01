@@ -10,13 +10,13 @@
 import SwiftUI
 
 struct SearchResultCell: View {
-    @ObservedObject var search: SearchStore
+    @ObservedObject var store: SearchStore
 
     var title: String
 
     var body: some View {
         Button(action: {
-            search.searchString = title
+            store.searchString = title
         }) {
             Text(title)
                 .foregroundColor(Color.Sanntidsappen.Primary)
