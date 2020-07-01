@@ -20,33 +20,38 @@ struct DepartureCell: View {
 
             VStack (alignment: .leading) {
                 Text("\(departure.destination)")
+                    .font(.subheadline)
                 HStack {
                     Text("Aimed time: \(departure.aimedTime, formatter: Departure.departureDateFormatter)")
-                        .font(.subheadline)
                         .foregroundColor(Color.gray)
 
                     if departure.expectedTime.timeIntervalSince(departure.aimedTime) > 60 {
                         Text("(\(departure.expectedTime, formatter: Departure.departureDateFormatter))")
-                            .font(.subheadline)
                             .foregroundColor(Color.Sanntidsappen.Primary)
                     }
                 }
+                .font(.footnote)
             }
-            .layoutPriority(1)
 
             Spacer()
 
             switch departure.expectedTime.timeIntervalSince(Date())/60 {
             case ..<1:
                 Text("Now")
+                    .font(.subheadline)
             case ..<11:
                 if departure.realtime {
                     Text("\(String(format: "%.0f", departure.expectedTime.timeIntervalSince(Date())/60)) min")
+                        .font(.subheadline)
                 } else {
                     Text("ca \(String(format: "%.0f", departure.expectedTime.timeIntervalSince(Date())/60)) min")
+                        .font(.subheadline)
                 }
             default:
                 Text("\(departure.expectedTime, formatter: Departure.departureDateFormatter)")
+                    .font(.subheadline)
+                    .layoutPriority(1)
+                    .padding(.leading, 10)
             }
         }
     }
