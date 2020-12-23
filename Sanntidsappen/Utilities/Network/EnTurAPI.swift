@@ -16,10 +16,8 @@ enum EnTurAPIType {
 }
 
 class EnTurAPI {
-
     // Required header by En Tur
-    private let headers: [String: String] = [
-        "ET-Client-Name": "tmnio-sanntidsappen",
+    private var headers: [String: String] = [
         "Content-Type": "application/json"
     ]
 
@@ -32,9 +30,13 @@ class EnTurAPI {
 
     static let journeyPlanner = EnTurAPIJourneyPlanner(apiType: .journeyPlanner)
 
-    static let stopRegister = StopRegister(apiType: .stopRegister)
+    static let stopRegister = EnTurAPIStopRegister(apiType: .stopRegister)
 
     fileprivate init(apiType: EnTurAPIType) {
+        guard let sanntidsappenClientName = Bundle.main.infoDictionary?["Sanntidsappen Client Name"] as? String else {
+            preconditionFailure("Missing Sanntidsappen Client Name in Info.plist")
+        }
+
         guard let sanntidsappenAPIs = Bundle.main.infoDictionary?["Sanntidsappen API"] as? [String: Any] else {
             preconditionFailure("Missing Sanntidsappen API in Info.plist")
         }
@@ -50,6 +52,8 @@ class EnTurAPI {
         case .journeyPlanner: self.baseURL = URL(string: journeyPlannerURLString)!
         case .stopRegister: self.baseURL = URL(string: stopRegisterURLString)!
         }
+
+        self.headers["ET-Client-Name"] = sanntidsappenClientName
     }
 
     private func createRequestObject(path: String?) -> URLRequest {
@@ -150,7 +154,7 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
     }
 
     func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey, Error>) -> Void) {
-        let query = "{ serviceJourney(id: \"\(journeyId)\") { estimatedCalls(date: \"\(date)\") { aimedDepartureTime expectedDepartureTime quay { id name stopPlace { description } } } } }"
+        let query = "{ serviceJourney(id: \"\(journeyId)\") { estimatedCalls(date: \"\(date)\") { aimedDepartureTime expectedDepartureTime quay { id name } } } }"
 
         let body = ["query": query]
 
@@ -162,7 +166,7 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
 
 // MARK: - StopRegister
 
-class StopRegister: EnTurAPI {
+class EnTurAPIStopRegister: EnTurAPI {
 
     func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegister, Error>) -> Void) {
         let query = "{ stopPlace(id: \"\(stop.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
