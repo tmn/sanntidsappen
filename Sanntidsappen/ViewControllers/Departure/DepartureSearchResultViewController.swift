@@ -139,8 +139,8 @@ extension DepartureSearchResultViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SearchResultCell.identifier, for: indexPath) as! SearchResultCell
 
-        cell.stopNameLabel.text = stops[indexPath.item].properties.name
-        cell.stopLocationLabel.text = stops[indexPath.item].properties.locality + ", " + stops[indexPath.item].properties.county
+        cell.stopNameLabel.text = stops[indexPath.item].name
+        cell.stopLocationLabel.text = stops[indexPath.item].locality + ", " + stops[indexPath.item].county
 
         cell.stop = stops[indexPath.item]
         cell.topLine.isHidden = indexPath.item == 0

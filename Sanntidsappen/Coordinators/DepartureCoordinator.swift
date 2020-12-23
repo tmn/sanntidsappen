@@ -39,14 +39,14 @@ class DepartureCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func showDepartureRoute(departure: EstimatedCall) {
+    func showDepartureRoute(departure: Departure) {
         let viewController = DepartureDetailsJourneyViewController(departure: departure)
 
         navigationController.pushViewController(viewController, animated: true)
     }
     
     private func createDetailedView(forStop stop: Stop) -> DepartureDetailsViewController {
-        let viewController = DepartureDetailsViewController(title: stop.properties.name, stop: stop)
+        let viewController = DepartureDetailsViewController(title: stop.name, stop: stop)
         viewController.coordinator = self
         
         return viewController
@@ -75,7 +75,7 @@ extension DepartureCoordinator: DepartureCollectionViewControllerDelegate {
 
 extension DepartureCoordinator: DepartureDetailsViewControllerDelegate {
 
-    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: EstimatedCall) {
+    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: Departure) {
         self.showDepartureRoute(departure: departure)
     }
 

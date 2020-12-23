@@ -57,8 +57,6 @@ class EnTurAPI {
 
         if let path = path {
             let escapedSearchQuery = path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
-
-            // let encodedPath = path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
             _request = URLRequest(url: URL(string: escapedSearchQuery, relativeTo: self.baseURL)!)
         } else {
             _request = URLRequest(url: self.baseURL)
@@ -122,13 +120,13 @@ extension EnTurAPI {
 
 class EnTurAPIGeocoder: EnTurAPI {
 
-    func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Feature, Error>) -> Void) {
+    func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Stops, Error>) -> Void) {
         let path = String(format: "autocomplete?text=\(searchQuery)&layers=venue")
 
         get(path: path, completionHandler: completionHandler)
     }
 
-    func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Feature, Error>) -> Void) {
+    func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Stops, Error>) -> Void) {
         let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=5&layers=venue"
 
         get(path: path, completionHandler: completionHandler)
@@ -141,17 +139,17 @@ class EnTurAPIGeocoder: EnTurAPI {
 
 class EnTurAPIJourneyPlanner: EnTurAPI {
 
-    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<StopInfo, Error>) -> Void) {
+    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<JourneyStopPlace, Error>) -> Void) {
         let dateFormatter = ISO8601DateFormatter()
 
-        let query = "{ stopPlace(id: \"\(stop.properties.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name publicCode description } serviceJourney { id journeyPattern { line { publicCode transportMode } } } } } }"
+        let query = "{ stopPlace(id: \"\(stop.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name publicCode description } serviceJourney { id journeyPattern { line { id publicCode name transportMode } } } } } }"
 
         let body = ["query": query]
 
         post(body: body, completionHandler: completionHandler)
     }
 
-    func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey.Journey, Error>) -> Void) {
+    func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey, Error>) -> Void) {
         let query = "{ serviceJourney(id: \"\(journeyId)\") { estimatedCalls(date: \"\(date)\") { aimedDepartureTime expectedDepartureTime quay { id name stopPlace { description } } } } }"
 
         let body = ["query": query]
@@ -166,8 +164,9 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
 
 class StopRegister: EnTurAPI {
 
-    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegisterData, Error>) -> Void) {
-        let query = "{ stopPlace(id: \"\(stop.properties.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
+    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegister, Error>) -> Void) {
+        let query = "{ stopPlace(id: \"\(stop.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
+
         let body = ["query": query]
 
         post(body: body, completionHandler: completionHandler)

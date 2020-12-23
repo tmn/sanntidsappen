@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60F9BB7217A49E7007D8533 /* StopInfo.swift */; };
 		A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E80F22397918004CEBC3 /* MainTabBarController.swift */; };
 		A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A640E81122397BE7004CEBC3 /* Main.storyboard */; };
 		A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E81322397C58004CEBC3 /* Storyboarded.swift */; };
@@ -31,7 +30,6 @@
 		A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */; };
 		A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB121724FC100937E8D /* DepartureDetailsCollectionViewCell.swift */; };
 		A64D4AB4217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */; };
-		A64D4AB8217357AD00937E8D /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64D4AB7217357AD00937E8D /* Feature.swift */; };
 		A65AC05B223DB48700F08EF6 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A65AC05A223DB48700F08EF6 /* Colors.xcassets */; };
 		A65AC05F223E5F0900F08EF6 /* DepartureCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */; };
 		A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */; };
@@ -40,7 +38,7 @@
 		A66CF64523F020C200E71B7E /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66CF64423F020C200E71B7E /* NoResultsView.swift */; };
 		A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */; };
 		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
-		A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3F217C170C000B7697 /* StopRegisterData.swift */; };
+		A66F8B40217C170C000B7697 /* StopRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3F217C170C000B7697 /* StopRegister.swift */; };
 		A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */; };
 		A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */; };
 		A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67F0C29219A2C2C00D18FB6 /* AboutViewController.swift */; };
@@ -50,10 +48,16 @@
 		A699D1942173684E0008F951 /* CONTRIBUTING.md in Resources */ = {isa = PBXBuildFile; fileRef = A699D1912173684D0008F951 /* CONTRIBUTING.md */; };
 		A6B120E7225057EC00C05E54 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B120E5225057EC00C05E54 /* Localizable.strings */; };
 		A6B120EA22505A6600C05E54 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6B120E822505A6600C05E54 /* InfoPlist.strings */; };
+		A6BD84542592901D0074F60E /* Departure.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD84532592901D0074F60E /* Departure.swift */; };
+		A6BD8459259290A30074F60E /* Stop.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD8458259290A30074F60E /* Stop.swift */; };
+		A6BD845E259290AA0074F60E /* Stops.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD845D259290AA0074F60E /* Stops.swift */; };
+		A6BD8464259290FD0074F60E /* HaversineDistance in Frameworks */ = {isa = PBXBuildFile; productRef = A6BD8463259290FD0074F60E /* HaversineDistance */; };
+		A6BD84692592917B0074F60E /* JourneyStopPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD84682592917B0074F60E /* JourneyStopPlace.swift */; };
+		A6BD8471259296200074F60E /* Quay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD8470259296200074F60E /* Quay.swift */; };
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
 		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
+		A6E9EF1525936237008052E5 /* DataContainerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9EF1425936237008052E5 /* DataContainerKeys.swift */; };
 		A6EDF70622416C5100D608D2 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6EDF70522416C5100D608D2 /* SearchResultCell.xib */; };
-		A6F4469621A33519003CCD58 /* Haversine.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F4469521A33519003CCD58 /* Haversine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +78,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A60F9BB7217A49E7007D8533 /* StopInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopInfo.swift; sourceTree = "<group>"; };
 		A640E80F22397918004CEBC3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A640E81122397BE7004CEBC3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A640E81322397C58004CEBC3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
@@ -104,7 +107,6 @@
 		A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsViewController.swift; sourceTree = "<group>"; };
 		A64D4AB121724FC100937E8D /* DepartureDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
 		A64D4AB3217261CC00937E8D /* DepartureDetailsCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewCell.xib; sourceTree = "<group>"; };
-		A64D4AB7217357AD00937E8D /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		A65AC05A223DB48700F08EF6 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureCollectionViewController.swift; sourceTree = "<group>"; };
 		A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCell.swift; sourceTree = "<group>"; };
@@ -113,7 +115,7 @@
 		A66CF64423F020C200E71B7E /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
 		A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewHeaderCell.xib; sourceTree = "<group>"; };
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
-		A66F8B3F217C170C000B7697 /* StopRegisterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegisterData.swift; sourceTree = "<group>"; };
+		A66F8B3F217C170C000B7697 /* StopRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StopRegister.swift; sourceTree = "<group>"; };
 		A66F8B44217C9DBF000B7697 /* RecentStopSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentStopSearchData.swift; sourceTree = "<group>"; };
 		A6739F1F2241FD6200506B09 /* Trondheim.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Trondheim.gpx; sourceTree = "<group>"; };
 		A67F0C27219A2C0600D18FB6 /* AboutCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCoordinator.swift; sourceTree = "<group>"; };
@@ -125,10 +127,15 @@
 		A6B120E42250567500C05E54 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		A6B120E6225057EC00C05E54 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A6B120E922505A6600C05E54 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A6BD84532592901D0074F60E /* Departure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Departure.swift; sourceTree = "<group>"; };
+		A6BD8458259290A30074F60E /* Stop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stop.swift; sourceTree = "<group>"; };
+		A6BD845D259290AA0074F60E /* Stops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stops.swift; sourceTree = "<group>"; };
+		A6BD84682592917B0074F60E /* JourneyStopPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyStopPlace.swift; sourceTree = "<group>"; };
+		A6BD8470259296200074F60E /* Quay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quay.swift; sourceTree = "<group>"; };
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
+		A6E9EF1425936237008052E5 /* DataContainerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainerKeys.swift; sourceTree = "<group>"; };
 		A6EDF70522416C5100D608D2 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
-		A6F4469521A33519003CCD58 /* Haversine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haversine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +143,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6BD8464259290FD0074F60E /* HaversineDistance in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,7 +243,6 @@
 				A64D4A9321714E2B00937E8D /* Network */,
 				A64D4AA82171BFD300937E8D /* UIColor+hex.swift */,
 				A66F8B3D217C05B1000B7697 /* CompassDirection.swift */,
-				A6F4469521A33519003CCD58 /* Haversine.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -243,10 +250,14 @@
 		A64D4A9521714E8A00937E8D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A64D4AB7217357AD00937E8D /* Feature.swift */,
-				A60F9BB7217A49E7007D8533 /* StopInfo.swift */,
-				A66F8B3F217C170C000B7697 /* StopRegisterData.swift */,
+				A66F8B3F217C170C000B7697 /* StopRegister.swift */,
 				A64AC527219A21D50079F79E /* Journey.swift */,
+				A6BD84532592901D0074F60E /* Departure.swift */,
+				A6BD8458259290A30074F60E /* Stop.swift */,
+				A6BD845D259290AA0074F60E /* Stops.swift */,
+				A6BD84682592917B0074F60E /* JourneyStopPlace.swift */,
+				A6BD8470259296200074F60E /* Quay.swift */,
+				A6E9EF1425936237008052E5 /* DataContainerKeys.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,6 +363,9 @@
 			dependencies = (
 			);
 			name = Sanntidsappen;
+			packageProductDependencies = (
+				A6BD8463259290FD0074F60E /* HaversineDistance */,
+			);
 			productName = Sanntidsappen;
 			productReference = A64B912C216829F5004A88DB /* Sanntidsappen.app */;
 			productType = "com.apple.product-type.application";
@@ -399,7 +413,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = tmn.io;
 				TargetAttributes = {
 					A64B912B216829F5004A88DB = {
@@ -417,7 +431,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A64B9127216829F5004A88DB /* Build configuration list for PBXProject "Sanntidsappen" */;
+			buildConfigurationList = A64B9127216829F5004A88DB /* Build configuration list for PBXProject "sanntidsappen" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -427,6 +441,9 @@
 				nb,
 			);
 			mainGroup = A64B9123216829F5004A88DB;
+			packageReferences = (
+				A6BD8462259290FD0074F60E /* XCRemoteSwiftPackageReference "HaversineDistance" */,
+			);
 			productRefGroup = A64B912D216829F5004A88DB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -484,33 +501,36 @@
 				A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */,
 				A65AC065223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift in Sources */,
 				A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */,
-				A66F8B40217C170C000B7697 /* StopRegisterData.swift in Sources */,
+				A66F8B40217C170C000B7697 /* StopRegister.swift in Sources */,
 				A65AC05F223E5F0900F08EF6 /* DepartureCollectionViewController.swift in Sources */,
-				A60F9BB8217A49E7007D8533 /* StopInfo.swift in Sources */,
+				A6BD8459259290A30074F60E /* Stop.swift in Sources */,
 				A64D4A9B2171791E00937E8D /* TripCoordinator.swift in Sources */,
 				A64D4AAB21720A4800937E8D /* DepartureSearchResultViewController.swift in Sources */,
+				A6BD84692592917B0074F60E /* JourneyStopPlace.swift in Sources */,
 				A64D4A9921714F1700937E8D /* EnTurAPI.swift in Sources */,
+				A6BD8471259296200074F60E /* Quay.swift in Sources */,
 				A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */,
 				A64AC528219A21D50079F79E /* Journey.swift in Sources */,
 				A65AC063223E65E900F08EF6 /* SearchResultCell.swift in Sources */,
+				A6BD845E259290AA0074F60E /* Stops.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
-				A6F4469621A33519003CCD58 /* Haversine.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
 				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,
 				A66CF64523F020C200E71B7E /* NoResultsView.swift in Sources */,
 				A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */,
+				A6BD84542592901D0074F60E /* Departure.swift in Sources */,
 				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,
 				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,
 				A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */,
 				A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */,
+				A6E9EF1525936237008052E5 /* DataContainerKeys.swift in Sources */,
 				A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */,
 				A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */,
 				A684B26522417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */,
 				A64D4AA32171945200937E8D /* HomeCoordinator.swift in Sources */,
 				A64D4AA52171946100937E8D /* HomeViewController.swift in Sources */,
 				A64D4AB221724FC100937E8D /* DepartureDetailsCollectionViewCell.swift in Sources */,
-				A64D4AB8217357AD00937E8D /* Feature.swift in Sources */,
 				A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +622,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -664,6 +685,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -703,7 +725,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -726,7 +748,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = TTPD58N2KH;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,7 +846,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A64B9127216829F5004A88DB /* Build configuration list for PBXProject "Sanntidsappen" */ = {
+		A64B9127216829F5004A88DB /* Build configuration list for PBXProject "sanntidsappen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A64B9155216829F6004A88DB /* Debug */,
@@ -861,6 +883,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A6BD8462259290FD0074F60E /* XCRemoteSwiftPackageReference "HaversineDistance" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tmn/HaversineDistance";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A6BD8463259290FD0074F60E /* HaversineDistance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A6BD8462259290FD0074F60E /* XCRemoteSwiftPackageReference "HaversineDistance" */;
+			productName = HaversineDistance;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */ = {

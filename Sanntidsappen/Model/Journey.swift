@@ -9,21 +9,11 @@
 
 import Foundation
 
-struct Journey {
+struct Journey: Codable, Identifiable {
+    var id: UUID = UUID()
+    let departures: [Departure]
 
-    struct Journey: Codable {
-        let data: JourneyData
-    }
-
-    struct JourneyData: Codable {
-        let serviceJourney: ServiceJourney
-    }
-
-    struct ServiceJourney: Codable {
-        let estimatedCalls: [EstimatedCall]
-    }
-
-    struct EstimatedCall: Codable {
+    struct Departure: Codable {
         let aimedDepartureTime: String
         let expectedDepartureTime: String
         let quay: Quay
@@ -32,11 +22,25 @@ struct Journey {
     struct Quay: Codable {
         let id: String
         let name: String
-        let stopPlace: StopPlace
-    }
-
-    struct StopPlace: Codable {
-        let description: String?
     }
 }
 
+extension Journey {
+    enum JourneyDataKeys: String, CodingKey {
+        case serviceJourney
+    }
+
+    enum ServiceJourneyKeys: String, CodingKey {
+        case departures = "estimatedCalls"
+    }
+}
+
+extension Journey {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: DataContainerKeys.self)
+        let dataContainer = try container.nestedContainer(keyedBy: JourneyDataKeys.self, forKey: .data)
+        let serviceJourneyContainer = try dataContainer.nestedContainer(keyedBy: ServiceJourneyKeys.self, forKey: .serviceJourney)
+
+        departures = try serviceJourneyContainer.decode([Departure].self, forKey: .departures)
+    }
+}

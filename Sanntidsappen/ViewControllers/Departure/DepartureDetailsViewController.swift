@@ -10,7 +10,7 @@
 import UIKit
 
 protocol DepartureDetailsViewControllerDelegate: AnyObject {
-    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: EstimatedCall)
+    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: Departure)
 }
 
 class DepartureDetailsViewController: UIViewController {
@@ -21,11 +21,11 @@ class DepartureDetailsViewController: UIViewController {
     var flowLayout: UICollectionViewFlowLayout!
     var refresher: UIRefreshControl!
 
-    var segmentedDepartures: [Quay: [EstimatedCall]] = [:]
+    var segmentedDepartures: [Quay: [Departure]] = [:]
     var sortedSections: [Quay] = []
     var expandedSection: Int = -1
 
-    var quays: [String: [StopRegisterQuay]]?
+    var quays: [String: [StopRegister.Quay]]?
 
     let stop: Stop
 
@@ -87,7 +87,8 @@ class DepartureDetailsViewController: UIViewController {
         EnTurAPI.journeyPlanner.getStopPlace(for: stop) { [weak self] res in
             switch res {
             case .success(let value):
-                if (value.data.stopPlace.estimatedCalls.count == 0) {
+
+                if (value.departures.count == 0) {
                     DispatchQueue.main.async {
                         if let _collectionView = self?.collectionView {
                             _collectionView.isScrollEnabled = false
@@ -100,7 +101,7 @@ class DepartureDetailsViewController: UIViewController {
                         self?.collectionView.backgroundView = nil
                     }
 
-                    self?.segmentedDepartures = Dictionary(grouping: value.data.stopPlace.estimatedCalls, by: { ($0 as EstimatedCall).quay })
+                    self?.segmentedDepartures = Dictionary(grouping: value.departures, by: { ($0 as Departure).quay })
                     self?.sortedSections = self?.segmentedDepartures.keys.sorted() ?? []
                     self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 }
@@ -115,10 +116,9 @@ class DepartureDetailsViewController: UIViewController {
         EnTurAPI.stopRegister.getQuayInformation(for: self.stop) { [weak self] res in
             switch res {
             case .success(let value):
-                if let data = value.data {
-                    self?.quays = Dictionary(grouping: data.stopPlace[0].quays, by: { $0.id })
-                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
-                }
+                self?.quays = Dictionary(grouping: value.stopPlaces[0].quays, by: { $0.id })
+                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+
 
             case .failure(let error):
                 print("ERROR: \(error)")
@@ -206,8 +206,9 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
             return cell
         }
 
-        cell.lineLabel.text = String(departure.serviceJourney.journeyPattern.line.publicCode.prefix(3))
-        cell.destinationLabel.text = departure.destinationDisplay.frontText
+
+        cell.lineLabel.text = String(departure.lineCode.prefix(3))
+        cell.destinationLabel.text = departure.destination
         cell.aimedTimeLabel.text = getAimedTimeLabel(aimedTime: departure.aimedArrivalTime)
         cell.newTimeLabel.text = getNewTimeLabel(aimedTime: departure.aimedArrivalTime, expectedTime: departure.expectedArrivalTime)
         cell.expectedTimeLable.text = formatExpectedTimeLabel(string: departure.expectedArrivalTime, isRealtime: departure.realtime)

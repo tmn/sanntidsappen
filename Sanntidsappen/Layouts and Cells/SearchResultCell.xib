@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -47,6 +47,7 @@
                     </view>
                 </subviews>
             </view>
+            <viewLayoutGuide key="safeArea" id="v3b-JL-auJ"/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="v3b-JL-auJ" firstAttribute="trailing" secondItem="oWY-y7-WhJ" secondAttribute="trailing" id="C6w-xx-pmf"/>
@@ -56,7 +57,6 @@
                 <constraint firstItem="oWY-y7-WhJ" firstAttribute="leading" secondItem="v3b-JL-auJ" secondAttribute="leading" id="isq-5q-43n"/>
                 <constraint firstItem="oWY-y7-WhJ" firstAttribute="width" secondItem="cgm-nM-eo9" secondAttribute="width" id="vs3-CZ-ofO"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="v3b-JL-auJ"/>
             <connections>
                 <outlet property="stopLocationLabel" destination="q89-Qa-jiK" id="A2J-M4-qrK"/>
                 <outlet property="stopNameLabel" destination="JMJ-66-3oS" id="ehw-V5-uJ0"/>

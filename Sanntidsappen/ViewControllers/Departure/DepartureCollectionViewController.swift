@@ -110,8 +110,8 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
                 fatalError("Unable to dequeue SearchResultCell")
             }
 
-            cell.stopNameLabel.text = nearbyStops[indexPath.item].properties.name
-            cell.stopLocationLabel.text = nearbyStops[indexPath.item].properties.locality + ", " + nearbyStops[indexPath.item].properties.county
+            cell.stopNameLabel.text = nearbyStops[indexPath.item].name
+            cell.stopLocationLabel.text = nearbyStops[indexPath.item].locality + ", " + nearbyStops[indexPath.item].county
 
             return cell
         }
@@ -230,7 +230,7 @@ extension DepartureCollectionViewController {
         EnTurAPI.geocoder.getNearbyStops(latitude: latitude, longitude: longitude) { [weak self] res in
             switch res {
             case .success(let value):
-                self?.nearbyStops = value.features
+                self?.nearbyStops = value.stops
 
                 DispatchQueue.main.async {
                     self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
@@ -268,7 +268,7 @@ extension DepartureCollectionViewController: UISearchControllerDelegate, UISearc
             workingItem = DispatchWorkItem { EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchText) { [weak self] res in
                 switch res {
                 case .success(let value):
-                    self?.searchResultController.stops = value.features
+                    self?.searchResultController.stops = value.stops
                     self?.searchResultController.collectionView?.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 case .failure(let error):
                     print("ERROR: \(error)")

@@ -11,19 +11,19 @@ import UIKit
 
 class DepartureDetailsJourneyViewController: UIViewController {
 
-    let departure: EstimatedCall
+    let departure: Departure
 
-    var journey: [Journey.EstimatedCall] = []
+    var journey: [Journey.Departure] = []
 
     var tableView: UITableView!
 
     var currentActiveIndexPath: IndexPath?
 
-    init(departure: EstimatedCall) {
+    init(departure: Departure) {
         self.departure = departure
 
         super.init(nibName: nil, bundle: nil)
-        self.title = departure.destinationDisplay.frontText
+        self.title = departure.destination
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -67,10 +67,10 @@ class DepartureDetailsJourneyViewController: UIViewController {
 extension DepartureDetailsJourneyViewController {
 
     func requestData() {
-        EnTurAPI.journeyPlanner.getJourney(journeyId: departure.serviceJourney.id, date: departure.date) { res in
+        EnTurAPI.journeyPlanner.getJourney(journeyId: departure.journeyId, date: departure.date) { res in
             switch (res) {
             case .success(let value):
-                self.journey = value.data.serviceJourney.estimatedCalls
+                self.journey = value.departures
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

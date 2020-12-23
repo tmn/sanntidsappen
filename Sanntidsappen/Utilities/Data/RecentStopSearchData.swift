@@ -45,7 +45,7 @@ class RecentStopSearchData {
 
     func saveSearchToCoreData(stop: Stop, completionHandler: @escaping ([String]) -> Void) {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "RecentStopSearch")
-        let predicate = NSPredicate(format: "stop == %@", stop.properties.name)
+        let predicate = NSPredicate(format: "stop == %@", stop.name)
         request.predicate = predicate
         request.returnsObjectsAsFaults = false
 
@@ -55,7 +55,7 @@ class RecentStopSearchData {
 
                 if result.count == 0 {
                     let newStop = NSManagedObject(entity: self.entity!, insertInto: context)
-                    newStop.setValue(stop.properties.name, forKey: "stop")
+                    newStop.setValue(stop.name, forKey: "stop")
                     newStop.setValue(Date(), forKey: "dateAdded")
 
                     try context.save()
