@@ -3,7 +3,7 @@
 "About" = "Om";
 
 /* Aimed departure time */
-"Aimed time: %@" = "Rutetid: %@";
+"Aimed time: " = "Rutetid: ";
 
 /* Try again */
 "An error has occured. Make sure your phone is connected to the Internet and try again." = "En feil har oppstatt. Sørg for at din telefon er koblet til internett og prøv igjen.";

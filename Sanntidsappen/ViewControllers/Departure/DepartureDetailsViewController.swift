@@ -154,24 +154,39 @@ class DepartureDetailsViewController: UIViewController {
         }
     }
 
-    func getAimedTimeLabel(aimedTime: String) -> String {
+    func getAimedTimeLabel(aimedTime: String, expectedTime: String) -> NSAttributedString {
         let dateFormatter = ISO8601DateFormatter()
         let aimedTimeDate = dateFormatter.date(from: aimedTime)!
 
-        return String(format: NSLocalizedString("Aimed time: %@", comment: "Aimed departure time"), formatTimestamp(from: aimedTimeDate))
+        let timeLabel = NSMutableAttributedString(string: NSLocalizedString("Aimed time: ", comment: "Aimed departure time"))
+        let timestamp = NSMutableAttributedString(string: formatTimestamp(from: aimedTimeDate))
+
+        if isDelayed(aimedTime: aimedTime, expectedTime: expectedTime) {
+            timestamp.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, timestamp.length))
+        }
+
+        timeLabel.append(timestamp)
+
+        return timeLabel
     }
 
     func getNewTimeLabel(aimedTime: String, expectedTime: String) -> String {
         let dateFormatter = ISO8601DateFormatter()
 
-        let aimedTimeDate = dateFormatter.date(from: aimedTime)!
-        let expectedTimeDate = dateFormatter.date(from: expectedTime)!
-
-        if expectedTimeDate.timeIntervalSince(aimedTimeDate) > 60 {
-            return "  (\(formatTimestamp(from: expectedTimeDate)))"
+        if isDelayed(aimedTime: aimedTime, expectedTime: expectedTime) {
+            return "  \(formatTimestamp(from: dateFormatter.date(from: expectedTime)!))"
         }
 
         return ""
+    }
+
+    func isDelayed(aimedTime: String, expectedTime: String) -> Bool {
+        let dateFormatter = ISO8601DateFormatter()
+
+        let aimedTimeDate = dateFormatter.date(from: aimedTime)!
+        let expectedTimeDate = dateFormatter.date(from: expectedTime)!
+
+        return expectedTimeDate.timeIntervalSince(aimedTimeDate) > 60;
     }
 
 }
@@ -209,7 +224,7 @@ extension DepartureDetailsViewController: UICollectionViewDataSource {
 
         cell.lineLabel.text = String(departure.lineCode.prefix(3))
         cell.destinationLabel.text = departure.destination
-        cell.aimedTimeLabel.text = getAimedTimeLabel(aimedTime: departure.aimedArrivalTime)
+        cell.aimedTimeLabel.attributedText = getAimedTimeLabel(aimedTime: departure.aimedArrivalTime, expectedTime: departure.expectedArrivalTime)
         cell.newTimeLabel.text = getNewTimeLabel(aimedTime: departure.aimedArrivalTime, expectedTime: departure.expectedArrivalTime)
         cell.expectedTimeLable.text = formatExpectedTimeLabel(string: departure.expectedArrivalTime, isRealtime: departure.realtime)
 
