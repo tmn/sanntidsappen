@@ -35,6 +35,8 @@
 		A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */; };
 		A65AC063223E65E900F08EF6 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC062223E65E900F08EF6 /* SearchResultCell.swift */; };
 		A65AC065223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */; };
+		A65BBAD7291728BA0032B54F /* JourneyDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65BBAD6291728BA0032B54F /* JourneyDetail.swift */; };
+		A65BBAD9291728D90032B54F /* JourneyDetailRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A65BBAD8291728D90032B54F /* JourneyDetailRow.swift */; };
 		A66CF64523F020C200E71B7E /* NoResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66CF64423F020C200E71B7E /* NoResultsView.swift */; };
 		A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */; };
 		A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = A66F8B3D217C05B1000B7697 /* CompassDirection.swift */; };
@@ -113,6 +115,8 @@
 		A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentSearchCell.swift; sourceTree = "<group>"; };
 		A65AC062223E65E900F08EF6 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureSearchSectionHeaderCell.swift; sourceTree = "<group>"; };
+		A65BBAD6291728BA0032B54F /* JourneyDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetail.swift; sourceTree = "<group>"; };
+		A65BBAD8291728D90032B54F /* JourneyDetailRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailRow.swift; sourceTree = "<group>"; };
 		A66CF64423F020C200E71B7E /* NoResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoResultsView.swift; sourceTree = "<group>"; };
 		A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepartureDetailsCollectionViewHeaderCell.xib; sourceTree = "<group>"; };
 		A66F8B3D217C05B1000B7697 /* CompassDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompassDirection.swift; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 				A64D4A9421714E8500937E8D /* Utilities */,
 				A6BE90F8216EACDA0025C33B /* ViewControllers */,
 				A6BE90FC216EAE760025C33B /* Layouts and Cells */,
+				A6E60158291552E00066E617 /* Views */,
 			);
 			path = Sanntidsappen;
 			sourceTree = "<group>";
@@ -353,8 +358,18 @@
 			isa = PBXGroup;
 			children = (
 				A6ECF2E6291869D50035A066 /* Helpers */,
+				A6E60159291559B60066E617 /* Departure */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A6E60159291559B60066E617 /* Departure */ = {
+			isa = PBXGroup;
+			children = (
+				A65BBAD6291728BA0032B54F /* JourneyDetail.swift */,
+				A65BBAD8291728D90032B54F /* JourneyDetailRow.swift */,
+			);
+			path = Departure;
 			sourceTree = "<group>";
 		};
 		A6ECF2E6291869D50035A066 /* Helpers */ = {
@@ -449,7 +464,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A64B9127216829F5004A88DB /* Build configuration list for PBXProject "sanntidsappen" */;
+			buildConfigurationList = A64B9127216829F5004A88DB /* Build configuration list for PBXProject "Sanntidsappen" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -538,12 +553,14 @@
 				A66CF64523F020C200E71B7E /* NoResultsView.swift in Sources */,
 				A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */,
 				A6BD84542592901D0074F60E /* Departure.swift in Sources */,
+				A65BBAD7291728BA0032B54F /* JourneyDetail.swift in Sources */,
 				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,
 				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,
 				A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */,
 				A64D4AA72171B1BE00937E8D /* ColumnFlowLayout.swift in Sources */,
 				A6E9EF1525936237008052E5 /* DataContainerKeys.swift in Sources */,
+				A65BBAD9291728D90032B54F /* JourneyDetailRow.swift in Sources */,
 				A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */,
 				A67F0C28219A2C0600D18FB6 /* AboutCoordinator.swift in Sources */,
 				A684B26522417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift in Sources */,
@@ -738,7 +755,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				API_ENTUR_GEOCODER = "https://api.entur.io/geocoder/v1/";
-				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v2/graphql";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v3/graphql";
 				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -762,7 +779,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				API_ENTUR_GEOCODER = "https://api.entur.io/geocoder/v1/";
-				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v2/graphql";
+				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v3/graphql";
 				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import SwiftUI
 
 class DepartureCoordinator: Coordinator {
 
@@ -40,9 +41,9 @@ class DepartureCoordinator: Coordinator {
     }
 
     func showDepartureRoute(departure: Departure) {
-        let viewController = DepartureDetailsJourneyViewController(departure: departure)
-
-        navigationController.pushViewController(viewController, animated: true)
+         let viewController = DepartureDetailsJourneyViewController(departure: departure)
+        // let viewController = UIHostingController(rootView: JourneyDetail(navigationController: self.navigationController, departure: departure))
+        self.navigationController.pushViewController(viewController, animated: true)
     }
     
     private func createDetailedView(forStop stop: Stop) -> DepartureDetailsViewController {
