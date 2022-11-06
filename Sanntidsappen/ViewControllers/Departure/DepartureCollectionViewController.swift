@@ -227,17 +227,19 @@ extension DepartureCollectionViewController {
         let latitude = lastLocation.coordinate.latitude
         let longitude = lastLocation.coordinate.longitude
 
-        EnTurAPI.geocoder.getNearbyStops(latitude: latitude, longitude: longitude) { [weak self] res in
-            switch res {
-            case .success(let value):
-                self?.nearbyStops = value.stops
+        Task {
+            do {
+                let stops = try await EnTurAPI.geocoder.getNearbyStops(latitude: latitude, longitude: longitude)
+
+                self.nearbyStops = stops.stops
 
                 DispatchQueue.main.async {
-                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                    self.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 }
-
-            case .failure:
-                self?.performSelector(onMainThread: #selector(self?.showErrorAlert(lastLocation:)), with: nil, waitUntilDone: false)
+            } catch {
+                DispatchQueue.main.async {
+                    self.performSelector(onMainThread: #selector(self.showErrorAlert(lastLocation:)), with: nil, waitUntilDone: false)
+                }
             }
         }
     }
@@ -265,16 +267,18 @@ extension DepartureCollectionViewController: UISearchControllerDelegate, UISearc
                 workingItem = nil
             }
 
-            workingItem = DispatchWorkItem { EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchText) { [weak self] res in
-                switch res {
-                case .success(let value):
-                    self?.searchResultController.stops = value.stops
-                    self?.searchResultController.collectionView?.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
-                case .failure(let error):
-                    print("ERROR: \(error)")
-                }
+            workingItem = DispatchWorkItem {
+                Task {
+                    guard let stops = try? await EnTurAPI.geocoder.getAutocompleteBusStop(searchQuery: searchText) else {
+                        return
+                    }
 
-                }}
+                    self.searchResultController.stops = stops.stops
+                    DispatchQueue.main.async {
+                        self.searchResultController.collectionView?.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                    }
+                }
+            }
 
             DispatchQueue.global(qos: .userInteractive).asyncAfter(deadline: .now() + 0.120, execute: workingItem!)
         }

@@ -57,65 +57,56 @@ class EnTurAPI {
     }
 
     private func createRequestObject(path: String?) -> URLRequest {
-        var _request: URLRequest
+        var request: URLRequest
 
-        if let path = path {
+        if let path {
             let escapedSearchQuery = path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
-            _request = URLRequest(url: URL(string: escapedSearchQuery, relativeTo: self.baseURL)!)
+            request = URLRequest(url: URL(string: escapedSearchQuery, relativeTo: self.baseURL)!)
         } else {
-            _request = URLRequest(url: self.baseURL)
+            request = URLRequest(url: self.baseURL)
         }
 
         for (headerField, value) in headers {
-            _request.addValue(value, forHTTPHeaderField: headerField)
+            request.addValue(value, forHTTPHeaderField: headerField)
         }
 
-        return _request
+        return request
     }
 
 }
 
 extension EnTurAPI {
+    enum EnTurAPIError: Error {
+        case networkError
+    }
+}
 
-    fileprivate func get<T: Decodable>(path: String?, completionHandler: @escaping (Result<T, Error>) -> Void) {
+extension EnTurAPI {
+
+    fileprivate func get<T: Decodable>(path: String?) async throws -> T {
         request = createRequestObject(path: path)
-
-        doRequest(request: request, completionHandler: completionHandler)
+        return try await asyncRequest(request: request)
     }
 
-    fileprivate func post<T: Decodable>(body: Dictionary<String, String>, completionHandler: @escaping (Result<T, Error>) -> Void) {
+    fileprivate func post<T: Decodable>(body: Dictionary<String, String>) async throws -> T {
         request = createRequestObject(path: nil)
 
         request.httpMethod = "POST"
         request.httpBody = try! JSONSerialization.data(withJSONObject: body, options: [])
         request.cachePolicy = .reloadIgnoringLocalCacheData
 
-        doRequest(request: request, completionHandler: completionHandler)
+        return try await asyncRequest(request: request)
     }
 
-    fileprivate func doRequest<T: Decodable>(request: URLRequest, completionHandler: @escaping (Result<T, Error>) -> Void) {
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let error = error {
-                completionHandler(.failure(error))
-                return
-            }
+    fileprivate func asyncRequest<T: Decodable>(request: URLRequest) async throws -> T {
+        let (data, response) = try await URLSession.shared.data(for: request)
 
-            guard let httpResponse = response as? HTTPURLResponse,
-                (200...299).contains(httpResponse.statusCode),
-                let data = data else {
-                    completionHandler(.failure(NSError(domain: "Network Service", code: 1, userInfo: nil)))
-                    return
-            }
-
-            do {
-                let decodedData = try JSONDecoder().decode(T.self, from: data)
-                completionHandler(.success(decodedData))
-            } catch let jsonError {
-                completionHandler(.failure(jsonError))
-            }
+        guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode) else {
+            throw EnTurAPIError.networkError
         }
 
-        task.resume()
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
 
@@ -124,16 +115,14 @@ extension EnTurAPI {
 
 class EnTurAPIGeocoder: EnTurAPI {
 
-    func getAutocompleteBusStop(searchQuery: String, completionHandler: @escaping (Result<Stops, Error>) -> Void) {
+    func getAutocompleteBusStop(searchQuery: String) async throws -> Stops {
         let path = String(format: "autocomplete?text=\(searchQuery)&layers=venue")
-
-        get(path: path, completionHandler: completionHandler)
+        return try await get(path: path)
     }
 
-    func getNearbyStops(latitude: Double, longitude: Double, completionHandler: @escaping (Result<Stops, Error>) -> Void) {
+    func getNearbyStops(latitude: Double, longitude: Double) async throws-> Stops {
         let path = "reverse?point.lat=\(latitude)&point.lon=\(longitude)&size=5&layers=venue"
-
-        get(path: path, completionHandler: completionHandler)
+        return try await get(path: path)
     }
 
 }
@@ -143,22 +132,21 @@ class EnTurAPIGeocoder: EnTurAPI {
 
 class EnTurAPIJourneyPlanner: EnTurAPI {
 
-    func getStopPlace(for stop: Stop, completionHandler: @escaping (Result<JourneyStopPlace, Error>) -> Void) {
+    func getStopPlace(for stop: Stop) async throws -> JourneyStopPlace {
         let dateFormatter = ISO8601DateFormatter()
 
         let query = "{ stopPlace(id: \"\(stop.id)\") { id name estimatedCalls(startTime: \"\(dateFormatter.string(from: Date()))\", timeRange: 72100, numberOfDepartures: 50) { realtime aimedArrivalTime expectedArrivalTime date forBoarding destinationDisplay { frontText } quay { id name publicCode description } serviceJourney { id journeyPattern { line { id publicCode name transportMode } } } } } }"
 
         let body = ["query": query]
 
-        post(body: body, completionHandler: completionHandler)
+        return try await post(body: body)
     }
 
-    func getJourney(journeyId: String, date: String, completionHandler: @escaping (Result<Journey, Error>) -> Void) {
+    func getJourney(journeyId: String, date: String) async throws -> Journey {
         let query = "{ serviceJourney(id: \"\(journeyId)\") { estimatedCalls(date: \"\(date)\") { aimedDepartureTime expectedDepartureTime quay { id name } } } }"
-
         let body = ["query": query]
 
-        post(body: body, completionHandler: completionHandler)
+        return try await post(body: body)
     }
 
 }
@@ -168,12 +156,11 @@ class EnTurAPIJourneyPlanner: EnTurAPI {
 
 class EnTurAPIStopRegister: EnTurAPI {
 
-    func getQuayInformation(for stop: Stop, completionHandler: @escaping (Result<StopRegister, Error>) -> Void) {
+    func getQuayInformation(for stop: Stop) async throws -> StopRegister {
         let query = "{ stopPlace(id: \"\(stop.id)\", stopPlaceType: onstreetBus) { id name { value } ... on StopPlace { quays { id compassBearing geometry { type coordinates } } } } }"
-
         let body = ["query": query]
 
-        post(body: body, completionHandler: completionHandler)
+        return try await post(body: body)
     }
 
 }

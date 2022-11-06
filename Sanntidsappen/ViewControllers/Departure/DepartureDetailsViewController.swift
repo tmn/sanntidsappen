@@ -84,53 +84,46 @@ class DepartureDetailsViewController: UIViewController {
     }
 
     @objc func requestData() {
-        EnTurAPI.journeyPlanner.getStopPlace(for: stop) { [weak self] res in
-            switch res {
-            case .success(let value):
+        Task {
+            do {
+                let journey = try await EnTurAPI.journeyPlanner.getStopPlace(for: stop)
 
-                if (value.departures.count == 0) {
+                if (journey.departures.count == 0) {
                     DispatchQueue.main.async {
-                        if let _collectionView = self?.collectionView {
+                        if let _collectionView = self.collectionView {
                             _collectionView.isScrollEnabled = false
                             _collectionView.backgroundView = NoResultsView(frame: _collectionView.bounds)
                         }
                     }
                 } else {
                     DispatchQueue.main.async {
-                        self?.collectionView.isScrollEnabled = true
-                        self?.collectionView.backgroundView = nil
+                        self.collectionView.isScrollEnabled = true
+                        self.collectionView.backgroundView = nil
+                        self.segmentedDepartures = Dictionary(grouping: journey.departures, by: { ($0 as Departure).quay })
+
+                        self.sortedSections = self.segmentedDepartures.keys.sorted()
+                        self.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                     }
-
-                    self?.segmentedDepartures = Dictionary(grouping: value.departures, by: { ($0 as Departure).quay })
-                    self?.sortedSections = self?.segmentedDepartures.keys.sorted() ?? []
-                    self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
                 }
-
-            case .failure(_):
-                self?.performSelector(onMainThread: #selector(self?.showErrorAlert), with: nil, waitUntilDone: false)
+            } catch {
+                DispatchQueue.main.async {
+                    self.performSelector(onMainThread: #selector(self.showErrorAlert), with: nil, waitUntilDone: false)
+                }
             }
-
-            self?.refresher.performSelector(onMainThread: #selector(UIRefreshControl.endRefreshing), with: nil, waitUntilDone: false)
         }
-
-        EnTurAPI.stopRegister.getQuayInformation(for: self.stop) { [weak self] res in
-            switch res {
-            case .success(let value):
-                self?.quays = Dictionary(grouping: value.stopPlaces[0].quays, by: { $0.id })
-                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
-
-
-            case .failure(let error):
+       
+        Task {
+            do {
+                let quayInfo = try await EnTurAPI.stopRegister.getQuayInformation(for: self.stop)
+                self.quays = Dictionary(grouping: quayInfo.stopPlaces[0].quays, by: { $0.id })
+                
+                DispatchQueue.main.async {
+                    self.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
+                }
+            } catch {
                 print("ERROR: \(error)")
             }
         }
-    }
-
-    func formatTimestamp(from date: Date) -> String {
-        let returnDateFormatter = DateFormatter()
-        returnDateFormatter.dateFormat = "HH:mm"
-
-        return returnDateFormatter.string(from: date)
     }
 
     func formatExpectedTimeLabel(string expectedArrivalTime: String, isRealtime: Bool? = false) -> String {
@@ -150,16 +143,13 @@ class DepartureDetailsViewController: UIViewController {
             }
 
         default:
-            return formatTimestamp(from: date)
+            return Timestamp.format(from: date)
         }
     }
 
     func getAimedTimeLabel(aimedTime: String, expectedTime: String) -> NSAttributedString {
-        let dateFormatter = ISO8601DateFormatter()
-        let aimedTimeDate = dateFormatter.date(from: aimedTime)!
-
         let timeLabel = NSMutableAttributedString(string: NSLocalizedString("Aimed time: ", comment: "Aimed departure time"))
-        let timestamp = NSMutableAttributedString(string: formatTimestamp(from: aimedTimeDate))
+        let timestamp = NSMutableAttributedString(string: Timestamp.format(from: aimedTime))
 
         if isDelayed(aimedTime: aimedTime, expectedTime: expectedTime) {
             timestamp.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: NSMakeRange(0, timestamp.length))
@@ -174,7 +164,7 @@ class DepartureDetailsViewController: UIViewController {
         let dateFormatter = ISO8601DateFormatter()
 
         if isDelayed(aimedTime: aimedTime, expectedTime: expectedTime) {
-            return "  \(formatTimestamp(from: dateFormatter.date(from: expectedTime)!))"
+            return "  \(Timestamp.format(from: dateFormatter.date(from: expectedTime)!))"
         }
 
         return ""

@@ -33,7 +33,6 @@ class DepartureDetailsJourneyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         tableView = UITableView(frame: view.bounds)
         tableView.separatorStyle = .none
         tableView.rowHeight = 50
@@ -47,15 +46,6 @@ class DepartureDetailsJourneyViewController: UIViewController {
         requestData()
     }
 
-    func formatTimeStamp(timeInString: String) -> String {
-        let dateFormatter = ISO8601DateFormatter()
-
-        let returnDateFormatter = DateFormatter()
-        returnDateFormatter.dateFormat = "HH:mm"
-
-        return returnDateFormatter.string(from: dateFormatter.date(from: timeInString)!)
-    }
-
     func scrollTableView() {
         if let quayIndex = journey.firstIndex(where: { $0.quay.id == departure.quay.id }) {
             tableView.scrollToRow(at: IndexPath(item: quayIndex, section: 0), at: .top, animated: true)
@@ -67,17 +57,14 @@ class DepartureDetailsJourneyViewController: UIViewController {
 extension DepartureDetailsJourneyViewController {
 
     func requestData() {
-        EnTurAPI.journeyPlanner.getJourney(journeyId: departure.journeyId, date: departure.date) { res in
-            switch (res) {
-            case .success(let value):
-                self.journey = value.departures
+        Task {
+            do {
+                let journey = try await EnTurAPI.journeyPlanner.getJourney(journeyId: departure.journeyId, date: departure.date)
 
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.scrollTableView()
-                }
-
-            case .failure(_):
+                self.journey = journey.departures
+                self.tableView.reloadData()
+                self.scrollTableView()
+            } catch {
                 let alertController = UIAlertController(title: NSLocalizedString("Oh, no!", comment: "Something wrong happened on network request"), message: NSLocalizedString("An error has occured. Make sure your phone is connected to the Internet and try again.", comment: "Try again"), preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel"), style: .cancel, handler: nil))
                 alertController.addAction(UIAlertAction(title: NSLocalizedString("Try again", comment: "Try again"), style: .default) { _ in
@@ -115,7 +102,7 @@ extension DepartureDetailsJourneyViewController: UITableViewDataSource {
         }
 
         cell.titleLabel.text = journey[indexPath.item].quay.name
-        cell.timeStampLabel.text = formatTimeStamp(timeInString: journey[indexPath.item].aimedDepartureTime)
+        cell.timeStampLabel.text = Timestamp.format(from: journey[indexPath.item].aimedDepartureTime)
 
         if indexPath.item == 0 {
             cell.journeyLine.frame = CGRect(x: 84, y: 65/2, width: 3, height: tableView.rowHeight/2)
