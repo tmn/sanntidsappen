@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A6311588291DABED00CEEBB8 /* DepartureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6311587291DABED00CEEBB8 /* DepartureViewModel.swift */; };
 		A640E81022397918004CEBC3 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E80F22397918004CEBC3 /* MainTabBarController.swift */; };
 		A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A640E81122397BE7004CEBC3 /* Main.storyboard */; };
 		A640E81422397C58004CEBC3 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A640E81322397C58004CEBC3 /* Storyboarded.swift */; };
-		A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */; };
 		A64AC528219A21D50079F79E /* Journey.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC527219A21D50079F79E /* Journey.swift */; };
 		A64B9130216829F5004A88DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64B912F216829F5004A88DB /* AppDelegate.swift */; };
 		A64B9138216829F5004A88DB /* Sanntidsappen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A64B9136216829F5004A88DB /* Sanntidsappen.xcdatamodeld */; };
@@ -57,9 +57,13 @@
 		A6BD84692592917B0074F60E /* JourneyStopPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD84682592917B0074F60E /* JourneyStopPlace.swift */; };
 		A6BD8471259296200074F60E /* Quay.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BD8470259296200074F60E /* Quay.swift */; };
 		A6BE90F5216EAB690025C33B /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BE90F4216EAB690025C33B /* Coordinator.swift */; };
-		A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */; };
 		A6E9EF1525936237008052E5 /* DataContainerKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9EF1425936237008052E5 /* DataContainerKeys.swift */; };
 		A6ECF2E829186A0B0035A066 /* Timestamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECF2E729186A0B0035A066 /* Timestamp.swift */; };
+		A6ECF2EA2919C40F0035A066 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECF2E92919C40F0035A066 /* Color.swift */; };
+		A6ECF2EC291A829E0035A066 /* DepartureDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECF2EB291A829E0035A066 /* DepartureDetail.swift */; };
+		A6ECF2EE291A82A90035A066 /* DepartureRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECF2ED291A82A90035A066 /* DepartureRow.swift */; };
+		A6ECF2F4291A8F270035A066 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6ECF2F3291A8F270035A066 /* ModelData.swift */; };
+		A6ECF2F7291A8F6D0035A066 /* departuresData.json in Resources */ = {isa = PBXBuildFile; fileRef = A6ECF2F6291A8F6D0035A066 /* departuresData.json */; };
 		A6EDF70622416C5100D608D2 /* SearchResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A6EDF70522416C5100D608D2 /* SearchResultCell.xib */; };
 /* End PBXBuildFile section */
 
@@ -81,10 +85,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A6311587291DABED00CEEBB8 /* DepartureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureViewModel.swift; sourceTree = "<group>"; };
 		A640E80F22397918004CEBC3 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A640E81122397BE7004CEBC3 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A640E81322397C58004CEBC3 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
-		A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetailsJourneyViewController.swift; sourceTree = "<group>"; };
 		A64AC527219A21D50079F79E /* Journey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Journey.swift; sourceTree = "<group>"; };
 		A64B912C216829F5004A88DB /* Sanntidsappen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sanntidsappen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A64B912F216829F5004A88DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,9 +142,13 @@
 		A6BD84682592917B0074F60E /* JourneyStopPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyStopPlace.swift; sourceTree = "<group>"; };
 		A6BD8470259296200074F60E /* Quay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quay.swift; sourceTree = "<group>"; };
 		A6BE90F4216EAB690025C33B /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JourneyDetailsTableViewCell.swift; sourceTree = "<group>"; };
 		A6E9EF1425936237008052E5 /* DataContainerKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataContainerKeys.swift; sourceTree = "<group>"; };
 		A6ECF2E729186A0B0035A066 /* Timestamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timestamp.swift; sourceTree = "<group>"; };
+		A6ECF2E92919C40F0035A066 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		A6ECF2EB291A829E0035A066 /* DepartureDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureDetail.swift; sourceTree = "<group>"; };
+		A6ECF2ED291A82A90035A066 /* DepartureRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepartureRow.swift; sourceTree = "<group>"; };
+		A6ECF2F3291A8F270035A066 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		A6ECF2F6291A8F6D0035A066 /* departuresData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = departuresData.json; sourceTree = "<group>"; };
 		A6EDF70522416C5100D608D2 /* SearchResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -170,6 +178,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A62C21442915F9CF0085ECEB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A64B9123216829F5004A88DB = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +195,7 @@
 				A699D1912173684D0008F951 /* CONTRIBUTING.md */,
 				A699D18F2173684D0008F951 /* LICENSE.txt */,
 				A699D1902173684D0008F951 /* README.md */,
+				A62C21442915F9CF0085ECEB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -196,6 +212,7 @@
 		A64B912E216829F5004A88DB /* Sanntidsappen */ = {
 			isa = PBXGroup;
 			children = (
+				A6ECF2F5291A8F520035A066 /* Resources */,
 				A64B9139216829F5004A88DB /* Assets.xcassets */,
 				A65AC05A223DB48700F08EF6 /* Colors.xcassets */,
 				A64B913E216829F5004A88DB /* Info.plist */,
@@ -250,6 +267,7 @@
 				A64D4A9321714E2B00937E8D /* Network */,
 				A64D4AA82171BFD300937E8D /* UIColor+hex.swift */,
 				A66F8B3D217C05B1000B7697 /* CompassDirection.swift */,
+				A6ECF2E92919C40F0035A066 /* Color.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -265,6 +283,8 @@
 				A6BD84682592917B0074F60E /* JourneyStopPlace.swift */,
 				A6BD8470259296200074F60E /* Quay.swift */,
 				A6E9EF1425936237008052E5 /* DataContainerKeys.swift */,
+				A6ECF2F3291A8F270035A066 /* ModelData.swift */,
+				A6311587291DABED00CEEBB8 /* DepartureViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -275,7 +295,6 @@
 				A65AC05E223E5F0900F08EF6 /* DepartureCollectionViewController.swift */,
 				A64D4AAA21720A4800937E8D /* DepartureSearchResultViewController.swift */,
 				A64D4AAF21721EDF00937E8D /* DepartureDetailsViewController.swift */,
-				A64AC525219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift */,
 			);
 			path = Departure;
 			sourceTree = "<group>";
@@ -345,7 +364,6 @@
 				A684B26422417ABC006909F6 /* DepartureDetailsCollectionViewHeaderCell.swift */,
 				A66F8B3B217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib */,
 				A65AC064223E688000F08EF6 /* DepartureSearchSectionHeaderCell.swift */,
-				A6C4DD19219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift */,
 				A65AC060223E65D400F08EF6 /* RecentSearchCell.swift */,
 				A65AC062223E65E900F08EF6 /* SearchResultCell.swift */,
 				A6EDF70522416C5100D608D2 /* SearchResultCell.xib */,
@@ -368,6 +386,8 @@
 			children = (
 				A65BBAD6291728BA0032B54F /* JourneyDetail.swift */,
 				A65BBAD8291728D90032B54F /* JourneyDetailRow.swift */,
+				A6ECF2EB291A829E0035A066 /* DepartureDetail.swift */,
+				A6ECF2ED291A82A90035A066 /* DepartureRow.swift */,
 			);
 			path = Departure;
 			sourceTree = "<group>";
@@ -378,6 +398,14 @@
 				A6ECF2E729186A0B0035A066 /* Timestamp.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A6ECF2F5291A8F520035A066 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A6ECF2F6291A8F6D0035A066 /* departuresData.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -502,6 +530,7 @@
 				A699D1932173684E0008F951 /* README.md in Resources */,
 				A66F8B3C217BE645000B7697 /* DepartureDetailsCollectionViewHeaderCell.xib in Resources */,
 				A6EDF70622416C5100D608D2 /* SearchResultCell.xib in Resources */,
+				A6ECF2F7291A8F6D0035A066 /* departuresData.json in Resources */,
 				A640E81222397BE7004CEBC3 /* Main.storyboard in Resources */,
 				A64B913D216829F5004A88DB /* LaunchScreen.storyboard in Resources */,
 				A64B913A216829F5004A88DB /* Assets.xcassets in Resources */,
@@ -544,17 +573,20 @@
 				A64D4A9921714F1700937E8D /* EnTurAPI.swift in Sources */,
 				A6BD8471259296200074F60E /* Quay.swift in Sources */,
 				A67F0C2A219A2C2C00D18FB6 /* AboutViewController.swift in Sources */,
+				A6ECF2EC291A829E0035A066 /* DepartureDetail.swift in Sources */,
 				A64AC528219A21D50079F79E /* Journey.swift in Sources */,
 				A65AC063223E65E900F08EF6 /* SearchResultCell.swift in Sources */,
 				A6BD845E259290AA0074F60E /* Stops.swift in Sources */,
 				A64D4AB021721EDF00937E8D /* DepartureDetailsViewController.swift in Sources */,
 				A66F8B45217C9DBF000B7697 /* RecentStopSearchData.swift in Sources */,
-				A64AC526219A1B2C0079F79E /* DepartureDetailsJourneyViewController.swift in Sources */,
+				A6ECF2F4291A8F270035A066 /* ModelData.swift in Sources */,
+				A6311588291DABED00CEEBB8 /* DepartureViewModel.swift in Sources */,
 				A66CF64523F020C200E71B7E /* NoResultsView.swift in Sources */,
+				A6ECF2EE291A82A90035A066 /* DepartureRow.swift in Sources */,
+				A6ECF2EA2919C40F0035A066 /* Color.swift in Sources */,
 				A65AC061223E65D400F08EF6 /* RecentSearchCell.swift in Sources */,
 				A6BD84542592901D0074F60E /* Departure.swift in Sources */,
 				A65BBAD7291728BA0032B54F /* JourneyDetail.swift in Sources */,
-				A6C4DD1A219CCC7F00EAD668 /* JourneyDetailsTableViewCell.swift in Sources */,
 				A66F8B3E217C05B1000B7697 /* CompassDirection.swift in Sources */,
 				A64D4AA92171BFD300937E8D /* UIColor+hex.swift in Sources */,
 				A64D4A9D2171792F00937E8D /* DepartureCoordinator.swift in Sources */,
@@ -758,10 +790,13 @@
 				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v3/graphql";
 				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TTPD58N2KH;
+				DEVELOPMENT_TEAM = 957G65987M;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_KEY_CFBundleDisplayName = Sanntidsappen;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -782,10 +817,13 @@
 				API_ENTUR_JOURNEYPLANNER = "https://api.entur.io/journey-planner/v3/graphql";
 				API_ENTUR_STOPREGISTER = "https://api.entur.io/stop-places/v1/graphql";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TTPD58N2KH;
+				DEVELOPMENT_TEAM = 957G65987M;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_KEY_CFBundleDisplayName = Sanntidsappen;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -884,7 +922,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A64B9127216829F5004A88DB /* Build configuration list for PBXProject "sanntidsappen" */ = {
+		A64B9127216829F5004A88DB /* Build configuration list for PBXProject "Sanntidsappen" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A64B9155216829F6004A88DB /* Debug */,

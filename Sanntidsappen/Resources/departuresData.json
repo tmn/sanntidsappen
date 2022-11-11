@@ -1,0 +1,1360 @@
+{
+  "data": {
+    "stopPlace": {
+      "id": "NSR:StopPlace:58404",
+      "name": "Nationaltheatret",
+      "estimatedCalls": [
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:27:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:28:17+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ringen via Majorstuen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866420",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:28:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:28:17+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Asker"
+          },
+          "quay": {
+            "id": "NSR:Quay:478",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "2",
+            "description": "tog retning Drammen"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:2173_1929-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L1",
+                "publicCode": "L1",
+                "name": "Spikkestad-Oslo S-Lillestrøm",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:29:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:29:02+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Vestli"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866337",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:28:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:29:29+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Nydalen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:30-169578-23773452",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:30",
+                "publicCode": "30",
+                "name": "Bygdøy - Nydalen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:27:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:29:59+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Mortensrud"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:3-169523-23865647",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:3",
+                "publicCode": "3",
+                "name": "Kolsås - Mortensrud",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:29:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:28:42+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ski"
+          },
+          "quay": {
+            "id": "NSR:Quay:476",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "4",
+            "description": "tog retning Oslo S"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:2775-HVK_2378-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L2",
+                "publicCode": "L2",
+                "name": "Stabekk-Oslo S-Ski",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:30:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:30:19+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Grorud T"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:31-169578-23852675",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:31",
+                "publicCode": "31",
+                "name": "Snarøya - Fornebu - Tonsenhage - Grorud",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:30:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:30:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Drammen"
+          },
+          "quay": {
+            "id": "NSR:Quay:475",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "1",
+            "description": "tog retning Drammen"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:336_2629-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:R10",
+                "publicCode": "R10",
+                "name": "Drammen-Lillehammer",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:31:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:31:38+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Helsfyr"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:1-169523-23866177",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:1",
+                "publicCode": "1",
+                "name": "Frognerseteren - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:30:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:32:19+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Bygdøy"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:30-169578-23773544",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:30",
+                "publicCode": "30",
+                "name": "Bygdøy - Nydalen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:31:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:32:24+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kolsås"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:3-169523-23865775",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:3",
+                "publicCode": "3",
+                "name": "Kolsås - Mortensrud",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:31:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:33:02+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kjelsås stasjon"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:54-173163-24000938",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:54",
+                "publicCode": "54",
+                "name": "Tjuvholmen - Kjelsås stasjon",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:34:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:33:14+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ellingsrudåsen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:2-169523-23865915",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:2",
+                "publicCode": "2",
+                "name": "Østerås - Ellingsrudåsen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:30:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:33:48+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Voksen skog"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:32-169578-23773934",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:32",
+                "publicCode": "32",
+                "name": "Voksen skog - Kværnerbyen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:33:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:33:55+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Vestli via Majorstuen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:4-169523-23865569",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:4",
+                "publicCode": "4",
+                "name": "Vestli - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:34:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:34:01+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Majorstuen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7357",
+            "name": "Nationaltheatret",
+            "publicCode": "B",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:11-175166-24466727",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:11",
+                "publicCode": "11",
+                "name": "Majorstuen - Kjelsås",
+                "transportMode": "tram"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:35:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:34:11+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Østerås"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:2-169523-23866044",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:2",
+                "publicCode": "2",
+                "name": "Østerås - Ellingsrudåsen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:34:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:33:30+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Oslo Lufthavn"
+          },
+          "quay": {
+            "id": "NSR:Quay:476",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "4",
+            "description": "tog retning Oslo S"
+          },
+          "serviceJourney": {
+            "id": "FLT:ServiceJourney:1-13784-3815-202209090914",
+            "journeyPattern": {
+              "line": {
+                "id": "FLT:Line:FLY1",
+                "publicCode": "FLY1",
+                "name": "FLY1",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:33:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:35:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kjelsås"
+          },
+          "quay": {
+            "id": "NSR:Quay:7358",
+            "name": "Nationaltheatret",
+            "publicCode": "C",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:11-175166-24466523",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:11",
+                "publicCode": "11",
+                "name": "Majorstuen - Kjelsås",
+                "transportMode": "tram"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:33:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:35:13+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ringen via Tøyen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866339",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:35:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:35:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Lillestrøm"
+          },
+          "quay": {
+            "id": "NSR:Quay:477",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "3",
+            "description": "tog retning Oslo S"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:2276_2063-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L1",
+                "publicCode": "L1",
+                "name": "Spikkestad-Oslo S-Lillestrøm",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:34:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:36:21+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Oslo bussterminal"
+          },
+          "quay": {
+            "id": "NSR:Quay:7373",
+            "name": "Nationaltheatret",
+            "publicCode": "F",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:150-175130-23558144",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:150",
+                "publicCode": "150",
+                "name": "Gullhaug - Oslo bussterminal",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:38:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:37:16+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Sognsvann"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866419",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:37:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:37:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Dal"
+          },
+          "quay": {
+            "id": "NSR:Quay:476",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "4",
+            "description": "tog retning Oslo S"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:1675_1502-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L13",
+                "publicCode": "L13",
+                "name": "Drammen-Oslo S-Dal",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:38:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:38:09+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Snarøya"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:31-169578-23852863",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:31",
+                "publicCode": "31",
+                "name": "Snarøya - Fornebu - Tonsenhage - Grorud",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:37:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:38:47+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Filipstad"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:81-169025-23788888",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:81",
+                "publicCode": "81",
+                "name": "Fornebu - Myrvoll stasjon",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:32:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:38:48+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Bekkestua"
+          },
+          "quay": {
+            "id": "NSR:Quay:7357",
+            "name": "Nationaltheatret",
+            "publicCode": "B",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:13-175166-25207955",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:13",
+                "publicCode": "13",
+                "name": "Bekkestua - Ljabru",
+                "transportMode": "tram"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:39:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:39:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Rykkinn"
+          },
+          "quay": {
+            "id": "NSR:Quay:7384",
+            "name": "Nationaltheatret",
+            "publicCode": "G",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:160-175130-23558803",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:160",
+                "publicCode": "160",
+                "name": "Rykkinn -Oslo bussterminal",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:35:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:39:42+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ljabru"
+          },
+          "quay": {
+            "id": "NSR:Quay:7358",
+            "name": "Nationaltheatret",
+            "publicCode": "C",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:13-175166-25207852",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:13",
+                "publicCode": "13",
+                "name": "Bekkestua - Ljabru",
+                "transportMode": "tram"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Myrvoll stasjon"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:81-169025-23788768",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:81",
+                "publicCode": "81",
+                "name": "Fornebu - Myrvoll stasjon",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Frognerseteren"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:1-169523-23866258",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:1",
+                "publicCode": "1",
+                "name": "Frognerseteren - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:37:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:12+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kværnerbyen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:32-169578-23773947",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:32",
+                "publicCode": "32",
+                "name": "Voksen skog - Kværnerbyen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:41+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Tonsenhagen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:31-169578-23852768",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:31",
+                "publicCode": "31",
+                "name": "Snarøya - Fornebu - Tonsenhage - Grorud",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:38:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:41+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Bergkrystallen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:4-169523-23865489",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:4",
+                "publicCode": "4",
+                "name": "Vestli - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:40:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:40:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Skien"
+          },
+          "quay": {
+            "id": "NSR:Quay:478",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "2",
+            "description": "tog retning Drammen"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:839_51032-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:R11x",
+                "publicCode": "R11x",
+                "name": "Eidsvoll-Oslo S-Skien-Notodden",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:41:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:41:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Skullerud"
+          },
+          "quay": {
+            "id": "NSR:Quay:7393",
+            "name": "Nationaltheatret",
+            "publicCode": "L",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:70-173890-21479369",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:70",
+                "publicCode": "70",
+                "name": "Nationaltheatret - Skullerud T",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:41:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:41:33+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Tjuvholmen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:54-173163-24000883",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:54",
+                "publicCode": "54",
+                "name": "Tjuvholmen - Kjelsås stasjon",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:41:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:41:39+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Oslo bussterminal"
+          },
+          "quay": {
+            "id": "NSR:Quay:7373",
+            "name": "Nationaltheatret",
+            "publicCode": "F",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:160-175130-23558709",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:160",
+                "publicCode": "160",
+                "name": "Rykkinn -Oslo bussterminal",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:42:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:42:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Spikkestad"
+          },
+          "quay": {
+            "id": "NSR:Quay:475",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "1",
+            "description": "tog retning Drammen"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:2275_2060-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L1",
+                "publicCode": "L1",
+                "name": "Spikkestad-Oslo S-Lillestrøm",
+                "transportMode": "rail"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:42:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:43:13+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Mortensrud"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:3-169523-23865648",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:3",
+                "publicCode": "3",
+                "name": "Kolsås - Mortensrud",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:42:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:43:27+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ringen via Majorstuen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866421",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:45:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:45:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Voksen skog"
+          },
+          "quay": {
+            "id": "NSR:Quay:7350",
+            "name": "Nationaltheatret",
+            "publicCode": "A",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:32-169578-23773954",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:32",
+                "publicCode": "32",
+                "name": "Voksen skog - Kværnerbyen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:44:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:45:07+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Vestli"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866338",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:46:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:45:52+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kolsås"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:3-169523-23865776",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:3",
+                "publicCode": "3",
+                "name": "Kolsås - Mortensrud",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:46:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:46:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Kjelsås stasjon"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:54-173163-24000939",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:54",
+                "publicCode": "54",
+                "name": "Tjuvholmen - Kjelsås stasjon",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:46:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:47:44+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ryen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:1-169523-23866180",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:1",
+                "publicCode": "1",
+                "name": "Frognerseteren - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Nydalen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7349",
+            "name": "Nationaltheatret",
+            "publicCode": "D",
+            "description": null
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:30-169578-23773453",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:30",
+                "publicCode": "30",
+                "name": "Bygdøy - Nydalen",
+                "transportMode": "bus"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Ringen via Tøyen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7333",
+            "name": "Nationaltheatret",
+            "publicCode": "1",
+            "description": "Retning øst"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:5-169523-23866340",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:5",
+                "publicCode": "5",
+                "name": "Sognsvann - Vestli",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:48:00+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Vestli via Majorstuen"
+          },
+          "quay": {
+            "id": "NSR:Quay:7334",
+            "name": "Nationaltheatret",
+            "publicCode": "2",
+            "description": "Retning vest"
+          },
+          "serviceJourney": {
+            "id": "RUT:ServiceJourney:4-169523-23865570",
+            "journeyPattern": {
+              "line": {
+                "id": "RUT:Line:4",
+                "publicCode": "4",
+                "name": "Vestli - Bergkrystallen",
+                "transportMode": "metro"
+              }
+            }
+          }
+        },
+        {
+          "realtime": true,
+          "aimedArrivalTime": "2022-11-07T23:47:00+01:00",
+          "expectedArrivalTime": "2022-11-07T23:47:10+01:00",
+          "date": "2022-11-07",
+          "forBoarding": true,
+          "destinationDisplay": {
+            "frontText": "Eidsvoll"
+          },
+          "quay": {
+            "id": "NSR:Quay:477",
+            "name": "Nationaltheatret stasjon",
+            "publicCode": "3",
+            "description": "tog retning Oslo S"
+          },
+          "serviceJourney": {
+            "id": "NSB:ServiceJourney:538_2816-R",
+            "journeyPattern": {
+              "line": {
+                "id": "NSB:Line:L12",
+                "publicCode": "L12",
+                "name": "Kongsberg-Oslo S-Eidsvoll",
+                "transportMode": "rail"
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

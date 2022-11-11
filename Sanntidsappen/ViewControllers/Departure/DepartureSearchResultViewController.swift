@@ -9,11 +9,12 @@
 
 import UIKit
 import CoreLocation
+import SwiftUI
 
 protocol DepartureSearchResultViewControllerDelegate: AnyObject {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController)
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath)
-    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController?
+    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> UIHostingController<DepartureDetail>?
     func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController)
 }
 

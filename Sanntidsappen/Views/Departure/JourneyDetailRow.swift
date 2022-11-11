@@ -11,18 +11,35 @@ import SwiftUI
 
 struct JourneyDetailRow: View {
     let departure: Journey.Departure?
+    let quayId: String
 
     var body: some View {
         HStack {
             Text(Timestamp.format(from: departure?.aimedDepartureTime ?? ""))
+                .font(.subheadline)
                 .foregroundColor(.accentColor)
+                .frame(width: 50)
 
-            Circle()
-                .strokeBorder(.white, lineWidth: 2)
-                .background(Circle().fill(Color.accentColor))
-                .frame(width: 15, height: 15)
+
+            ZStack {
+                Rectangle()
+                    .fill(Color.SA.LightGray)
+                    .frame(width: 3, height: 55)
+                if quayId == departure?.quay.id {
+                    Circle()
+                        .fill(Color.SA.Primary)
+                        .frame(width: 15, height: 15)
+                } else {
+                    Circle()
+                        .strokeBorder(.white, lineWidth: 3)
+                        .background(Circle().fill(Color.SA.LightGray))
+                        .frame(width: 15, height: 15)
+                }
+
+            }
 
             Text(departure?.quay.name ?? "")
+
             Spacer()
         }
     }
@@ -30,6 +47,9 @@ struct JourneyDetailRow: View {
 
 struct JourneyDetailRow_Previews: PreviewProvider {
     static var previews: some View {
-        JourneyDetailRow(departure: nil)
+        JourneyDetailRow(departure: Journey.Departure(
+            aimedDepartureTime: "2022-11-07T21:39:00+0100",
+            expectedDepartureTime: "2022-11-07T21:39:04+0100",
+            quay: Journey.Quay(id: "NSR:Quay:1038", name: "Kongsvinger stasjon")), quayId: "NSR:Quay:1038")
     }
 }

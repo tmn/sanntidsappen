@@ -21,15 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // To be removed when tab bar is back
         let navigationController = UINavigationController()
 
-        if #available(iOS 13.0, *) {
-            let navigationBarAppearance = UINavigationBarAppearance()
-            navigationBarAppearance.configureWithOpaqueBackground()
-            navigationBarAppearance.shadowColor = .clear
-
-            navigationController.navigationBar.standardAppearance = navigationBarAppearance
-            navigationController.navigationBar.scrollEdgeAppearance = navigationBarAppearance
-        }
-
         coordinator = DepartureCoordinator(navigationController: navigationController)
         coordinator?.start()
         // ----------------------------------

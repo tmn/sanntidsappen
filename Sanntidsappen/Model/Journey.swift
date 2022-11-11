@@ -9,7 +9,11 @@
 
 import Foundation
 
-struct Journey: Codable, Identifiable {
+struct Journey: Codable, Identifiable, Equatable {
+    static func == (lhs: Journey, rhs: Journey) -> Bool {
+        return lhs.id == rhs.id
+    }
+
     var id: UUID = UUID()
     let departures: [Departure]
 

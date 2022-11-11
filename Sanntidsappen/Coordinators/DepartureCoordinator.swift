@@ -12,6 +12,8 @@ import SwiftUI
 
 class DepartureCoordinator: Coordinator {
 
+    private var modelData = ModelData()
+
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
 
@@ -36,20 +38,17 @@ class DepartureCoordinator: Coordinator {
     
     func showDetailedView(forStop stop: Stop) {
         let viewController = createDetailedView(forStop: stop)
-        
+
         navigationController.pushViewController(viewController, animated: true)
     }
 
     func showDepartureRoute(departure: Departure) {
-         let viewController = DepartureDetailsJourneyViewController(departure: departure)
-        // let viewController = UIHostingController(rootView: JourneyDetail(navigationController: self.navigationController, departure: departure))
+        let viewController = UIHostingController(rootView: JourneyDetail(departure: departure))
         self.navigationController.pushViewController(viewController, animated: true)
     }
     
-    private func createDetailedView(forStop stop: Stop) -> DepartureDetailsViewController {
-        let viewController = DepartureDetailsViewController(title: stop.name, stop: stop)
-        viewController.coordinator = self
-        
+    private func createDetailedView(forStop stop: Stop) -> UIHostingController<DepartureDetail> {
+        let viewController = UIHostingController(rootView: DepartureDetail(stop: stop))
         return viewController
     }
 
@@ -68,7 +67,7 @@ extension DepartureCoordinator: DepartureCollectionViewControllerDelegate {
         self.showDetailedView(withViewController: nextView)
     }
     
-    func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController {
+    func getDetailsViewController(forStop stop: Stop) -> UIHostingController<DepartureDetail> {
         return self.createDetailedView(forStop: stop)
     }
     

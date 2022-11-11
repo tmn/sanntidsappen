@@ -10,11 +10,13 @@
 import UIKit
 import CoreLocation
 import CoreData
+import SwiftUI
 
 protocol DepartureCollectionViewControllerDelegate: AnyObject {
     func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withStop stop: Stop)
     func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withDetailsView nextView: DepartureDetailsViewController)
-    func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
+    func getDetailsViewController(forStop stop: Stop) -> UIHostingController<DepartureDetail>
+    // func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
 }
 
 enum DepartureSearchSection: String, CaseIterable {
@@ -373,7 +375,7 @@ extension DepartureCollectionViewController: DepartureSearchResultViewController
         coordinator?.moveToDetailsViewController(from: self, withStop: stop)
     }
 
-    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> DepartureDetailsViewController? {
+    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> UIHostingController<DepartureDetail>? {
         let stop = searchResultController.stops[indexPath.item]
         return self.coordinator?.getDetailsViewController(forStop: stop)
     }
