@@ -32,9 +32,9 @@ struct DepartureDetail: View {
             }
         case .loaded:
             List {
-                ForEach(Array(viewModel.departures.keys.sorted(by: <)), id: \.self) { key in
+                ForEach(viewModel.departures, id: \.self) { _departure in
                     Section {
-                        ForEach(viewModel.departures[key]!, id: \.id) { departure in
+                        ForEach(_departure.departures) { departure in
                             NavigationLink {
                                 JourneyDetail(departure: departure)
                             } label: {
@@ -42,8 +42,13 @@ struct DepartureDetail: View {
                             }
                         }
                     } header: {
-                        VStack {
-                            Text("Platform \(key)")
+                        VStack(alignment: .leading) {
+                            if let compassBearing = viewModel.quays?[_departure.quayId]?[0].compassBearing {
+                                Text("\(CompassDirection(bearing: String(format: "%.0f", compassBearing)).bearing)")
+                                    .font(.footnote)
+                            }
+
+                            Text("Platform \(_departure.departures[0].quay.publicCode )")
                                 .font(.headline)
                         }
                     }

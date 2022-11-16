@@ -10,6 +10,8 @@
 import SwiftUI
 
 struct JourneyDetailRow: View {
+    @Environment(\.colorScheme) var colorScheme
+
     let departure: Journey.Departure?
     let quayId: String
 
@@ -19,7 +21,6 @@ struct JourneyDetailRow: View {
                 .font(.subheadline)
                 .foregroundColor(.accentColor)
                 .frame(width: 50)
-
 
             ZStack {
                 Rectangle()
@@ -31,11 +32,10 @@ struct JourneyDetailRow: View {
                         .frame(width: 15, height: 15)
                 } else {
                     Circle()
-                        .strokeBorder(.white, lineWidth: 3)
+                        .strokeBorder(Color.SA.BorderColor, lineWidth: 4)
                         .background(Circle().fill(Color.SA.LightGray))
                         .frame(width: 15, height: 15)
                 }
-
             }
 
             Text(departure?.quay.name ?? "")

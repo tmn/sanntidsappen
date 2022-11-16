@@ -19,5 +19,9 @@ extension Color {
 
         /// Primary color for Sanntidsappen.
         static let Primary = Color("SA Primary")
+
+
+        /// Border color
+        static let BorderColor = Color("SA Border Color")
     }
 }

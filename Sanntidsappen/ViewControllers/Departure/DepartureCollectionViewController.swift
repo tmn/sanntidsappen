@@ -14,9 +14,7 @@ import SwiftUI
 
 protocol DepartureCollectionViewControllerDelegate: AnyObject {
     func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withStop stop: Stop)
-    func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withDetailsView nextView: DepartureDetailsViewController)
     func getDetailsViewController(forStop stop: Stop) -> UIHostingController<DepartureDetail>
-    // func getDetailsViewController(forStop stop: Stop) -> DepartureDetailsViewController
 }
 
 enum DepartureSearchSection: String, CaseIterable {
@@ -52,8 +50,6 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
 
             flowLayout.estimatedItemSize = CGSize(width: collectionViewWidth, height: 50)
 
-            registerForPreviewing(with: self, sourceView: collectionView)
-
             collectionView.register(UINib(nibName: SearchResultCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchResultCell.identifier)
         }
 
@@ -78,9 +74,7 @@ class DepartureCollectionViewController: UICollectionViewController, Storyboarde
                 self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false)
             }
         }
-    }
 
-    override func viewDidAppear(_ animated: Bool) {
         enableBasicLocationServices()
     }
 
@@ -204,21 +198,7 @@ extension DepartureCollectionViewController {
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
-
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            locationManager.requestWhenInUseAuthorization()
-
-        case .restricted, .denied:
-            print("DENIED")
-
-        case .authorizedWhenInUse, .authorizedAlways:
-            startReceivingUserLocation()
-
-        @unknown default:
-            print("Location Manager case not handled")
-        }
-        
+        locationManager.requestWhenInUseAuthorization()
     }
 
     func startReceivingUserLocation() {
@@ -301,45 +281,24 @@ extension DepartureCollectionViewController: UISearchControllerDelegate, UISearc
 
 }
 
-// MARK: UIViewControllerPreviewingDelegate
-
-extension DepartureCollectionViewController: UIViewControllerPreviewingDelegate {
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        coordinator?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit as! DepartureDetailsViewController)
-    }
-
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
-            if indexPath.section > 0 {
-                previewingContext.sourceRect = cellAttributes.frame
-                return coordinator?.getDetailsViewController(forStop: self.nearbyStops[indexPath.item])
-            }
-        }
-
-        return nil
-    }
-
-}
-
 // MARK: CLLocationManager
 
 extension DepartureCollectionViewController: CLLocationManagerDelegate {
 
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        switch status {
-        case .restricted, .denied:
-            print("DISABLED")
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        switch manager.authorizationStatus {
+            case .authorizedWhenInUse:  // Location services are available.
+                startReceivingUserLocation()
 
-        case .authorizedWhenInUse:
-            startReceivingUserLocation()
+            case .restricted, .denied:  // Location services currently unavailable.
+                locationManager.stopUpdatingLocation()
 
-        case .notDetermined, .authorizedAlways:
-            print("HMMM")
+            case .notDetermined:        // Authorization not determined yet.
+               manager.requestWhenInUseAuthorization()
 
-        @unknown default:
-            print("Location Manager case not handled")
-        }
+            default:
+                break
+            }
     }
 
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -373,23 +332,6 @@ extension DepartureCollectionViewController: DepartureSearchResultViewController
         }
 
         coordinator?.moveToDetailsViewController(from: self, withStop: stop)
-    }
-
-    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> UIHostingController<DepartureDetail>? {
-        let stop = searchResultController.stops[indexPath.item]
-        return self.coordinator?.getDetailsViewController(forStop: stop)
-    }
-
-    func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController) {
-        RecentStopSearchData.shared.saveSearchToCoreData(stop: viewControllerToCommit.stop) { [weak self] stops in
-            self?.recentStopSearch = stops
-
-            DispatchQueue.main.async {
-                self?.collectionView.performSelector(onMainThread: #selector(UICollectionView.reloadData), with: nil, waitUntilDone: false) //.reloadData()
-            }
-        }
-
-        self.coordinator?.moveToDetailsViewController(from: self, withDetailsView: viewControllerToCommit)
     }
 
 }

@@ -16,7 +16,7 @@ enum EnTurAPIType {
 }
 
 class EnTurAPI {
-    // Required header by En Tur
+    // Required header by EnTur
     private var headers: [String: String] = [
         "Content-Type": "application/json"
     ]
@@ -27,9 +27,7 @@ class EnTurAPI {
 
     // Singletons for accessing different APIs
     static let geocoder = EnTurAPIGeocoder(apiType: .geocoder)
-
     static let journeyPlanner = EnTurAPIJourneyPlanner(apiType: .journeyPlanner)
-
     static let stopRegister = EnTurAPIStopRegister(apiType: .stopRegister)
 
     fileprivate init(apiType: EnTurAPIType) {

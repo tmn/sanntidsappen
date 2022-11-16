@@ -32,13 +32,8 @@ class DepartureCoordinator: Coordinator {
         navigationController.pushViewController(viewController, animated: true)
     }
     
-    func showDetailedView(withViewController viewController: DepartureDetailsViewController) {
-        navigationController.pushViewController(viewController, animated: true)
-    }
-    
     func showDetailedView(forStop stop: Stop) {
         let viewController = createDetailedView(forStop: stop)
-
         navigationController.pushViewController(viewController, animated: true)
     }
 
@@ -60,23 +55,12 @@ class DepartureCoordinator: Coordinator {
 extension DepartureCoordinator: DepartureCollectionViewControllerDelegate {
     
     func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withStop stop: Stop) {
-        self.showDetailedView(forStop: stop)
-    }
-    
-    func moveToDetailsViewController(from viewController: DepartureCollectionViewController, withDetailsView nextView: DepartureDetailsViewController) {
-        self.showDetailedView(withViewController: nextView)
+        let viewController = createDetailedView(forStop: stop)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     func getDetailsViewController(forStop stop: Stop) -> UIHostingController<DepartureDetail> {
         return self.createDetailedView(forStop: stop)
     }
     
-}
-
-extension DepartureCoordinator: DepartureDetailsViewControllerDelegate {
-
-    func selectJourney(_ viewController: DepartureDetailsViewController, using departure: Departure) {
-        self.showDepartureRoute(departure: departure)
-    }
-
 }

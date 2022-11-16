@@ -14,8 +14,6 @@ import SwiftUI
 protocol DepartureSearchResultViewControllerDelegate: AnyObject {
     func dismissKeyboardFrom(_ viewController: DepartureSearchResultViewController)
     func selectDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath)
-    func previewDepartureAtIndexPath(_ viewController: DepartureSearchResultViewController, at indexPath: IndexPath) -> UIHostingController<DepartureDetail>?
-    func commitPreviewedViewController(_ viewController: DepartureSearchResultViewController, viewControllerToCommit: DepartureDetailsViewController)
 }
 
 class DepartureSearchResultViewController: UIViewController {
@@ -51,8 +49,6 @@ class DepartureSearchResultViewController: UIViewController {
 
         collectionView.register(UINib(nibName: SearchResultCell.identifier, bundle: nil), forCellWithReuseIdentifier: SearchResultCell.identifier)
         
-        registerForPreviewing(with: self, sourceView: collectionView)
-
         view.addSubview(collectionView)
 
         if #available(iOS 13.0, *) {
@@ -105,26 +101,6 @@ extension DepartureSearchResultViewController: UICollectionViewDelegate {
         coordinator?.dismissKeyboardFrom(self)
     }
 
-}
-
-// MARK: UIViewControllerPreviewingDelegate
-
-extension DepartureSearchResultViewController: UIViewControllerPreviewingDelegate {
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        self.coordinator?.commitPreviewedViewController(self, viewControllerToCommit: viewControllerToCommit as! DepartureDetailsViewController)
-    }
-    
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let indexPath = collectionView.indexPathForItem(at: location), let cellAttributes = collectionView.layoutAttributesForItem(at: indexPath) {
-            previewingContext.sourceRect = cellAttributes.frame
-            return self.coordinator?.previewDepartureAtIndexPath(self, at: indexPath)
-        }
-        
-        return nil
-    }
-    
 }
 
 

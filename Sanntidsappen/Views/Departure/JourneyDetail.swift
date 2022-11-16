@@ -39,10 +39,8 @@ struct JourneyDetail: View {
                 }
             }
             .onChange(of: journey) { _ in
-                if self.departure.quay.id == departure.quay.id {
-                    withAnimation {
-                        proxy.scrollTo(departure.quay.id, anchor: .top)
-                    }
+                withAnimation {
+                    proxy.scrollTo(departure.quay.id, anchor: .top)
                 }
             }
             .task {
