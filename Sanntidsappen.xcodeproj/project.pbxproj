@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -772,16 +772,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 957G65987M;
+				DEVELOPMENT_TEAM = TTPD58N2KH;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sanntidsappen;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.sanntidsapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SA_CLIENT_NAME = "tmnio-sanntidsappen-dev";
@@ -799,16 +799,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 957G65987M;
+				DEVELOPMENT_TEAM = TTPD58N2KH;
 				INFOPLIST_FILE = Sanntidsappen/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Sanntidsappen;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.travel";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.tmn.sanntidsapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SA_CLIENT_NAME = "tmnio-sanntidsappen";
